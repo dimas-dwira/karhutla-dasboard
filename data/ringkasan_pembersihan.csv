@@ -1,0 +1,9 @@
+ukuran,sebelum,sesudah
+Bentuk tabel,"Wide, 515 x 11","Long, 4626 x 5"
+Baris kabupaten/kota,515 termasuk agregat,514
+Tipe kolom luas,object (teks),float64
+Nilai kosong,1,0
+Nama daerah tidak baku,1,0
+Kolom provinsi,Tidak ada,Ada — 38 provinsi
+Penanda kelengkapan tahun,Tidak ada,8 lengkap + 1 parsial
+Total nasional 2025 (uji silang),"359,619.35","359,619.35"

@@ -1,0 +1,61 @@
+========================================================================
+LAPORAN PENELAAHAN DATA  ·  luas-karhutla-kota.xlsx
+========================================================================
+
+Dimensi        : 515 baris x 11 kolom
+Kolom tahun    : 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026
+
+-- STRUKTUR DAN TIPE DATA ----------------------------------------------
+  Kode Wilayah     tipe=str      unik= 514 kosong=  1
+  Kabupaten        tipe=str      unik= 515 kosong=  0
+  2018             tipe=str      unik= 195 kosong=  0
+  2019             tipe=str      unik= 264 kosong=  0
+  2020             tipe=str      unik= 225 kosong=  0
+  2021             tipe=str      unik= 210 kosong=  0
+  2022             tipe=str      unik= 205 kosong=  0
+  2023             tipe=str      unik= 347 kosong=  0
+  2024             tipe=str      unik= 359 kosong=  0
+  2025             tipe=str      unik= 327 kosong=  0
+  2026             tipe=str      unik= 340 kosong=  0
+
+-- GRANULARITAS --------------------------------------------------------
+  Baris rinci (kabupaten/kota) : 514
+  Baris agregat                : 1  ['Total']
+  Catatan: baris agregat berada pada granularitas nasional,
+           bukan kabupaten. Mencampurnya menggandakan seluruh total.
+
+-- STATISTIK DESKRIPTIF PER TAHUN (hektare) -----------------------------
+tahun   total_ha  rata_rata  median  maksimum      p95  jumlah_nol  daerah_terdampak
+ 2018  518183.00    1008.14    0.00  87315.00  4492.85         288               226
+ 2019 1625383.00    3162.22   38.00 194824.00 16576.35         217               297
+ 2020  283047.00     550.68   13.00  44100.00  1953.80         210               304
+ 2021  351529.00     683.91    3.00  50094.00  2122.45         244               270
+ 2022  205228.00     399.28    8.00  21944.00  2045.20         224               290
+ 2023 1006499.86    1958.17   53.15  80025.96  9515.49         169               345
+ 2024  376805.06     733.08   50.24  44989.98  2591.89         156               358
+ 2025  359619.35     699.65   38.18  48164.05  3051.41         186               328
+ 2026  202010.96     393.02   18.14  25035.87  1595.19         174               340
+
+-- SEPULUH DAERAH DENGAN LUAS KUMULATIF TERBESAR ------------------------
+   1. SUMBA TIMUR                    329,205.69 ha
+   2. MERAUKE                        300,064.09 ha
+   3. OGAN KOMERING ILIR             293,706.01 ha
+   4. KETAPANG                       183,481.18 ha
+   5. BIMA                           181,477.22 ha
+   6. PULANG PISAU                   169,552.62 ha
+   7. ALOR                           120,475.26 ha
+   8. BANJAR                         103,243.72 ha
+   9. HULU SUNGAI SELATAN            102,003.50 ha
+  10. DOMPU                           97,917.95 ha
+
+-- TEMUAN PENELAAHAN ---------------------------------------------------
+  1. Dua tahun puncak: 2019 (1,625,383 ha) dan 2023 (1,006,500 ha).
+  2. Daerah terdampak naik dari 226 (2018) menjadi 358 (2024), sementara total luas turun.
+  3. Konsentrasi: 20 daerah teratas menanggung 53.8% dari seluruh luas terbakar.
+  4. Sebaran miring ke kanan: median 2025 208.38 ha vs maksimum 48,164.05 ha.
+  5. 73 kabupaten bernilai 0 sepanjang 9 tahun (umumnya kota tanpa lahan terbuka).
+
+-- BATASAN -------------------------------------------------------------
+  · 2026 adalah tahun berjalan dan belum lengkap.
+  · Nilai 0 tidak dapat dibedakan antara 'tidak ada kejadian'
+    dan 'tidak dilaporkan'. Diperlakukan sebagai nol sahih.

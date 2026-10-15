@@ -1,0 +1,515 @@
+kode_kab,nama_kab,kode_prov,nama_prov,pulau,tipe_wilayah
+1105,Aceh Barat,11,Aceh,Sumatera,Kabupaten
+1112,Aceh Barat Daya,11,Aceh,Sumatera,Kabupaten
+1106,Aceh Besar,11,Aceh,Sumatera,Kabupaten
+1114,Aceh Jaya,11,Aceh,Sumatera,Kabupaten
+1101,Aceh Selatan,11,Aceh,Sumatera,Kabupaten
+1110,Aceh Singkil,11,Aceh,Sumatera,Kabupaten
+1116,Aceh Tamiang,11,Aceh,Sumatera,Kabupaten
+1104,Aceh Tengah,11,Aceh,Sumatera,Kabupaten
+1102,Aceh Tenggara,11,Aceh,Sumatera,Kabupaten
+1103,Aceh Timur,11,Aceh,Sumatera,Kabupaten
+1108,Aceh Utara,11,Aceh,Sumatera,Kabupaten
+1306,Agam,13,Sumatera Barat,Sumatera,Kabupaten
+5305,Alor,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+1209,Asahan,12,Sumatera Utara,Sumatera,Kabupaten
+9304,Asmat,93,Papua Selatan,Papua,Kabupaten
+5103,Badung,51,Bali,Bali & Nusa Tenggara,Kabupaten
+6311,Balangan,63,Kalimantan Selatan,Kalimantan,Kabupaten
+3204,Bandung,32,Jawa Barat,Jawa,Kabupaten
+3217,Bandung Barat,32,Jawa Barat,Jawa,Kabupaten
+7201,Banggai,72,Sulawesi Tengah,Sulawesi,Kabupaten
+7207,Banggai Kepulauan,72,Sulawesi Tengah,Sulawesi,Kabupaten
+7211,Banggai Laut,72,Sulawesi Tengah,Sulawesi,Kabupaten
+1901,Bangka,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten
+1905,Bangka Barat,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten
+3526,Bangkalan,35,Jawa Timur,Jawa,Kabupaten
+1903,Bangka Selatan,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten
+1904,Bangka Tengah,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten
+5106,Bangli,51,Bali,Bali & Nusa Tenggara,Kabupaten
+6303,Banjar,63,Kalimantan Selatan,Kalimantan,Kabupaten
+3304,Banjarnegara,33,Jawa Tengah,Jawa,Kabupaten
+7303,Bantaeng,73,Sulawesi Selatan,Sulawesi,Kabupaten
+3402,Bantul,34,DI Yogyakarta,Jawa,Kabupaten
+1607,Banyu Asin,16,Sumatera Selatan,Sumatera,Kabupaten
+3302,Banyumas,33,Jawa Tengah,Jawa,Kabupaten
+3510,Banyuwangi,35,Jawa Timur,Jawa,Kabupaten
+6304,Baritokuala,63,Kalimantan Selatan,Kalimantan,Kabupaten
+6204,Barito Selatan,62,Kalimantan Tengah,Kalimantan,Kabupaten
+6213,Barito Timur,62,Kalimantan Tengah,Kalimantan,Kabupaten
+6205,Barito Utara,62,Kalimantan Tengah,Kalimantan,Kabupaten
+7311,Barru,73,Sulawesi Selatan,Sulawesi,Kabupaten
+3325,Batang,33,Jawa Tengah,Jawa,Kabupaten
+1504,Batang Hari,15,Jambi,Sumatera,Kabupaten
+1219,Batubara,12,Sumatera Utara,Sumatera,Kabupaten
+3216,Bekasi,32,Jawa Barat,Jawa,Kabupaten
+1902,Belitung,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten
+1906,Belitung Timur,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten
+5304,Belu,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+1117,Bener Meriah,11,Aceh,Sumatera,Kabupaten
+1403,Bengkalis,14,Riau,Sumatera,Kabupaten
+6107,Bengkayang,61,Kalimantan Barat,Kalimantan,Kabupaten
+1701,Bengkulu Selatan,17,Bengkulu,Sumatera,Kabupaten
+1709,Bengkulu Tengah,17,Bengkulu,Sumatera,Kabupaten
+1703,Bengkulu Utara,17,Bengkulu,Sumatera,Kabupaten
+6403,Berau,64,Kalimantan Timur,Kalimantan,Kabupaten
+9106,Biak Numfor,91,Papua Barat,Papua,Kabupaten
+5206,Bima,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten
+2101,Bintan,21,Kepulauan Riau,Sumatera,Kabupaten
+1111,Bireuen,11,Aceh,Sumatera,Kabupaten
+3505,Blitar,35,Jawa Timur,Jawa,Kabupaten
+3316,Blora,33,Jawa Tengah,Jawa,Kabupaten
+7502,Boalemo,75,Gorontalo,Sulawesi,Kabupaten
+3201,Bogor,32,Jawa Barat,Jawa,Kabupaten
+3522,Bojonegoro,35,Jawa Timur,Jawa,Kabupaten
+7101,Bolaangmongondow,71,Sulawesi Utara,Sulawesi,Kabupaten
+7111,Bolaangmongondow Selatan,71,Sulawesi Utara,Sulawesi,Kabupaten
+7110,Bolaangmongondow Timur,71,Sulawesi Utara,Sulawesi,Kabupaten
+7108,Bolaangmongondow Utara,71,Sulawesi Utara,Sulawesi,Kabupaten
+7406,Bombana,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+3511,Bondowoso,35,Jawa Timur,Jawa,Kabupaten
+7308,Bone,73,Sulawesi Selatan,Sulawesi,Kabupaten
+7503,Bone Bolango,75,Gorontalo,Sulawesi,Kabupaten
+9302,Boven Digoel,93,Papua Selatan,Papua,Kabupaten
+3309,Boyolali,33,Jawa Tengah,Jawa,Kabupaten
+3329,Brebes,33,Jawa Tengah,Jawa,Kabupaten
+5108,Buleleng,51,Bali,Bali & Nusa Tenggara,Kabupaten
+7302,Bulukumba,73,Sulawesi Selatan,Sulawesi,Kabupaten
+6501,Bulungan,65,Kalimantan Utara,Kalimantan,Kabupaten
+1508,Bungo,15,Jambi,Sumatera,Kabupaten
+7205,Buol,72,Sulawesi Tengah,Sulawesi,Kabupaten
+8104,Buru,81,Maluku,Maluku,Kabupaten
+8109,Buru Selatan,81,Maluku,Maluku,Kabupaten
+7404,Buton,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7415,Buton Selatan,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7414,Buton Tengah,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7410,Buton Utara,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+3207,Ciamis,32,Jawa Barat,Jawa,Kabupaten
+3203,Cianjur,32,Jawa Barat,Jawa,Kabupaten
+3301,Cilacap,33,Jawa Tengah,Jawa,Kabupaten
+3209,Cirebon,32,Jawa Barat,Jawa,Kabupaten
+1211,Dairi,12,Sumatera Utara,Sumatera,Kabupaten
+9408,Deiyai,94,Papua Tengah,Papua,Kabupaten
+1207,Deliserdang,12,Sumatera Utara,Sumatera,Kabupaten
+3321,Demak,33,Jawa Tengah,Jawa,Kabupaten
+1310,Dharmasraya,13,Sumatera Barat,Sumatera,Kabupaten
+9406,Dogiyai,94,Papua Tengah,Papua,Kabupaten
+5205,Dompu,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten
+7203,Donggala,72,Sulawesi Tengah,Sulawesi,Kabupaten
+1472,Dumai,14,Riau,Sumatera,Kabupaten
+1611,Empat Lawang,16,Sumatera Selatan,Sumatera,Kabupaten
+5308,Ende,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+7316,Enrekang,73,Sulawesi Selatan,Sulawesi,Kabupaten
+9203,Fak-Fak,92,Papua,Papua,Kabupaten
+5306,Flores Timur,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+3205,Garut,32,Jawa Barat,Jawa,Kabupaten
+1113,Gayo Lues,11,Aceh,Sumatera,Kabupaten
+5104,Gianyar,51,Bali,Bali & Nusa Tenggara,Kabupaten
+7501,Gorontalo,75,Gorontalo,Sulawesi,Kabupaten
+7505,Gorontalo Utara,75,Gorontalo,Sulawesi,Kabupaten
+7306,Gowa,73,Sulawesi Selatan,Sulawesi,Kabupaten
+3525,Gresik,35,Jawa Timur,Jawa,Kabupaten
+3315,Grobogan,33,Jawa Tengah,Jawa,Kabupaten
+3403,Gunung Kidul,34,DI Yogyakarta,Jawa,Kabupaten
+6210,Gunung Mas,62,Kalimantan Tengah,Kalimantan,Kabupaten
+8201,Halmahera Barat,82,Maluku Utara,Maluku,Kabupaten
+8204,Halmahera Selatan,82,Maluku Utara,Maluku,Kabupaten
+8202,Halmahera Tengah,82,Maluku Utara,Maluku,Kabupaten
+8206,Halmahera Timur,82,Maluku Utara,Maluku,Kabupaten
+8203,Halmahera Utara,82,Maluku Utara,Maluku,Kabupaten
+6306,Hulu Sungai Selatan,63,Kalimantan Selatan,Kalimantan,Kabupaten
+6307,Hulu Sungai Tengah,63,Kalimantan Selatan,Kalimantan,Kabupaten
+6308,Hulu Sungai Utara,63,Kalimantan Selatan,Kalimantan,Kabupaten
+1216,Humbang Hasundutan,12,Sumatera Utara,Sumatera,Kabupaten
+1404,Indragiri Hilir,14,Riau,Sumatera,Kabupaten
+1402,Indragiri Hulu,14,Riau,Sumatera,Kabupaten
+3212,Indramayu,32,Jawa Barat,Jawa,Kabupaten
+9407,Intan Jaya,94,Papua Tengah,Papua,Kabupaten
+1571,Jambi,15,Jambi,Sumatera,Kabupaten
+9103,Jayapura,91,Papua Barat,Papua,Kabupaten
+9501,Jayawijaya,95,Papua Pegunungan,Papua,Kabupaten
+3509,Jember,35,Jawa Timur,Jawa,Kabupaten
+5101,Jembrana,51,Bali,Bali & Nusa Tenggara,Kabupaten
+7304,Jeneponto,73,Sulawesi Selatan,Sulawesi,Kabupaten
+3320,Jepara,33,Jawa Tengah,Jawa,Kabupaten
+3517,Jombang,35,Jawa Timur,Jawa,Kabupaten
+9208,Kaimana,92,Papua,Papua,Kabupaten
+1401,Kampar,14,Riau,Sumatera,Kabupaten
+6203,Kapuas,62,Kalimantan Tengah,Kalimantan,Kabupaten
+6106,Kapuas Hulu,61,Kalimantan Barat,Kalimantan,Kabupaten
+3313,Karanganyar,33,Jawa Tengah,Jawa,Kabupaten
+5107,Karangasem,51,Bali,Bali & Nusa Tenggara,Kabupaten
+3215,Karawang,32,Jawa Barat,Jawa,Kabupaten
+2102,Karimun,21,Kepulauan Riau,Sumatera,Kabupaten
+1206,Karo,12,Sumatera Utara,Sumatera,Kabupaten
+6206,Katingan,62,Kalimantan Tengah,Kalimantan,Kabupaten
+1704,Kaur,17,Bengkulu,Sumatera,Kabupaten
+6111,Kayong Utara,61,Kalimantan Barat,Kalimantan,Kabupaten
+3305,Kebumen,33,Jawa Tengah,Jawa,Kabupaten
+3506,Kediri,35,Jawa Timur,Jawa,Kabupaten
+9111,Keerom,91,Papua Barat,Papua,Kabupaten
+3324,Kendal,33,Jawa Tengah,Jawa,Kabupaten
+1708,Kepahiang,17,Bengkulu,Sumatera,Kabupaten
+2105,Kepulauan Anambas,21,Kepulauan Riau,Sumatera,Kabupaten
+8107,Kepulauan Aru,81,Maluku,Maluku,Kabupaten
+1309,Kepulauan Mentawai,13,Sumatera Barat,Sumatera,Kabupaten
+1410,Kepulauan Meranti,14,Riau,Sumatera,Kabupaten
+7103,Kepulauan Sangihe,71,Sulawesi Utara,Sulawesi,Kabupaten
+3101,Kepulauan Seribu,31,DKI Jakarta,Jawa,Kabupaten
+7109,Kepulauan Siau Tagulandang Biaro,71,Sulawesi Utara,Sulawesi,Kabupaten
+8205,Kepulauan Sula,82,Maluku Utara,Maluku,Kabupaten
+7104,Kepulauan Talaud,71,Sulawesi Utara,Sulawesi,Kabupaten
+8103,Kepulauan Tanimbar,81,Maluku,Maluku,Kabupaten
+9105,Kepulauan Yapen,91,Papua Barat,Papua,Kabupaten
+1501,Kerinci,15,Jambi,Sumatera,Kabupaten
+6104,Ketapang,61,Kalimantan Barat,Kalimantan,Kabupaten
+3310,Klaten,33,Jawa Tengah,Jawa,Kabupaten
+5105,Klungkung,51,Bali,Bali & Nusa Tenggara,Kabupaten
+7401,Kolaka,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7411,Kolaka Timur,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7408,Kolaka Utara,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7402,Konawe,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7412,Konawe Kepulauan,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7405,Konawe Selatan,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7409,Konawe Utara,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+8171,Kota Ambon,81,Maluku,Maluku,Kota
+6471,Kota Balikpapan,64,Kalimantan Timur,Kalimantan,Kota
+1171,Kota Banda Aceh,11,Aceh,Sumatera,Kota
+1871,Kota Bandarlampung,18,Lampung,Sumatera,Kota
+3273,Kota Bandung,32,Jawa Barat,Jawa,Kota
+3279,Kota Banjar,32,Jawa Barat,Jawa,Kota
+6372,Kota Banjarbaru,63,Kalimantan Selatan,Kalimantan,Kota
+6371,Kota Banjarmasin,63,Kalimantan Selatan,Kalimantan,Kota
+6302,Kotabaru,63,Kalimantan Selatan,Kalimantan,Kabupaten
+2171,Kota Batam,21,Kepulauan Riau,Sumatera,Kota
+3579,Kota Batu,35,Jawa Timur,Jawa,Kota
+7472,Kota Bau-Bau,74,Sulawesi Tenggara,Sulawesi,Kota
+3275,Kota Bekasi,32,Jawa Barat,Jawa,Kota
+1771,Kota Bengkulu,17,Bengkulu,Sumatera,Kota
+5272,Kota Bima,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kota
+1275,Kota Binjai,12,Sumatera Utara,Sumatera,Kota
+7172,Kota Bitung,71,Sulawesi Utara,Sulawesi,Kota
+3572,Kota Blitar,35,Jawa Timur,Jawa,Kota
+3271,Kota Bogor,32,Jawa Barat,Jawa,Kota
+6474,Kota Bontang,64,Kalimantan Timur,Kalimantan,Kota
+1375,Kota Bukittinggi,13,Sumatera Barat,Sumatera,Kota
+3672,Kota Cilegon,36,Banten,Jawa,Kota
+3277,Kota Cimahi,32,Jawa Barat,Jawa,Kota
+3274,Kota Cirebon,32,Jawa Barat,Jawa,Kota
+5171,Kota Denpasar,51,Bali,Bali & Nusa Tenggara,Kota
+3276,Kota Depok,32,Jawa Barat,Jawa,Kota
+7571,Kota Gorontalo,75,Gorontalo,Sulawesi,Kota
+1278,Kota Gunung Sitoli,12,Sumatera Utara,Sumatera,Kota
+3173,Kota Jakarta Barat,31,DKI Jakarta,Jawa,Kota
+3171,Kota Jakarta Pusat,31,DKI Jakarta,Jawa,Kota
+3174,Kota Jakarta Selatan,31,DKI Jakarta,Jawa,Kota
+3175,Kota Jakarta Timur,31,DKI Jakarta,Jawa,Kota
+3172,Kota Jakarta Utara,31,DKI Jakarta,Jawa,Kota
+9171,Kota Jayapura,91,Papua Barat,Papua,Kota
+3571,Kota Kediri,35,Jawa Timur,Jawa,Kota
+7471,Kota Kendari,74,Sulawesi Tenggara,Sulawesi,Kota
+7174,Kota Kotamobagu,71,Sulawesi Utara,Sulawesi,Kota
+5371,Kota Kupang,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kota
+1174,Kota Langsa,11,Aceh,Sumatera,Kota
+1173,Kota Lhokseumawe,11,Aceh,Sumatera,Kota
+3577,Kota Madiun,35,Jawa Timur,Jawa,Kota
+3371,Kota Magelang,33,Jawa Tengah,Jawa,Kota
+7371,Kota Makassar,73,Sulawesi Selatan,Sulawesi,Kota
+3573,Kota Malang,35,Jawa Timur,Jawa,Kota
+7171,Kota Manado,71,Sulawesi Utara,Sulawesi,Kota
+5271,Kota Mataram,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kota
+1271,Kota Medan,12,Sumatera Utara,Sumatera,Kota
+1872,Kota Metro,18,Lampung,Sumatera,Kota
+3576,Kota Mojokerto,35,Jawa Timur,Jawa,Kota
+1371,Kota Padang,13,Sumatera Barat,Sumatera,Kota
+1374,Kota Padang Panjang,13,Sumatera Barat,Sumatera,Kota
+1277,Kota Padangsidempuan,12,Sumatera Utara,Sumatera,Kota
+7373,Kota Palopo,73,Sulawesi Selatan,Sulawesi,Kota
+7271,Kota Palu,72,Sulawesi Tengah,Sulawesi,Kota
+1971,Kota Pangkalpinang,19,Kepulauan Bangka Belitung,Sumatera,Kota
+7372,Kota Pare-Pare,73,Sulawesi Selatan,Sulawesi,Kota
+1377,Kota Pariaman,13,Sumatera Barat,Sumatera,Kota
+3575,Kota Pasuruan,35,Jawa Timur,Jawa,Kota
+1376,Kota Payakumbuh,13,Sumatera Barat,Sumatera,Kota
+3375,Kota Pekalongan,33,Jawa Tengah,Jawa,Kota
+1471,Kota Pekanbaru,14,Riau,Sumatera,Kota
+1272,Kota Pematangsiantar,12,Sumatera Utara,Sumatera,Kota
+6171,Kota Pontianak,61,Kalimantan Barat,Kalimantan,Kota
+3574,Kota Probolinggo,35,Jawa Timur,Jawa,Kota
+1172,Kota Sabang,11,Aceh,Sumatera,Kota
+3373,Kota Salatiga,33,Jawa Tengah,Jawa,Kota
+6472,Kota Samarinda,64,Kalimantan Timur,Kalimantan,Kota
+3374,Kota Semarang,33,Jawa Tengah,Jawa,Kota
+3673,Kota Serang,36,Banten,Jawa,Kota
+1273,Kota Sibolga,12,Sumatera Utara,Sumatera,Kota
+6172,Kota Singkawang,61,Kalimantan Barat,Kalimantan,Kota
+1372,Kota Solok,13,Sumatera Barat,Sumatera,Kota
+9671,Kota Sorong,96,Papua Barat Daya,Papua,Kota
+1175,Kota Subulussalam,11,Aceh,Sumatera,Kota
+3272,Kota Sukabumi,32,Jawa Barat,Jawa,Kota
+3578,Kota Surabaya,35,Jawa Timur,Jawa,Kota
+3372,Kota Surakarta,33,Jawa Tengah,Jawa,Kota
+3671,Kota Tangerang,36,Banten,Jawa,Kota
+3674,Kota Tangerang Selatan,36,Banten,Jawa,Kota
+2172,Kota Tanjungpinang,21,Kepulauan Riau,Sumatera,Kota
+6571,Kota Tarakan,65,Kalimantan Utara,Kalimantan,Kota
+3278,Kota Tasikmalaya,32,Jawa Barat,Jawa,Kota
+3376,Kota Tegal,33,Jawa Tengah,Jawa,Kota
+8271,Kota Ternate,82,Maluku Utara,Maluku,Kota
+8272,Kota Tidore Kepulauan,82,Maluku Utara,Maluku,Kota
+7173,Kota Tomohon,71,Sulawesi Utara,Sulawesi,Kota
+8172,Kota Tual,81,Maluku,Maluku,Kota
+6201,Kotawaringin Barat,62,Kalimantan Tengah,Kalimantan,Kabupaten
+6202,Kotawaringin Timur,62,Kalimantan Tengah,Kalimantan,Kabupaten
+3471,Kota Yogyakarta,34,DI Yogyakarta,Jawa,Kota
+1409,Kuantan Singingi,14,Riau,Sumatera,Kabupaten
+6112,Kubu Raya,61,Kalimantan Barat,Kalimantan,Kabupaten
+3319,Kudus,33,Jawa Tengah,Jawa,Kabupaten
+3401,Kulonprogo,34,DI Yogyakarta,Jawa,Kabupaten
+3208,Kuningan,32,Jawa Barat,Jawa,Kabupaten
+5301,Kupang,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+6407,Kutai Barat,64,Kalimantan Timur,Kalimantan,Kabupaten
+6402,Kutai Kartanegara,64,Kalimantan Timur,Kalimantan,Kabupaten
+6408,Kutai Timur,64,Kalimantan Timur,Kalimantan,Kabupaten
+1210,Labuhanbatu,12,Sumatera Utara,Sumatera,Kabupaten
+1222,Labuhan Batu Selatan,12,Sumatera Utara,Sumatera,Kabupaten
+1223,Labuhanbatu Utara,12,Sumatera Utara,Sumatera,Kabupaten
+1604,Lahat,16,Sumatera Selatan,Sumatera,Kabupaten
+6209,Lamandau,62,Kalimantan Tengah,Kalimantan,Kabupaten
+3524,Lamongan,35,Jawa Timur,Jawa,Kabupaten
+1804,Lampung Barat,18,Lampung,Sumatera,Kabupaten
+1801,Lampung Selatan,18,Lampung,Sumatera,Kabupaten
+1802,Lampung Tengah,18,Lampung,Sumatera,Kabupaten
+1807,Lampung Timur,18,Lampung,Sumatera,Kabupaten
+1803,Lampung Utara,18,Lampung,Sumatera,Kabupaten
+6108,Landak,61,Kalimantan Barat,Kalimantan,Kabupaten
+1205,Langkat,12,Sumatera Utara,Sumatera,Kabupaten
+9507,Lanny Jaya,95,Papua Pegunungan,Papua,Kabupaten
+3602,Lebak,36,Banten,Jawa,Kabupaten
+1707,Lebong,17,Bengkulu,Sumatera,Kabupaten
+5313,Lembata,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+1307,Lima Puluh Kota,13,Sumatera Barat,Sumatera,Kabupaten
+2104,Lingga,21,Kepulauan Riau,Sumatera,Kabupaten
+5201,Lombok Barat,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten
+5202,Lombok Tengah,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten
+5203,Lombok Timur,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten
+5208,Lombok Utara,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten
+1673,Lubuklinggau,16,Sumatera Selatan,Sumatera,Kabupaten
+3508,Lumajang,35,Jawa Timur,Jawa,Kabupaten
+7317,Luwu,73,Sulawesi Selatan,Sulawesi,Kabupaten
+7324,Luwu Timur,73,Sulawesi Selatan,Sulawesi,Kabupaten
+7322,Luwu Utara,73,Sulawesi Selatan,Sulawesi,Kabupaten
+3519,Madiun,35,Jawa Timur,Jawa,Kabupaten
+3308,Magelang,33,Jawa Tengah,Jawa,Kabupaten
+3520,Magetan,35,Jawa Timur,Jawa,Kabupaten
+6411,Mahakam Ulu,64,Kalimantan Timur,Kalimantan,Kabupaten
+3210,Majalengka,32,Jawa Barat,Jawa,Kabupaten
+7605,Majene,76,Sulawesi Barat,Sulawesi,Kabupaten
+5321,Malaka,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+3507,Malang,35,Jawa Timur,Jawa,Kabupaten
+6502,Malinau,65,Kalimantan Utara,Kalimantan,Kabupaten
+8108,Maluku Barat Daya,81,Maluku,Maluku,Kabupaten
+8101,Maluku Tengah,81,Maluku,Maluku,Kabupaten
+8102,Maluku Tenggara,81,Maluku,Maluku,Kabupaten
+7603,Mamasa,76,Sulawesi Barat,Sulawesi,Kabupaten
+9120,Mamberamo Raya,91,Papua Barat,Papua,Kabupaten
+9505,Mamberamo Tengah,95,Papua Pegunungan,Papua,Kabupaten
+7602,Mamuju,76,Sulawesi Barat,Sulawesi,Kabupaten
+7606,Mamuju Tengah,76,Sulawesi Barat,Sulawesi,Kabupaten
+1213,Mandailing Natal,12,Sumatera Utara,Sumatera,Kabupaten
+5310,Manggarai,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+5315,Manggarai Barat,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+5319,Manggarai Timur,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+9202,Manokwari,92,Papua,Papua,Kabupaten
+9211,Manokwari Selatan,92,Papua,Papua,Kabupaten
+9303,Mappi,93,Papua Selatan,Papua,Kabupaten
+7309,Maros,73,Sulawesi Selatan,Sulawesi,Kabupaten
+9605,Maybrat,96,Papua Barat Daya,Papua,Kabupaten
+6110,Melawi,61,Kalimantan Barat,Kalimantan,Kabupaten
+6102,Mempawah,61,Kalimantan Barat,Kalimantan,Kabupaten
+1502,Merangin,15,Jambi,Sumatera,Kabupaten
+9301,Merauke,93,Papua Selatan,Papua,Kabupaten
+1811,Mesuji,18,Lampung,Sumatera,Kabupaten
+9404,Mimika,94,Papua Tengah,Papua,Kabupaten
+7102,Minahasa,71,Sulawesi Utara,Sulawesi,Kabupaten
+7105,Minahasa Selatan,71,Sulawesi Utara,Sulawesi,Kabupaten
+7107,Minahasa Tenggara,71,Sulawesi Utara,Sulawesi,Kabupaten
+7106,Minahasa Utara,71,Sulawesi Utara,Sulawesi,Kabupaten
+3516,Mojokerto,35,Jawa Timur,Jawa,Kabupaten
+7206,Morowali,72,Sulawesi Tengah,Sulawesi,Kabupaten
+7212,Morowali Utara,72,Sulawesi Tengah,Sulawesi,Kabupaten
+1603,Muara Enim,16,Sumatera Selatan,Sumatera,Kabupaten
+1505,Muaro Jambi,15,Jambi,Sumatera,Kabupaten
+1706,Muko-Muko,17,Bengkulu,Sumatera,Kabupaten
+7403,Muna,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+7413,Muna Barat,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+6212,Murung Raya,62,Kalimantan Tengah,Kalimantan,Kabupaten
+1606,Musi Banyuasin,16,Sumatera Selatan,Sumatera,Kabupaten
+1605,Musi Rawas,16,Sumatera Selatan,Sumatera,Kabupaten
+1613,Musi Rawas Utara,16,Sumatera Selatan,Sumatera,Kabupaten
+9401,Nabire,94,Papua Tengah,Papua,Kabupaten
+1115,Naganraya,11,Aceh,Sumatera,Kabupaten
+5316,Nagekeo,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+2103,Natuna,21,Kepulauan Riau,Sumatera,Kabupaten
+9508,Nduga,95,Papua Pegunungan,Papua,Kabupaten
+5309,Ngada,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+3518,Nganjuk,35,Jawa Timur,Jawa,Kabupaten
+3521,Ngawi,35,Jawa Timur,Jawa,Kabupaten
+1204,Nias,12,Sumatera Utara,Sumatera,Kabupaten
+1225,Nias Barat,12,Sumatera Utara,Sumatera,Kabupaten
+1214,Nias Selatan,12,Sumatera Utara,Sumatera,Kabupaten
+1224,Nias Utara,12,Sumatera Utara,Sumatera,Kabupaten
+6503,Nunukan,65,Kalimantan Utara,Kalimantan,Kabupaten
+1610,Ogan Ilir,16,Sumatera Selatan,Sumatera,Kabupaten
+1602,Ogan Komering Ilir,16,Sumatera Selatan,Sumatera,Kabupaten
+1601,Ogan Komering Ulu,16,Sumatera Selatan,Sumatera,Kabupaten
+1609,Ogan Komering Ulu Selatan,16,Sumatera Selatan,Sumatera,Kabupaten
+1608,Ogan Komering Ulu Timur,16,Sumatera Selatan,Sumatera,Kabupaten
+3501,Pacitan,35,Jawa Timur,Jawa,Kabupaten
+1221,Padang Lawas,12,Sumatera Utara,Sumatera,Kabupaten
+1220,Padang Lawas Utara,12,Sumatera Utara,Sumatera,Kabupaten
+1305,Padang Pariaman,13,Sumatera Barat,Sumatera,Kabupaten
+1672,Pagar Alam,16,Sumatera Selatan,Sumatera,Kabupaten
+7504,Pahuwato,75,Gorontalo,Sulawesi,Kabupaten
+1215,Pakpak Bharat,12,Sumatera Utara,Sumatera,Kabupaten
+6271,Palangka Raya,62,Kalimantan Tengah,Kalimantan,Kabupaten
+1671,Palembang,16,Sumatera Selatan,Sumatera,Kabupaten
+3528,Pamekasan,35,Jawa Timur,Jawa,Kabupaten
+3601,Pandeglang,36,Banten,Jawa,Kabupaten
+3218,Pangandaran,32,Jawa Barat,Jawa,Kabupaten
+7310,Pangkajene Kepulauan,73,Sulawesi Selatan,Sulawesi,Kabupaten
+9403,Paniai,94,Papua Tengah,Papua,Kabupaten
+7208,Parigimoutong,72,Sulawesi Tengah,Sulawesi,Kabupaten
+1308,Pasaman,13,Sumatera Barat,Sumatera,Kabupaten
+1312,Pasaman Barat,13,Sumatera Barat,Sumatera,Kabupaten
+7601,Pasangkayu,76,Sulawesi Barat,Sulawesi,Kabupaten
+6401,Paser,64,Kalimantan Timur,Kalimantan,Kabupaten
+3514,Pasuruan,35,Jawa Timur,Jawa,Kabupaten
+3318,Pati,33,Jawa Tengah,Jawa,Kabupaten
+9212,Pegunungan Arfak,92,Papua,Papua,Kabupaten
+9502,Pegunungan Bintang,95,Papua Pegunungan,Papua,Kabupaten
+3326,Pekalongan,33,Jawa Tengah,Jawa,Kabupaten
+1405,Pelalawan,14,Riau,Sumatera,Kabupaten
+3327,Pemalang,33,Jawa Tengah,Jawa,Kabupaten
+6409,Penajam Paser Utara,64,Kalimantan Timur,Kalimantan,Kabupaten
+1612,Penukal Abab Lematang Ilir,16,Sumatera Selatan,Sumatera,Kabupaten
+1809,Pesawaran,18,Lampung,Sumatera,Kabupaten
+1813,Pesisir Barat,18,Lampung,Sumatera,Kabupaten
+1301,Pesisir Selatan,13,Sumatera Barat,Sumatera,Kabupaten
+1107,Pidie,11,Aceh,Sumatera,Kabupaten
+1118,Pidie Jaya,11,Aceh,Sumatera,Kabupaten
+7315,Pinrang,73,Sulawesi Selatan,Sulawesi,Kabupaten
+7604,Polewali Mandar,76,Sulawesi Barat,Sulawesi,Kabupaten
+3502,Ponorogo,35,Jawa Timur,Jawa,Kabupaten
+7202,Poso,72,Sulawesi Tengah,Sulawesi,Kabupaten
+1674,Prabumulih,16,Sumatera Selatan,Sumatera,Kabupaten
+1810,Pringsewu,18,Lampung,Sumatera,Kabupaten
+3513,Probolinggo,35,Jawa Timur,Jawa,Kabupaten
+6211,Pulang Pisau,62,Kalimantan Tengah,Kalimantan,Kabupaten
+8207,Pulau Morotai,82,Maluku Utara,Maluku,Kabupaten
+8208,Pulau Taliabu,82,Maluku Utara,Maluku,Kabupaten
+9405,Puncak,94,Papua Tengah,Papua,Kabupaten
+9402,Puncak Jaya,94,Papua Tengah,Papua,Kabupaten
+3303,Purbalingga,33,Jawa Tengah,Jawa,Kabupaten
+3214,Purwakarta,32,Jawa Barat,Jawa,Kabupaten
+3306,Purworejo,33,Jawa Tengah,Jawa,Kabupaten
+9603,Rajaampat,96,Papua Barat Daya,Papua,Kabupaten
+1702,Rejang Lebong,17,Bengkulu,Sumatera,Kabupaten
+3317,Rembang,33,Jawa Tengah,Jawa,Kabupaten
+1407,Rokan Hilir,14,Riau,Sumatera,Kabupaten
+1406,Rokan Hulu,14,Riau,Sumatera,Kabupaten
+5314,Rote Ndao,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+5320,Sabu Raijua,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+6101,Sambas,61,Kalimantan Barat,Kalimantan,Kabupaten
+1217,Samosir,12,Sumatera Utara,Sumatera,Kabupaten
+3527,Sampang,35,Jawa Timur,Jawa,Kabupaten
+6103,Sanggau,61,Kalimantan Barat,Kalimantan,Kabupaten
+9110,Sarmi,91,Papua Barat,Papua,Kabupaten
+1503,Sarolangun,15,Jambi,Sumatera,Kabupaten
+1373,Sawahlunto,13,Sumatera Barat,Sumatera,Kabupaten
+6109,Sekadau,61,Kalimantan Barat,Kalimantan,Kabupaten
+7301,Selayar,73,Sulawesi Selatan,Sulawesi,Kabupaten
+1705,Seluma,17,Bengkulu,Sumatera,Kabupaten
+3322,Semarang,33,Jawa Tengah,Jawa,Kabupaten
+8106,Seram Bagian Barat,81,Maluku,Maluku,Kabupaten
+8105,Seram Bagian Timur,81,Maluku,Maluku,Kabupaten
+3604,Serang,36,Banten,Jawa,Kabupaten
+1218,Serdang Bedagai,12,Sumatera Utara,Sumatera,Kabupaten
+6207,Seruyan,62,Kalimantan Tengah,Kalimantan,Kabupaten
+1408,Siak,14,Riau,Sumatera,Kabupaten
+7314,Sidenreng Rappang,73,Sulawesi Selatan,Sulawesi,Kabupaten
+3515,Sidoarjo,35,Jawa Timur,Jawa,Kabupaten
+7210,Sigi,72,Sulawesi Tengah,Sulawesi,Kabupaten
+1303,Sijunjung,13,Sumatera Barat,Sumatera,Kabupaten
+5307,Sikka,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+1208,Simalungun,12,Sumatera Utara,Sumatera,Kabupaten
+1109,Simeulue,11,Aceh,Sumatera,Kabupaten
+7307,Sinjai,73,Sulawesi Selatan,Sulawesi,Kabupaten
+6105,Sintang,61,Kalimantan Barat,Kalimantan,Kabupaten
+3512,Situbondo,35,Jawa Timur,Jawa,Kabupaten
+3404,Sleman,34,DI Yogyakarta,Jawa,Kabupaten
+1302,Solok,13,Sumatera Barat,Sumatera,Kabupaten
+1311,Solok Selatan,13,Sumatera Barat,Sumatera,Kabupaten
+7312,Soppeng,73,Sulawesi Selatan,Sulawesi,Kabupaten
+9601,Sorong,96,Papua Barat Daya,Papua,Kabupaten
+9602,Sorong Selatan,96,Papua Barat Daya,Papua,Kabupaten
+3314,Sragen,33,Jawa Tengah,Jawa,Kabupaten
+3213,Subang,32,Jawa Barat,Jawa,Kabupaten
+3202,Sukabumi,32,Jawa Barat,Jawa,Kabupaten
+6208,Sukamara,62,Kalimantan Tengah,Kalimantan,Kabupaten
+3311,Sukoharjo,33,Jawa Tengah,Jawa,Kabupaten
+5312,Sumba Barat,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+5318,Sumba Barat Daya,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+5317,Sumba Tengah,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+5311,Sumba Timur,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+5204,Sumbawa,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten
+5207,Sumbawa Barat,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten
+3211,Sumedang,32,Jawa Barat,Jawa,Kabupaten
+3529,Sumenep,35,Jawa Timur,Jawa,Kabupaten
+1572,Sungai Penuh,15,Jambi,Sumatera,Kabupaten
+9119,Supiori,91,Papua Barat,Papua,Kabupaten
+6309,Tabalong,63,Kalimantan Selatan,Kalimantan,Kabupaten
+5102,Tabanan,51,Bali,Bali & Nusa Tenggara,Kabupaten
+7305,Takalar,73,Sulawesi Selatan,Sulawesi,Kabupaten
+9604,Tambrauw,96,Papua Barat Daya,Papua,Kabupaten
+6310,Tanahbumbu,63,Kalimantan Selatan,Kalimantan,Kabupaten
+1304,Tanah Datar,13,Sumatera Barat,Sumatera,Kabupaten
+6301,Tanah Laut,63,Kalimantan Selatan,Kalimantan,Kabupaten
+6504,Tana Tidung,65,Kalimantan Utara,Kalimantan,Kabupaten
+7318,Tana Toraja,73,Sulawesi Selatan,Sulawesi,Kabupaten
+3603,Tangerang,36,Banten,Jawa,Kabupaten
+1806,Tanggamus,18,Lampung,Sumatera,Kabupaten
+1274,Tanjung Balai,12,Sumatera Utara,Sumatera,Kabupaten
+1506,Tanjung Jabung Barat,15,Jambi,Sumatera,Kabupaten
+1507,Tanjung Jabung Timur,15,Jambi,Sumatera,Kabupaten
+1203,Tapanuli Selatan,12,Sumatera Utara,Sumatera,Kabupaten
+1201,Tapanuli Tengah,12,Sumatera Utara,Sumatera,Kabupaten
+1202,Tapanuli Utara,12,Sumatera Utara,Sumatera,Kabupaten
+6305,Tapin,63,Kalimantan Selatan,Kalimantan,Kabupaten
+3206,Tasikmalaya,32,Jawa Barat,Jawa,Kabupaten
+1276,Tebing Tinggi,12,Sumatera Utara,Sumatera,Kabupaten
+1509,Tebo,15,Jambi,Sumatera,Kabupaten
+3328,Tegal,33,Jawa Tengah,Jawa,Kabupaten
+9206,Telukbintuni,92,Papua,Papua,Kabupaten
+9207,Telukwondama,92,Papua,Papua,Kabupaten
+3323,Temanggung,33,Jawa Tengah,Jawa,Kabupaten
+5302,Timor Tengah Selatan,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+5303,Timor Tengah Utara,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten
+1212,Toba Samosir,12,Sumatera Utara,Sumatera,Kabupaten
+7209,Tojounauna,72,Sulawesi Tengah,Sulawesi,Kabupaten
+9504,Tolikara,95,Papua Pegunungan,Papua,Kabupaten
+7204,Tolitoli,72,Sulawesi Tengah,Sulawesi,Kabupaten
+7326,Toraja Utara,73,Sulawesi Selatan,Sulawesi,Kabupaten
+3503,Trenggalek,35,Jawa Timur,Jawa,Kabupaten
+3523,Tuban,35,Jawa Timur,Jawa,Kabupaten
+1805,Tulangbawang,18,Lampung,Sumatera,Kabupaten
+1812,Tulang Bawang Barat,18,Lampung,Sumatera,Kabupaten
+3504,Tulungagung,35,Jawa Timur,Jawa,Kabupaten
+7313,Wajo,73,Sulawesi Selatan,Sulawesi,Kabupaten
+7407,Wakatobi,74,Sulawesi Tenggara,Sulawesi,Kabupaten
+9115,Waropen,91,Papua Barat,Papua,Kabupaten
+1808,Way Kanan,18,Lampung,Sumatera,Kabupaten
+3312,Wonogiri,33,Jawa Tengah,Jawa,Kabupaten
+3307,Wonosobo,33,Jawa Tengah,Jawa,Kabupaten
+9503,Yahukimo,95,Papua Pegunungan,Papua,Kabupaten
+9506,Yalimo,95,Papua Pegunungan,Papua,Kabupaten

@@ -1,0 +1,1815 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard Karhutla Indonesia 2018–2026</title>
+<meta name="description" content="Dashboard interaktif luas kebakaran hutan dan lahan di 514 kabupaten/kota Indonesia, 2018–2026. Portofolio asesmen BNSP skema Analis Data DSS.06.09.25.">
+<meta property="og:title" content="Dashboard Karhutla Indonesia 2018–2026">
+<meta property="og:description" content="Dashboard interaktif luas kebakaran hutan dan lahan di 514 kabupaten/kota Indonesia, 2018–2026. Portofolio asesmen BNSP skema Analis Data DSS.06.09.25.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23eb6834'/%3E%3Cpath d='M20 9c.6 4.3-1.7 5.6-3.5 7.6-1.9 2-3.3 3.9-3.3 6.8A6.8 6.8 0 0 0 20 30.2a6.8 6.8 0 0 0 6.8-6.8c0-4.6-3.2-6.4-4.4-9.8-1 .9-1.6 2-1.8 3.3-1.2-1.6-1.5-4.3-.6-7.9Z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<style>
+/* ============================================================
+   Dashboard Karhutla — sistem desain
+   Palet divalidasi dengan scripts/validate_palette.js (dataviz)
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  --page:        #ecf0ea;
+  --surface:     #ffffff;
+  --surface-2:   #f5f8f3;
+  --surface-3:   #e9efe6;
+
+  --ink:         #10211b;
+  --ink-2:       #44574e;
+  --ink-3:       #64756b;
+
+  --grid:        #e0e7db;
+  --axis:        #c6d1c1;
+  --hair:        rgba(16, 33, 27, 0.11);
+  --hair-2:      rgba(16, 33, 27, 0.055);
+
+  --accent:      #eb6834;   /* kategorikal slot 2 — ukuran luas */
+  --accent-ink:  #b13d00;
+  --blue:        #2a78d6;   /* kategorikal slot 1 — jumlah daerah */
+  --warning:     #fab219;
+  --warning-ink: #8a5a00;
+
+  /* identitas pulau — urutan tetap, divalidasi berpasangan bersebelahan */
+  --p1: #2a78d6;  /* Sumatera */
+  --p2: #1baf7a;  /* Jawa */
+  --p3: #eda100;  /* Bali & Nusa Tenggara */
+  --p4: #e87ba4;  /* Kalimantan */
+  --p5: #008300;  /* Sulawesi */
+  --p6: #6250d6;  /* Maluku */
+  --p7: #e34948;  /* Papua */
+
+  /* ramp sekuensial satu rona, terang→gelap (choropleth) */
+  --s0: #d2d0c9;            /* nol / tanpa kejadian */
+  --s1: #ffe0d5;
+  --s2: #ffbea7;
+  --s3: #fc9a76;
+  --s4: #f07648;
+  --s5: #d95418;
+  --s6: #b13d00;
+
+  /* pita kepala */
+  --chrome:      #0b2f28;
+  --chrome-ink:  #eff6f1;
+  --chrome-ink2: #9dbcaf;
+  --chrome-hair: rgba(255,255,255,.15);
+  --chrome-chip: rgba(255,255,255,.08);
+  --chrome-glow: linear-gradient(104deg, rgba(235,104,52,.34) 0%, rgba(235,104,52,0) 48%);
+
+  --shadow-1: 0 1px 2px rgba(16,33,27,.05), 0 1px 1px rgba(16,33,27,.03);
+  --shadow-2: 0 2px 4px rgba(16,33,27,.05), 0 10px 28px -14px rgba(16,33,27,.26);
+
+  --r:   16px;
+  --r-s: 10px;
+
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page:      #0c0d10;
+    --surface:   #15161a;
+    --surface-2: #1b1d22;
+    --surface-3: #212329;
+    --ink:       #f0efec;
+    --ink-2:     #c3c2b7;
+    --ink-3:     #898781;
+    --grid:      #2c2c2a;
+    --axis:      #383835;
+    --hair:      rgba(255,255,255,0.10);
+    --hair-2:    rgba(255,255,255,0.06);
+    --accent:    #d95926;
+    --accent-ink:#fc8153;
+    --blue:      #3987e5;
+    --warning:   #fab219;
+    --warning-ink: #fab219;
+    --s0: #3a3f49;
+    --s1: #5a210a;
+    --s2: #7d2d09;
+    --s3: #a13b0c;
+    --s4: #c54a13;
+    --s5: #e5602a;
+    --s6: #fc8153;
+    --p1: #3987e5;
+    --p2: #199e70;
+    --p3: #c98500;
+    --p4: #d55181;
+    --p5: #008300;
+    --p6: #9085e9;
+    --p7: #e66767;
+    --chrome: #121a17;
+    --chrome-ink: #e8efe9;
+    --chrome-ink2: #93a89c;
+    --chrome-hair: rgba(255,255,255,.10);
+    --chrome-chip: rgba(255,255,255,.06);
+    --chrome-glow: linear-gradient(104deg, rgba(217,89,38,.26) 0%, rgba(217,89,38,0) 46%);
+    --chrome: #121a17;
+  --chrome-ink: #e8efe9;
+  --chrome-ink2: #93a89c;
+  --chrome-hair: rgba(255,255,255,.10);
+  --chrome-chip: rgba(255,255,255,.06);
+  --chrome-glow: linear-gradient(104deg, rgba(217,89,38,.26) 0%, rgba(217,89,38,0) 46%);
+  --shadow-1: none;
+    --shadow-2: 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page:      #0c0d10;
+  --surface:   #15161a;
+  --surface-2: #1b1d22;
+  --surface-3: #212329;
+  --ink:       #f0efec;
+  --ink-2:     #c3c2b7;
+  --ink-3:     #898781;
+  --grid:      #2c2c2a;
+  --axis:      #383835;
+  --hair:      rgba(255,255,255,0.10);
+  --hair-2:    rgba(255,255,255,0.06);
+  --accent:    #d95926;
+  --accent-ink:#fc8153;
+  --blue:      #3987e5;
+  --warning:   #fab219;
+  --warning-ink: #fab219;
+  --s0: #3a3f49;
+  --s1: #5a210a;
+  --s2: #7d2d09;
+  --s3: #a13b0c;
+  --s4: #c54a13;
+  --s5: #e5602a;
+  --s6: #fc8153;
+  --p1: #3987e5;
+  --p2: #199e70;
+  --p3: #c98500;
+  --p4: #d55181;
+  --p5: #008300;
+  --p6: #9085e9;
+  --p7: #e66767;
+  --shadow-1: none;
+  --shadow-2: 0 8px 24px -12px rgba(0,0,0,.6);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shell {
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 0 24px 72px;
+}
+
+/* ---------- kepala ---------- */
+
+.top {
+  background: var(--chrome);
+  background-image: var(--chrome-glow);
+  border-bottom: 1px solid var(--chrome-hair);
+  color: var(--chrome-ink);
+}
+.top-in {
+  max-width: 1420px; margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.flame { flex: none; width: 34px; height: 34px; }
+.brand h1 {
+  margin: 0; font-size: 16px; font-weight: 650; letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.brand p { margin: 1px 0 0; font-size: 12px; color: var(--chrome-ink2); }
+.top-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+.meta-chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11.5px; color: var(--chrome-ink2);
+  background: var(--chrome-chip); border: 1px solid var(--chrome-hair);
+  border-radius: 999px; padding: 5px 11px; white-space: nowrap;
+}
+.meta-chip b { color: var(--chrome-ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.icon-btn {
+  width: 34px; height: 34px; display: grid; place-items: center;
+  background: var(--chrome-chip); color: var(--chrome-ink2);
+  border: 1px solid var(--chrome-hair); border-radius: 10px; cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.icon-btn:hover { color: var(--chrome-ink); }
+.icon-btn svg { width: 17px; height: 17px; }
+
+/* ---------- baris saringan ---------- */
+
+.filters {
+  position: sticky; top: 0; z-index: 30;
+  margin: 0 -24px 20px; padding: 10px 24px;
+  background: color-mix(in srgb, var(--page) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hair);
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+}
+.fgroup { display: flex; align-items: center; gap: 7px; min-width: 0; }
+.flab {
+  font-size: 9.5px; font-weight: 650; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--ink-3); white-space: nowrap;
+}
+.years { display: flex; gap: 2px; flex-wrap: wrap; }
+.chip {
+  font: inherit; font-size: 12px; font-variant-numeric: tabular-nums;
+  padding: 5px 9px; border-radius: 999px; cursor: pointer;
+  background: transparent; color: var(--ink-2);
+  border: 1px solid transparent; transition: background .14s, color .14s;
+}
+.chip:hover { background: var(--surface-3); color: var(--ink); }
+.chip[aria-pressed="true"] {
+  background: var(--ink); color: var(--page); font-weight: 600;
+}
+.chip .dot {
+  display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--warning); margin-left: 5px; vertical-align: 1px;
+}
+
+select, .search {
+  font: inherit; font-size: 12.5px; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--hair);
+  border-radius: 9px; padding: 6px 9px; max-width: 150px;
+}
+select:focus-visible, .search:focus-visible, .chip:focus-visible,
+.icon-btn:focus-visible, button:focus-visible {
+  outline: 2px solid var(--blue); outline-offset: 2px;
+}
+.search { width: 134px; }
+.link-btn {
+  font: inherit; font-size: 12.5px; color: var(--ink-2);
+  background: none; border: none; cursor: pointer; padding: 6px 2px;
+  text-decoration: underline; text-underline-offset: 3px;
+  text-decoration-color: var(--axis);
+}
+.link-btn:hover { color: var(--ink); }
+
+/* ---------- kartu ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-1);
+  padding: 18px 20px;
+  min-width: 0;
+}
+.card-head {
+  display: flex; align-items: baseline; gap: 12px;
+  margin-bottom: 14px;
+}
+.card-head h2 {
+  margin: 0; font-size: 14.5px; font-weight: 650; letter-spacing: -0.005em;
+}
+.card-head .sub { margin-left: auto; font-size: 11.5px; color: var(--ink-3); }
+.card-note {
+  margin: 12px 0 0; padding-top: 11px; border-top: 1px solid var(--hair-2);
+  font-size: 11.5px; line-height: 1.55; color: var(--ink-2);
+}
+
+/* ---------- tata letak ---------- */
+
+.sum {
+  display: flex; align-items: stretch; gap: 26px;
+  margin-bottom: 16px; padding: 20px 22px;
+}
+.sum-hero { flex: 0 0 300px; min-width: 0; }
+.sum-tiles {
+  flex: 1 1 auto; min-width: 0;
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px; background: var(--hair-2);
+  border-left: 1px solid var(--hair-2); margin-left: 2px;
+}
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;
+         align-items: start; }
+.row-2.wide-left { grid-template-columns: 1.35fr 1fr; }
+
+.section-rule {
+  display: flex; align-items: center; gap: 12px;
+  margin: 34px 0 16px;
+}
+.section-rule span {
+  font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3); white-space: nowrap;
+}
+.section-rule::after {
+  content: ""; flex: 1; height: 1px; background: var(--hair);
+}
+
+/* ---------- angka utama & ubin ---------- */
+
+.hero-label {
+  font-size: 10.5px; font-weight: 650; letter-spacing: .09em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.hero-val {
+  font-size: 54px; line-height: 1.02; font-weight: 700; letter-spacing: -0.03em;
+  margin: 8px 0 2px; color: var(--ink);
+}
+.hero-unit { font-size: 13px; color: var(--ink-2); }
+.hero-val.kosong { font-size: 30px; color: var(--ink-3); }
+.hero-spark { margin: 14px 0 2px; }
+
+.tile { background: var(--surface); padding: 2px 14px; }
+.tile:first-child { padding-left: 16px; }
+.tile:last-child { padding-right: 0; }
+.tile .lab {
+  font-size: 10.5px; font-weight: 600; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--ink-3);
+  display: block; line-height: 1.35; min-height: 2.7em;
+}
+.tile .val {
+  font-size: 23px; font-weight: 700; letter-spacing: -0.02em; margin-top: 2px;
+}
+.tile .sub { font-size: 11px; color: var(--ink-2); }
+.delta { font-size: 12.5px; font-weight: 600; }
+
+/* ---------- peta ---------- */
+
+.map-card { display: flex; flex-direction: column; }
+#peta { width: 100%; max-width: 1080px; margin: 2px auto 6px; }
+.map-svg { display: block; width: 100%; height: auto; }
+.map-svg path {
+  stroke: var(--surface); stroke-width: 2.4; stroke-linejoin: round;
+  transition: opacity .18s, filter .18s;
+  cursor: pointer;
+}
+.map-svg path:hover { filter: brightness(.93) saturate(1.1); }
+.map-svg path.dim { opacity: .5; filter: saturate(.3); }
+.map-svg path.sel { stroke: var(--ink); stroke-width: 3; }
+
+.scale {
+  display: flex; align-items: center; gap: 0; margin-top: 4px;
+  flex-wrap: wrap;
+}
+.scale .sw {
+  display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 46px;
+}
+.scale .bar { height: 7px; border-radius: 2px; }
+.scale .sw + .sw { margin-left: 2px; }
+.scale .tick {
+  font-size: 10px; color: var(--ink-3); font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.scale-cap { font-size: 10.5px; color: var(--ink-3); margin: 10px 0 5px; }
+
+/* ---------- bagan ---------- */
+
+.chart { width: 100%; display: block; overflow: visible; }
+.chart .gridline { stroke: var(--grid); stroke-width: 1; }
+.chart .baseline { stroke: var(--axis); stroke-width: 1; }
+.chart .tick-txt { fill: var(--ink-3); font-size: 10.5px; }
+.chart .tick-num { fill: var(--ink-3); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+.chart .val-txt  { fill: var(--ink-2); font-size: 11px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.chart .cat-txt  { fill: var(--ink-2); font-size: 11.5px; }
+.chart .hit { fill: transparent; cursor: pointer; }
+.chart .mark { transition: opacity .15s; }
+.chart.hovering .mark { opacity: .62; }
+.chart.hovering .mark.on { opacity: 1; }
+
+/* ---------- tooltip ---------- */
+
+.tip {
+  position: fixed; z-index: 90; pointer-events: none; opacity: 0;
+  transform: translate(-50%, -100%) translateY(-10px);
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--hair); border-radius: 10px;
+  box-shadow: var(--shadow-2); padding: 9px 12px;
+  font-size: 12px; line-height: 1.45; max-width: 250px;
+  transition: opacity .12s;
+}
+.tip.on { opacity: 1; }
+.tip .t-name { font-weight: 650; margin-bottom: 3px; }
+.tip .t-row { display: flex; gap: 14px; justify-content: space-between; }
+.tip .t-row span { color: var(--ink-2); }
+.tip .t-row b { font-variant-numeric: tabular-nums; font-weight: 600; }
+.tip .t-hint { margin-top: 5px; font-size: 10.5px; color: var(--ink-3); }
+
+/* ---------- catatan mutu data ---------- */
+
+.alert {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--surface); border: 1px solid var(--hair);
+  border-left: 3px solid var(--warning);
+  border-radius: var(--r-s); padding: 13px 16px; margin-bottom: 16px;
+}
+.alert svg { flex: none; width: 17px; height: 17px; margin-top: 1px; color: var(--warning-ink); }
+.alert p { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--ink-2); }
+.alert b { color: var(--ink); font-weight: 650; }
+
+/* ---------- tabel ---------- */
+
+.tbl-wrap { overflow-x: auto; margin: 0 -20px; padding: 0 20px; }
+table { border-collapse: collapse; width: 100%; min-width: 640px;
+        font-size: 12.5px; table-layout: fixed; }
+th, td { text-align: right; padding: 8px 10px; white-space: nowrap;
+         overflow: hidden; text-overflow: ellipsis; }
+th:first-child, td:first-child { text-align: left; padding-left: 0; }
+th:nth-child(2), td:nth-child(2) { text-align: left; }
+th:last-child, td:last-child { padding-right: 0; }
+col.c-nama  { width: 30%; }
+col.c-prov  { width: 24%; }
+col.c-luas  { width: 16%; }
+col.c-pun   { width: 11%; }
+col.c-akt   { width: 10%; }
+col.c-shr   { width: 9%;  }
+thead th {
+  font-size: 10.5px; font-weight: 650; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--ink-3);
+  border-bottom: 1px solid var(--hair); cursor: pointer; user-select: none;
+  background: var(--surface); white-space: normal; line-height: 1.3;
+  vertical-align: bottom; padding: 0;
+}
+thead th:hover { color: var(--ink); }
+thead th .arr { opacity: .45; font-size: 9px; }
+tbody tr { border-bottom: 1px solid var(--hair-2); }
+tbody tr:hover { background: var(--surface-2); }
+tbody td { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+tbody td:first-child { color: var(--ink); font-weight: 600; }
+tbody td.big { color: var(--ink); font-weight: 600; }
+.pill {
+  display: inline-block; font-size: 10.5px; padding: 1px 7px; border-radius: 999px;
+  background: var(--surface-3); color: var(--ink-2);
+}
+.more { display: flex; justify-content: center; margin-top: 14px; }
+.btn {
+  font: inherit; font-size: 12.5px; font-weight: 600;
+  background: var(--surface-2); color: var(--ink-2);
+  border: 1px solid var(--hair); border-radius: 9px;
+  padding: 7px 16px; cursor: pointer;
+}
+.btn:hover { background: var(--surface-3); color: var(--ink); }
+
+/* ---------- segmen ---------- */
+
+.seg { display: inline-flex; background: var(--surface-3); border-radius: 8px; padding: 2px; gap: 2px; }
+.seg button {
+  font: inherit; font-size: 11.5px; padding: 4px 11px; border: none;
+  background: transparent; color: var(--ink-2); border-radius: 6px; cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); font-weight: 600;
+  box-shadow: var(--shadow-1); }
+
+/* ---------- metodologi ---------- */
+
+.meth { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hair-2); }
+.meth > div { background: var(--surface); padding: 2px 16px 2px 0; }
+.meth > div + div { padding-left: 18px; }
+.meth h3 {
+  margin: 0 0 6px; font-size: 11px; font-weight: 650; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.meth p { margin: 0 0 9px; font-size: 12.5px; line-height: 1.6; color: var(--ink-2); }
+.meth b { color: var(--ink); font-weight: 600; }
+
+footer {
+  margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--hair);
+  display: flex; gap: 18px; flex-wrap: wrap;
+  font-size: 11.5px; color: var(--ink-3);
+}
+
+.sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ---------- aksen ubin ---------- */
+/* Titik ubin sengaja netral: rona kategorikal di halaman ini sudah
+   dipakai sebagai identitas pulau, memakainya lagi sebagai hiasan
+   akan membuat pembaca mengira ada kaitannya. */
+
+.tile .lab::before {
+  content: ""; display: inline-block; width: 7px; height: 7px;
+  border-radius: 2px; margin-right: 6px; vertical-align: 1px;
+  background: var(--axis);
+}
+.tile.x .lab::before { background: var(--accent); }
+
+.section-rule span::before {
+  content: ""; display: inline-block; width: 16px; height: 3px;
+  border-radius: 2px; margin-right: 9px; vertical-align: 3px;
+  background: var(--accent);
+}
+
+/* ---------- legenda kategorikal ---------- */
+
+.legend {
+  display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 12px;
+  padding-top: 11px; border-top: 1px solid var(--hair-2);
+}
+.legend button {
+  display: inline-flex; align-items: center; gap: 6px;
+  font: inherit; font-size: 11.5px; color: var(--ink-2);
+  background: none; border: none; padding: 2px 0; cursor: pointer;
+  border-radius: 4px;
+}
+.legend button:hover { color: var(--ink); }
+.legend button[aria-pressed="false"] { color: var(--ink-3); }
+.legend button[aria-pressed="false"] .key { opacity: .35; }
+.legend .key { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.legend .num {
+  font-variant-numeric: tabular-nums; color: var(--ink-3); font-size: 11px;
+}
+
+/* ---------- pita komposisi ---------- */
+
+.stack { display: flex; width: 100%; height: 16px; gap: 2px; margin-top: 2px; }
+.stack div {
+  height: 100%; border-radius: 3px; min-width: 2px;
+  position: relative; cursor: default;
+  transition: filter .15s;
+}
+.stack div:hover { filter: brightness(.9) saturate(1.15); }
+.stack-lab {
+  display: flex; justify-content: space-between; gap: 12px;
+  font-size: 11px; color: var(--ink-3); margin-top: 7px;
+}
+
+/* ---------- responsif ---------- */
+
+@media (max-width: 980px) {
+  .meta-chip { display: none; }
+}
+@media (max-width: 1120px) {
+  .sum { flex-direction: column; gap: 16px; }
+  .sum-hero { flex: none; }
+  .sum-tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-left: 0; border-top: 1px solid var(--hair-2);
+    margin-left: 0; padding-top: 1px;
+  }
+  .tile, .tile:first-child { padding: 11px 14px 3px 0; }
+  .tile:nth-child(3n) { padding-right: 0; }
+  .row-2, .row-2.wide-left { grid-template-columns: 1fr; }
+  .meth { grid-template-columns: 1fr; }
+  .meth > div + div { padding-left: 0; padding-top: 14px; }
+}
+@media (max-width: 720px) {
+  .shell { padding: 0 16px 56px; }
+  .top-in { padding: 11px 16px; }
+  .filters {
+    position: static; margin: 0 -16px 16px; padding: 10px 16px; gap: 8px;
+  }
+  .filters .flab { display: none; }
+  .fgroup { flex: 1 1 auto; }
+  .fgroup:first-child { flex: 1 1 100%; }
+  .years {
+    flex-wrap: nowrap; overflow-x: auto; width: 100%;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 1px;
+  }
+  .years::-webkit-scrollbar { display: none; }
+  .chip { flex: none; }
+  select, .search { max-width: none; width: 100%; }
+  #reset { flex: none; }
+  .card-head { flex-wrap: wrap; }
+  .card-head .sub { margin-left: 0; width: 100%; }
+  .hero-val { font-size: 42px; }
+  .brand p { display: none; }
+  .meta-chip { display: none; }
+  .sum-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sum { padding: 16px; }
+}
+
+/* Pada ponsel tabel diubah jadi daftar kartu: menggeser tabel enam kolom
+   di layar 390px menyembunyikan justru kolom angkanya, padahal tabel ini
+   adalah jalur baca tanpa warna untuk setiap grafik di halaman. */
+@media (max-width: 720px) {
+  .tbl-wrap { overflow-x: visible; margin: 0; padding: 0; }
+  table { min-width: 0; display: block; }
+  thead { display: block; }
+  thead tr { display: flex; flex-wrap: wrap; gap: 4px; border: 0; }
+  thead th {
+    border: 0; padding: 5px 9px; border-radius: 999px;
+    background: var(--surface-3); font-size: 10px;
+  }
+  tbody { display: block; }
+  tbody tr {
+    display: grid; grid-template-columns: 1fr auto; gap: 2px 12px;
+    padding: 11px 0; border-bottom: 1px solid var(--hair-2);
+  }
+  tbody td { padding: 0; text-align: right; }
+  tbody td:first-child {
+    grid-column: 1; font-size: 13.5px; font-weight: 600; text-align: left;
+  }
+  tbody td:nth-child(2) {
+    grid-column: 1; grid-row: 2; font-size: 11.5px;
+    color: var(--ink-3); text-align: left;
+  }
+  tbody td:nth-child(3) { grid-column: 2; grid-row: 1; font-size: 14px; }
+  tbody td:nth-child(n+4) {
+    grid-column: 2; font-size: 11px; color: var(--ink-3);
+  }
+  tbody td:nth-child(4) { grid-row: 2; }
+  tbody td:nth-child(n+4)::before {
+    content: attr(data-k) " "; color: var(--ink-3);
+  }
+  tbody td:nth-child(5), tbody td:nth-child(6) { grid-column: 1 / -1; text-align: left; }
+}
+
+/* ---------- fokus papan ketik ---------- */
+
+.map-svg path:focus-visible,
+.chart .hit:focus-visible {
+  outline: none; stroke: var(--ink); stroke-width: 3; stroke-dasharray: none;
+}
+.chart .hit:focus-visible { fill: color-mix(in srgb, var(--ink) 7%, transparent); }
+.stack div:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.th-btn {
+  font: inherit; color: inherit; background: none; border: 0;
+  padding: 8px 10px; width: 100%; display: block;
+  cursor: pointer; text-transform: inherit; letter-spacing: inherit;
+  font-weight: inherit; text-align: inherit;
+}
+thead th:first-child .th-btn { padding-left: 0; }
+thead th:last-child .th-btn { padding-right: 0; }
+@media (max-width: 720px) { .th-btn { padding: 5px 9px; width: auto; } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+</style>
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <svg class="flame" viewBox="0 0 40 40" aria-hidden="true">
+        <rect width="40" height="40" rx="11" fill="var(--accent)" opacity=".12"/>
+        <path d="M20 9c.6 4.3-1.7 5.6-3.5 7.6-1.9 2-3.3 3.9-3.3 6.8A6.8 6.8 0 0 0 20 30.2a6.8 6.8 0 0 0 6.8-6.8c0-4.6-3.2-6.4-4.4-9.8-1 .9-1.6 2-1.8 3.3-1.2-1.6-1.5-4.3-.6-7.9Z"
+              fill="var(--accent)"/>
+      </svg>
+      <div>
+        <h1>Karhutla Indonesia</h1>
+        <p>Luas kebakaran hutan dan lahan · 514 kabupaten/kota · 2018–2026</p>
+      </div>
+    </div>
+    <div class="top-right">
+      <span class="meta-chip">Model <b>fakta_karhutla</b> · 4.626 baris</span>
+      <span class="meta-chip">Sumber <b>luas-karhutla-kota.xlsx</b></span>
+      <button class="icon-btn" id="tema" type="button" title="Ganti terang / gelap" aria-label="Ganti tema terang atau gelap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.6v2M12 19.4v2M2.6 12h2M19.4 12h2M5.4 5.4l1.4 1.4M17.2 17.2l1.4 1.4M18.6 5.4l-1.4 1.4M6.8 17.2l-1.4 1.4"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+
+  <div class="filters">
+    <div class="fgroup">
+      <div class="years" id="tahunChips"></div>
+    </div>
+    <div class="fgroup">
+      <select id="selPulau" aria-label="Saring menurut pulau"></select>
+    </div>
+    <div class="fgroup">
+      <select id="selProv" aria-label="Saring menurut provinsi"></select>
+    </div>
+    <div class="fgroup">
+      <input class="search" id="cari" type="search" placeholder="Cari daerah…" aria-label="Cari kabupaten atau kota">
+    </div>
+    <button class="link-btn" id="reset" type="button">Atur ulang</button>
+  </div>
+
+  <div class="alert" id="alert2023">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+      <path d="M12 3.6 22 20.4H2L12 3.6Z"/><path d="M12 10v4.4"/><circle cx="12" cy="17.4" r=".9" fill="currentColor"/>
+    </svg>
+    <p id="alertTxt"></p>
+  </div>
+
+  <div class="section-rule"><span>Ringkasan nasional</span></div>
+
+  <section class="card sum" aria-labelledby="heroLab">
+    <div class="sum-hero">
+      <span class="hero-label" id="heroLab">Luas terbakar</span>
+      <div class="hero-val" id="heroVal">0</div>
+      <div class="hero-unit" id="heroUnit">hektare</div>
+      <div class="hero-spark" id="heroSpark"></div>
+      <div class="scale-cap" id="heroSparkCap" style="margin-top:2px"></div>
+    </div>
+    <div class="sum-tiles">
+      <div class="tile">
+        <span class="lab">Daerah terdampak</span>
+        <div class="val" id="tDaerah">0</div>
+        <div class="sub" id="tDaerahSub"></div>
+      </div>
+      <div class="tile">
+        <span class="lab">Perubahan tahunan</span>
+        <div class="val delta" id="tDelta">—</div>
+        <div class="sub" id="tDeltaSub"></div>
+      </div>
+      <div class="tile">
+        <span class="lab">Konsentrasi 10 besar</span>
+        <div class="val" id="tKons">0</div>
+        <div class="sub" id="tKonsSub"></div>
+      </div>
+      <div class="tile">
+        <span class="lab">Median per daerah</span>
+        <div class="val" id="tMedian">0</div>
+        <div class="sub" id="tMedianSub"></div>
+      </div>
+      <div class="tile">
+        <span class="lab">Terbakar berulang</span>
+        <div class="val" id="tUlang">0</div>
+        <div class="sub" id="tUlangSub"></div>
+      </div>
+      <div class="tile x">
+        <span class="lab">Tahun terparah</span>
+        <div class="val" id="tPuncak">—</div>
+        <div class="sub" id="tPuncakSub"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card map-card" aria-labelledby="petaJudul">
+    <div class="card-head">
+      <h2 id="petaJudul">Sebaran luas terbakar per provinsi</h2>
+      <span class="sub" id="petaSub"></span>
+    </div>
+    <div id="peta"></div>
+    <div class="scale-cap">Hektare, angka di bawah tiap blok adalah batas bawah kelasnya. Kelas dihitung ulang tiap tahun, jadi kepekatan warna hanya bisa dibandingkan di dalam satu tahun yang sama. Klik satu provinsi untuk menyaring seluruh dashboard.</div>
+    <div class="scale" id="skala"></div>
+    <p class="card-note">
+      Peta memakai batas 34 provinsi. Empat provinsi hasil pemekaran Papua (Selatan, Tengah,
+      Pegunungan, Barat Daya) digabungkan ke wilayah induknya karena berkas batas wilayah
+      belum mencakup pemekaran; angka tabel dan peringkat tetap memakai 38 provinsi penuh.
+      Peta selalu menampilkan skala nasional meski saringan wilayah aktif — wilayah terpilih
+      ditandai, sisanya diredupkan.
+    </p>
+  </section>
+
+  <section class="card" id="kartuKomp" aria-labelledby="kompJudul" style="margin-bottom:16px">
+    <div class="card-head">
+      <h2 id="kompJudul">Komposisi luas terbakar per pulau</h2>
+      <span class="sub" id="kompSub"></span>
+    </div>
+    <div class="stack" id="stackPulau"></div>
+    <div class="stack-lab">
+      <span>Lebar tiap blok sebanding dengan porsinya terhadap total lingkup.</span>
+      <span id="kompTotal"></span>
+    </div>
+    <div class="legend" id="legPulau"></div>
+  </section>
+
+  <div class="row-2">
+    <section class="card" aria-labelledby="trenJudul">
+      <div class="card-head">
+        <h2 id="trenJudul">Luas terbakar per tahun</h2>
+        <span class="sub" id="trenSub"></span>
+      </div>
+      <div id="chTren"></div>
+      <p class="card-note">
+        Batang pudar bergaris putus = 2026, tahun berjalan yang belum lengkap, jadi tidak
+        dibandingkan langsung dengan tahun penuh. Klik satu batang untuk mengunci tahun itu.
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="daerahJudul">
+      <div class="card-head">
+        <h2 id="daerahJudul">Kabupaten/kota terdampak per tahun</h2>
+        <span class="sub" id="daerahSub"></span>
+      </div>
+      <div id="chDaerah"></div>
+      <p class="card-note">
+        Dipisah dari grafik luas, bukan ditumpuk pada satu sumbu ganda: luas dan jumlah daerah
+        punya satuan berbeda, dan menyandingkannya pada satu sumbu akan memunculkan korelasi
+        yang tidak ada di datanya. Batang pudar bergaris putus = 2026, tahun berjalan.
+      </p>
+    </section>
+  </div>
+
+  <div class="section-rule s2"><span>Konsentrasi wilayah</span></div>
+
+  <div class="row-2">
+    <section class="card" aria-labelledby="rankJudul">
+      <div class="card-head">
+        <h2 id="rankJudul">Peringkat kabupaten/kota</h2>
+        <span class="sub" id="rankSub"></span>
+      </div>
+      <div id="chRank"></div>
+      <p class="card-note">Satu warna ukuran untuk semua batang. Tujuh warna pulau sengaja tidak dipakai di sini: urutan batang ditentukan nilai, sehingga dua pulau mana pun bisa bersebelahan, dan tujuh rona tidak lolos uji keterbedaan untuk semua pasangan. Identitas wilayah dibawa nama provinsi di tiap baris. Klik satu batang untuk menyaring tabel di bawah.</p>
+    </section>
+
+    <section class="card" aria-labelledby="wilJudul">
+      <div class="card-head">
+        <h2 id="wilJudul">Perbandingan wilayah</h2>
+        <span class="seg" id="segWilayah" role="group" aria-label="Kelompokkan menurut">
+          <button type="button" data-m="prov" aria-pressed="true">Provinsi</button>
+          <button type="button" data-m="pulau" aria-pressed="false">Pulau</button>
+        </span>
+      </div>
+      <div id="chWilayah"></div>
+      <div class="legend" id="legWil"></div>
+      <p class="card-note" id="wilSub"></p>
+    </section>
+  </div>
+
+  <div class="section-rule s3"><span>Data rinci</span></div>
+
+  <section class="card" aria-labelledby="tblJudul">
+    <div class="card-head">
+      <h2 id="tblJudul">Tabel kabupaten/kota</h2>
+      <span class="sub" id="tblSub"></span>
+    </div>
+    <div class="tbl-wrap">
+      <table>
+        <caption class="sr">Luas kebakaran hutan dan lahan per kabupaten/kota. Klik judul kolom untuk mengurutkan.</caption>
+        <colgroup>
+          <col class="c-nama"><col class="c-prov"><col class="c-luas">
+          <col class="c-pun"><col class="c-akt"><col class="c-shr">
+        </colgroup>
+        <thead id="tblHead"></thead>
+        <tbody id="tblBody"></tbody>
+      </table>
+    </div>
+    <div class="more"><button class="btn" id="tblMore" type="button">Tampilkan lebih banyak</button></div>
+  </section>
+
+  <div class="section-rule"><span>Metodologi dan batasan</span></div>
+
+  <section class="card">
+    <div class="meth">
+      <div>
+        <h3>Asal angka</h3>
+        <p>Berkas sumber <b>luas-karhutla-kota.xlsx</b> dibaca sebagai teks, di-hash SHA-256,
+           lalu melewati lima tahap: kumpulkan, telaah, validasi, bersihkan, ekspor.</p>
+        <p>Hasilnya model bintang <b>fakta_karhutla</b> (4.626 baris, kunci kode_kab × tahun)
+           dengan dimensi wilayah dan tahun.</p>
+      </div>
+      <div>
+        <h3>Yang sengaja tidak diubah</h3>
+        <p><b>Nilai nol</b> dipertahankan sebagai nol sahih, meski tidak dapat dibedakan dari
+           “tidak dilaporkan”. Diberi tanda sebagai asumsi.</p>
+        <p><b>Pencilan tidak dihapus.</b> 758 dari 4.626 nilai di atas batas IQR; pada data
+           kebakaran, nilai ekstrem adalah peristiwa nyata dan justru objek analisis.</p>
+      </div>
+      <div>
+        <h3>Temuan terbuka</h3>
+        <p><b>Selisih 2023: 154.657,05 ha (13,32%).</b> Baris agregat sumber menunjukkan
+           1.161.156,91 ha, penjumlahan 514 baris kabupaten menghasilkan 1.006.499,86 ha.
+           Delapan tahun lainnya cocok persis.</p>
+        <p>Pipeline berhenti pada aturan V-07 dan hanya lanjut setelah temuan diterima
+           tertulis oleh operator; penerimaan itu tercatat di log validasi.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Portofolio asesmen BNSP · Skema Analis Data DSS.06.09.25</span>
+    <span>SKKNI 2020-268 dan 2020-299</span>
+    <span>Satuan: hektare (ha)</span>
+    <span>Angka 2023 memakai penjumlahan baris kabupaten</span>
+  </footer>
+</div>
+
+<script>window.__DATA__={"tahun":[2018,2019,2020,2021,2022,2023,2024,2025,2026],"pulau":["Bali & Nusa Tenggara","Jawa","Kalimantan","Maluku","Papua","Sulawesi","Sumatera"],"prov":["Aceh","Bali","Banten","Bengkulu","DI Yogyakarta","DKI Jakarta","Gorontalo","Jambi","Jawa Barat","Jawa Tengah","Jawa Timur","Kalimantan Barat","Kalimantan Selatan","Kalimantan Tengah","Kalimantan Timur","Kalimantan Utara","Kepulauan Bangka Belitung","Kepulauan Riau","Lampung","Maluku","Maluku Utara","Nusa Tenggara Barat","Nusa Tenggara Timur","Papua","Papua Barat","Papua Barat Daya","Papua Pegunungan","Papua Selatan","Papua Tengah","Riau","Sulawesi Barat","Sulawesi Selatan","Sulawesi Tengah","Sulawesi Tenggara","Sulawesi Utara","Sumatera Barat","Sumatera Selatan","Sumatera Utara"],"provPulau":[6,0,1,6,1,1,5,6,1,1,1,2,2,2,2,2,6,6,6,3,3,0,0,4,4,4,4,4,4,6,5,5,5,5,5,6,6,6],"statusTahun":{"2018":"lengkap","2019":"lengkap","2020":"lengkap","2021":"lengkap","2022":"lengkap","2023":"lengkap","2024":"lengkap","2025":"lengkap","2026":"parsial"},"catatanTahun":{"2018":"","2019":"","2020":"","2021":"","2022":"","2023":"Selisih agregat 154.657,05 ha belum terjelaskan. Angka memakai penjumlahan baris kabupaten.","2024":"","2025":"","2026":""},"kab":[["Aceh Selatan",0,6,0,[429.0,20.0,41.0,407.0,862.0,31.87,1158.08,1917.47,726.96]],["Aceh Tenggara",0,6,0,[0.0,0.0,8.0,0.0,0.0,1.2,628.1,14.3,59.86]],["Aceh Timur",0,6,0,[33.0,112.0,55.0,0.0,0.0,26.82,242.36,0.0,298.96]],["Aceh Tengah",0,6,0,[111.0,12.0,239.0,28.0,1.0,293.76,683.04,1665.97,63.08]],["Aceh Barat",0,6,0,[13.0,86.0,0.0,41.0,134.0,321.3,141.92,1091.18,844.87]],["Aceh Besar",0,6,0,[0.0,161.0,24.0,141.0,493.0,529.62,1648.13,1237.27,186.39]],["Pidie",0,6,0,[0.0,0.0,52.0,345.0,10.0,140.96,343.87,450.98,0.0]],["Aceh Utara",0,6,0,[0.0,48.0,14.0,0.0,0.0,30.8,29.82,0.0,55.85]],["Simeulue",0,6,0,[0.0,0.0,96.0,0.0,0.0,0.0,0.0,0.0,5.14]],["Aceh Singkil",0,6,0,[42.0,0.0,67.0,20.0,612.0,0.43,235.8,236.91,351.94]],["Bireuen",0,6,0,[0.0,0.0,1.0,0.0,94.0,26.8,124.37,77.23,34.26]],["Aceh Barat Daya",0,6,0,[0.0,0.0,47.0,0.0,173.0,10.64,156.64,232.47,95.67]],["Gayo Lues",0,6,0,[391.0,69.0,80.0,0.0,6.0,142.02,511.29,504.28,188.81]],["Aceh Jaya",0,6,0,[43.0,43.0,51.0,101.0,115.0,136.61,194.63,41.17,115.7]],["Naganraya",0,6,0,[83.0,111.0,100.0,28.0,142.0,37.05,113.49,44.77,791.81]],["Aceh Tamiang",0,6,0,[0.0,7.0,47.0,0.0,0.0,4.07,91.03,17.91,0.67]],["Bener Meriah",0,6,0,[0.0,11.0,16.0,0.0,44.0,49.96,454.42,381.53,53.49]],["Pidie Jaya",0,6,0,[0.0,0.0,51.0,30.0,805.0,69.73,318.6,659.65,10.96]],["Kota Banda Aceh",0,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Sabang",0,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Lhokseumawe",0,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Langsa",0,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Subulussalam",0,6,1,[140.0,50.0,89.0,126.0,224.0,83.21,181.76,351.89,186.06]],["Tapanuli Tengah",37,6,0,[31.0,0.0,438.0,193.0,576.0,233.69,147.21,1102.8,97.43]],["Tapanuli Utara",37,6,0,[0.0,3.0,33.0,62.0,37.0,62.66,17.99,3338.01,11.54]],["Tapanuli Selatan",37,6,0,[6.0,0.0,310.0,16.0,277.0,21.1,45.87,1281.65,33.75]],["Nias",37,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Langkat",37,6,0,[0.0,0.0,44.0,4.0,23.0,23.8,301.66,15.36,0.0]],["Karo",37,6,0,[0.0,0.0,58.0,461.0,330.0,18.25,1393.04,717.77,105.99]],["Deliserdang",37,6,0,[0.0,56.0,7.0,0.0,149.0,37.46,171.34,96.03,18.98]],["Simalungun",37,6,0,[6.0,0.0,0.0,315.0,51.0,327.93,191.48,1136.66,12.83]],["Asahan",37,6,0,[41.0,52.0,55.0,67.0,56.0,111.19,136.95,122.65,40.58]],["Labuhanbatu",37,6,0,[1954.0,674.0,455.0,266.0,333.0,417.61,532.56,2168.84,645.66]],["Dairi",37,6,0,[0.0,47.0,9.0,547.0,607.0,168.92,1409.74,1069.34,32.49]],["Toba Samosir",37,6,0,[53.0,71.0,32.0,116.0,71.0,23.18,82.72,930.18,16.61]],["Mandailing Natal",37,6,0,[121.0,0.0,308.0,139.0,237.0,33.93,88.75,841.37,109.82]],["Nias Selatan",37,6,0,[0.0,0.0,0.0,1.0,13.0,0.0,7.34,0.0,10.32]],["Pakpak Bharat",37,6,0,[0.0,0.0,0.0,0.0,0.0,2.94,13.49,11.07,30.84]],["Humbang Hasundutan",37,6,0,[0.0,13.0,145.0,203.0,310.0,166.73,303.66,2475.48,83.3]],["Samosir",37,6,0,[282.0,0.0,790.0,1119.0,2642.0,174.36,1883.46,5354.45,0.0]],["Serdang Bedagai",37,6,0,[0.0,0.0,4.0,0.0,3.0,0.0,47.73,1.28,0.0]],["Batubara",37,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,22.67,0.0]],["Padang Lawas Utara",37,6,0,[277.0,562.0,34.0,65.0,739.0,124.41,101.58,6897.04,27.51]],["Padang Lawas",37,6,0,[647.0,513.0,860.0,406.0,817.0,28.42,57.47,9477.95,20.54]],["Labuhan Batu Selatan",37,6,0,[101.0,37.0,51.0,1.0,50.0,1.77,51.89,752.39,2.65]],["Labuhanbatu Utara",37,6,0,[148.0,485.0,110.0,76.0,85.0,135.38,31.28,347.59,9.39]],["Nias Utara",37,6,0,[0.0,0.0,0.0,0.0,101.0,0.0,8.08,0.0,12.69]],["Nias Barat",37,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.18]],["Kota Medan",37,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,1.6,0.0,0.0]],["Kota Pematangsiantar",37,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Sibolga",37,6,1,[0.0,0.0,0.0,9.0,0.0,0.0,0.0,10.1,0.0]],["Tanjung Balai",37,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Binjai",37,6,1,[0.0,0.0,0.0,0.0,6.0,0.0,5.39,0.0,2.9]],["Tebing Tinggi",37,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Padangsidempuan",37,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.56,0.0]],["Kota Gunung Sitoli",37,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Pesisir Selatan",35,6,0,[1612.0,1040.0,800.0,1168.0,6977.0,4059.84,1546.37,3268.02,1071.53]],["Solok",35,6,0,[0.0,0.0,9.0,66.0,710.0,5.33,86.53,419.6,4.96]],["Sijunjung",35,6,0,[0.0,0.0,2.0,0.0,135.0,29.75,85.92,245.99,47.93]],["Tanah Datar",35,6,0,[0.0,0.0,0.0,0.0,24.0,0.0,0.0,6.72,0.0]],["Padang Pariaman",35,6,0,[0.0,0.0,9.0,0.0,0.0,0.0,0.0,0.0,6.39]],["Agam",35,6,0,[0.0,0.0,11.0,22.0,58.0,0.0,6.91,49.7,0.71]],["Lima Puluh Kota",35,6,0,[0.0,0.0,0.0,0.0,57.0,41.89,145.06,1387.9,0.0]],["Pasaman",35,6,0,[313.0,16.0,437.0,687.0,965.0,201.21,668.42,1133.91,69.86]],["Kepulauan Mentawai",35,6,0,[0.0,0.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0]],["Dharmasraya",35,6,0,[270.0,994.0,161.0,0.0,190.0,205.56,138.93,186.33,64.27]],["Solok Selatan",35,6,0,[22.0,0.0,0.0,0.0,39.0,31.75,89.8,34.89,9.75]],["Pasaman Barat",35,6,0,[206.0,0.0,142.0,111.0,666.0,308.16,283.69,1362.52,215.67]],["Kota Padang",35,6,1,[0.0,0.0,0.0,12.0,0.0,0.0,0.58,0.0,0.0]],["Kota Solok",35,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Sawahlunto",35,6,0,[0.0,83.0,0.0,0.0,10.0,1.63,0.0,49.86,0.0]],["Kota Padang Panjang",35,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Bukittinggi",35,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Payakumbuh",35,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Pariaman",35,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kampar",29,6,0,[89.0,877.0,19.0,83.0,155.0,529.57,585.39,753.37,90.13]],["Indragiri Hulu",29,6,0,[1337.0,6616.0,440.0,91.0,394.0,1799.95,2222.16,418.65,98.28]],["Bengkalis",29,6,0,[3141.0,15398.0,4728.0,2478.0,273.0,1322.79,565.81,1405.74,8316.0]],["Indragiri Hilir",29,6,0,[3450.0,16863.0,633.0,407.0,11.0,1005.49,1018.68,281.54,997.84]],["Pelalawan",29,6,0,[3847.0,22791.0,2149.0,2157.0,657.0,676.13,1982.0,1576.54,4591.31]],["Rokan Hulu",29,6,0,[39.0,423.0,0.0,72.0,800.0,174.25,393.98,3204.65,51.57]],["Rokan Hilir",29,6,0,[20154.0,14613.0,1170.0,1686.0,2079.0,721.39,1130.32,12763.69,392.47]],["Siak",29,6,0,[451.0,3214.0,562.0,433.0,18.0,37.64,380.14,269.17,281.16]],["Kuantan Singingi",29,6,0,[56.0,1762.0,88.0,0.0,45.0,126.13,254.69,278.73,104.4]],["Kepulauan Meranti",29,6,0,[1722.0,6438.0,4394.0,600.0,3.0,99.91,1940.68,524.78,199.32]],["Kota Pekanbaru",29,6,1,[29.0,47.0,8.0,0.0,17.0,2.55,0.48,72.96,9.35]],["Dumai",29,6,0,[2920.0,1509.0,1252.0,963.0,461.0,771.23,553.63,293.88,607.09]],["Kerinci",7,6,0,[0.0,0.0,134.0,0.0,1.0,51.31,2.46,38.88,1.09]],["Merangin",7,6,0,[29.0,340.0,278.0,1.0,68.0,149.13,249.25,1326.02,32.12]],["Sarolangun",7,6,0,[116.0,5583.0,169.0,264.0,399.0,1324.78,1224.68,601.05,120.27]],["Batang Hari",7,6,0,[86.0,5745.0,50.0,113.0,54.0,3282.93,397.25,211.27,52.97]],["Muaro Jambi",7,6,0,[868.0,20891.0,17.0,22.0,114.0,15.68,1907.32,190.04,2.7]],["Tanjung Jabung Barat",7,6,0,[250.0,3237.0,134.0,20.0,4.0,446.03,245.05,414.95,77.85]],["Tanjung Jabung Timur",7,6,0,[95.0,14129.0,114.0,16.0,5.0,60.09,1288.91,96.96,20.4]],["Bungo",7,6,0,[0.0,277.0,4.0,0.0,43.0,27.08,123.9,385.17,32.87]],["Tebo",7,6,0,[134.0,6390.0,102.0,104.0,231.0,1091.51,189.19,299.3,38.19]],["Jambi",7,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Sungai Penuh",7,6,0,[0.0,0.0,0.0,0.0,0.0,91.15,8.67,2.59,0.54]],["Ogan Komering Ulu",36,6,0,[10.0,1615.0,0.0,330.0,323.0,18.84,720.89,674.69,516.04]],["Ogan Komering Ilir",36,6,0,[12879.0,194824.0,569.0,1035.0,247.0,80025.96,2533.87,1361.92,230.26]],["Muara Enim",36,6,0,[259.0,5937.0,35.0,130.0,127.0,3216.26,1718.27,171.41,141.88]],["Lahat",36,6,0,[0.0,6.0,2.0,66.0,19.0,324.28,5.23,218.96,6.04]],["Musi Rawas",36,6,0,[223.0,4448.0,38.0,833.0,514.0,1379.93,1208.48,376.58,0.58]],["Musi Banyuasin",36,6,0,[731.0,27705.0,205.0,686.0,205.0,4254.51,4036.25,985.99,228.01]],["Banyu Asin",36,6,0,[1287.0,63091.0,37.0,236.0,11.0,27025.95,2891.3,80.48,274.4]],["Ogan Komering Ulu Timur",36,6,0,[22.0,8454.0,0.0,73.0,104.0,1373.26,79.79,105.33,23.24]],["Ogan Komering Ulu Selatan",36,6,0,[0.0,13.0,0.0,48.0,5.0,2.53,243.54,263.28,55.16]],["Ogan Ilir",36,6,0,[788.0,11414.0,21.0,998.0,1443.0,7853.53,788.13,980.39,272.5]],["Empat Lawang",36,6,0,[0.0,60.0,12.0,49.0,9.0,23.21,10.26,225.66,0.0]],["Penukal Abab Lematang Ilir",36,6,0,[0.0,0.0,6.0,448.0,61.0,454.56,303.93,124.71,57.44]],["Musi Rawas Utara",36,6,0,[2.0,0.0,24.0,303.0,631.0,5050.86,871.73,298.56,111.85]],["Palembang",36,6,0,[25.0,318.0,0.0,0.0,24.0,1079.16,0.6,19.31,1.51]],["Pagar Alam",36,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,24.82,0.0]],["Lubuklinggau",36,6,0,[0.0,0.0,0.0,7.0,0.0,0.0,0.0,27.69,0.0]],["Prabumulih",36,6,0,[0.0,0.0,0.0,0.0,1.0,0.0,10.21,0.0,7.32]],["Bengkulu Selatan",3,6,0,[0.0,1.0,0.0,0.0,8.0,0.0,23.96,153.61,6.59]],["Rejang Lebong",3,6,0,[0.0,0.0,7.0,50.0,48.0,0.0,0.0,74.3,0.0]],["Bengkulu Utara",3,6,0,[2.0,0.0,83.0,24.0,479.0,0.0,102.3,1027.43,26.77]],["Kaur",3,6,0,[0.0,9.0,0.0,0.0,49.0,2.05,7.8,143.65,44.25]],["Seluma",3,6,0,[0.0,0.0,0.0,0.0,0.0,10.66,12.68,117.32,3.24]],["Muko-Muko",3,6,0,[0.0,0.0,87.0,6.0,1027.0,63.23,204.6,876.06,26.13]],["Lebong",3,6,0,[0.0,0.0,0.0,2.0,2.0,0.0,3.27,29.71,0.0]],["Kepahiang",3,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.97,0.0]],["Bengkulu Tengah",3,6,0,[7.0,0.0,45.0,13.0,8.0,0.0,0.44,120.93,18.17]],["Kota Bengkulu",3,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Lampung Selatan",18,6,0,[0.0,0.0,0.0,0.0,0.0,34.59,0.0,45.19,0.89]],["Lampung Tengah",18,6,0,[2412.0,1602.0,268.0,95.0,80.0,594.97,1249.22,249.13,54.89]],["Lampung Utara",18,6,0,[23.0,255.0,0.0,366.0,57.0,23.46,124.01,181.11,69.62]],["Lampung Barat",18,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Tulangbawang",18,6,0,[4454.0,11210.0,8.0,555.0,163.0,370.61,1748.56,37.48,161.17]],["Tanggamus",18,6,0,[0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0]],["Lampung Timur",18,6,0,[3620.0,4669.0,756.0,3541.0,7564.0,4014.52,8019.67,2582.15,4209.99]],["Way Kanan",18,6,0,[73.0,1221.0,325.0,260.0,112.0,238.59,436.64,246.22,375.15]],["Pesawaran",18,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Pringsewu",18,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Mesuji",18,6,0,[4565.0,15266.0,0.0,516.0,0.0,1225.37,1581.87,353.83,3.85]],["Tulang Bawang Barat",18,6,0,[10.0,1323.0,0.0,62.0,0.0,4.55,82.04,76.76,14.7]],["Pesisir Barat",18,6,0,[0.0,0.0,1.0,17.0,12.0,0.0,0.0,24.16,0.0]],["Kota Bandarlampung",18,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Metro",18,6,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Bangka",16,6,0,[231.0,1031.0,31.0,16.0,56.0,775.66,42.54,187.04,34.1]],["Belitung",16,6,0,[0.0,336.0,9.0,31.0,31.0,222.3,45.62,74.41,32.74]],["Bangka Selatan",16,6,0,[1145.0,1263.0,126.0,50.0,46.0,1927.21,2056.53,712.25,34.6]],["Bangka Tengah",16,6,0,[59.0,0.0,11.0,73.0,89.0,613.09,392.82,211.54,18.1]],["Bangka Barat",16,6,0,[507.0,1615.0,368.0,193.0,105.0,500.96,270.3,343.61,209.98]],["Belitung Timur",16,6,0,[113.0,533.0,31.0,21.0,1.0,700.65,107.65,141.98,6.11]],["Kota Pangkalpinang",16,6,1,[0.0,0.0,0.0,0.0,0.0,13.1,0.0,0.0,0.0]],["Bintan",17,6,0,[0.0,321.0,238.0,899.0,0.0,274.71,281.35,70.5,2495.26]],["Karimun",17,6,0,[0.0,494.0,220.0,152.0,8.0,3.82,109.85,40.46,618.53]],["Natuna",17,6,0,[11.0,3704.0,8001.0,380.0,0.0,435.48,1058.87,185.65,1443.26]],["Lingga",17,6,0,[310.0,179.0,202.0,32.0,0.0,10.25,0.0,22.58,325.32]],["Kepulauan Anambas",17,6,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Batam",17,6,1,[0.0,1438.0,144.0,119.0,15.0,0.0,48.59,37.34,834.93]],["Kota Tanjungpinang",17,6,1,[0.0,0.0,0.0,6.0,0.0,0.0,0.0,0.0,43.6]],["Kepulauan Seribu",5,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.51,0.0,0.0]],["Kota Jakarta Pusat",5,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Jakarta Utara",5,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Jakarta Barat",5,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Jakarta Selatan",5,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Jakarta Timur",5,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Bogor",8,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,37.73,0.0,20.91]],["Sukabumi",8,1,0,[345.0,1768.0,37.0,478.0,9.0,42.68,439.97,105.49,433.36]],["Cianjur",8,1,0,[0.0,32.0,59.0,0.0,0.0,0.0,74.07,0.0,0.0]],["Bandung",8,1,0,[0.0,494.0,0.0,0.0,0.0,132.16,12.45,0.0,25.16]],["Garut",8,1,0,[241.0,679.0,0.0,0.0,0.0,1110.58,362.41,0.0,29.55]],["Tasikmalaya",8,1,0,[0.0,0.0,0.0,0.0,0.0,14.02,0.0,0.0,0.0]],["Ciamis",8,1,0,[0.0,21.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kuningan",8,1,0,[430.0,153.0,13.0,0.0,110.0,1206.66,102.53,0.0,8.53]],["Cirebon",8,1,0,[0.0,2228.0,0.0,0.0,57.0,531.02,119.93,69.87,74.19]],["Majalengka",8,1,0,[1540.0,1613.0,402.0,395.0,722.0,2717.31,863.28,776.34,406.76]],["Sumedang",8,1,0,[202.0,508.0,83.0,15.0,87.0,833.03,1217.09,78.45,319.69]],["Indramayu",8,1,0,[975.0,746.0,503.0,368.0,913.0,4009.33,1047.02,572.81,332.97]],["Subang",8,1,0,[370.0,1292.0,1181.0,43.0,82.0,783.23,219.71,0.0,206.46]],["Purwakarta",8,1,0,[0.0,20.0,0.0,0.0,2.0,129.28,18.85,7.69,0.96]],["Karawang",8,1,0,[0.0,0.0,32.0,0.0,0.0,0.0,0.0,0.0,7.94]],["Bekasi",8,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,5.85]],["Bandung Barat",8,1,0,[0.0,0.0,33.0,0.0,23.0,0.0,33.54,0.0,15.97]],["Pangandaran",8,1,0,[0.0,0.0,0.0,0.0,0.0,14.41,0.0,0.0,0.0]],["Kota Bogor",8,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Sukabumi",8,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.67]],["Kota Bandung",8,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Cirebon",8,1,1,[0.0,0.0,0.0,0.0,0.0,1.09,0.0,0.0,0.0]],["Kota Bekasi",8,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Depok",8,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Cimahi",8,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Tasikmalaya",8,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Banjar",8,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Cilacap",9,1,0,[0.0,527.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Banyumas",9,1,0,[0.0,8.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Purbalingga",9,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Banjarnegara",9,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kebumen",9,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Purworejo",9,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Wonosobo",9,1,0,[0.0,0.0,0.0,0.0,0.0,198.89,3.71,0.0,0.0]],["Magelang",9,1,0,[0.0,470.0,0.0,12.0,0.0,81.51,0.0,3.8,0.0]],["Boyolali",9,1,0,[0.0,250.0,1098.0,41.0,0.0,296.98,27.1,0.0,1.3]],["Klaten",9,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Sukoharjo",9,1,0,[0.0,211.0,0.0,0.0,0.0,249.02,86.27,14.52,39.69]],["Wonogiri",9,1,0,[0.0,327.0,0.0,0.0,0.0,406.5,414.04,1.56,257.41]],["Karanganyar",9,1,0,[36.0,0.0,0.0,0.0,0.0,58.26,1.59,0.0,0.0]],["Sragen",9,1,0,[0.0,174.0,5.0,0.0,0.0,497.15,80.91,206.15,100.05]],["Grobogan",9,1,0,[0.0,70.0,623.0,10.0,0.0,530.2,170.76,60.26,6.91]],["Blora",9,1,0,[0.0,685.0,152.0,0.0,0.0,2863.35,526.52,687.82,51.44]],["Rembang",9,1,0,[0.0,352.0,0.0,0.0,0.0,180.25,692.32,80.51,15.78]],["Pati",9,1,0,[0.0,21.0,0.0,0.0,0.0,1903.44,301.96,3.13,15.87]],["Kudus",9,1,0,[0.0,8.0,0.0,0.0,0.0,346.82,165.28,0.0,0.0]],["Jepara",9,1,0,[0.0,300.0,0.0,346.0,47.0,52.91,286.85,0.0,15.61]],["Demak",9,1,0,[0.0,159.0,5482.0,0.0,0.0,96.78,17.02,0.0,0.0]],["Semarang",9,1,0,[0.0,28.0,0.0,0.0,0.0,690.06,0.0,9.91,0.0]],["Temanggung",9,1,0,[0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0]],["Kendal",9,1,0,[0.0,238.0,0.0,28.0,0.0,81.99,323.71,41.32,0.0]],["Batang",9,1,0,[16.0,46.0,49.0,0.0,45.0,34.06,0.0,0.0,0.0]],["Pekalongan",9,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Pemalang",9,1,0,[57.0,203.0,41.0,16.0,14.0,241.55,145.95,192.65,321.39]],["Tegal",9,1,0,[219.0,479.0,21.0,48.0,0.0,215.31,205.19,30.44,73.57]],["Brebes",9,1,0,[0.0,224.0,44.0,98.0,1.0,940.56,277.61,40.21,48.95]],["Kota Magelang",9,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Surakarta",9,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Salatiga",9,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Semarang",9,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Pekalongan",9,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Tegal",9,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kulonprogo",4,1,0,[0.0,0.0,181.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Bantul",4,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,51.91,0.0,0.0]],["Gunung Kidul",4,1,0,[0.0,23.0,0.0,0.0,0.0,119.91,0.0,0.0,0.0]],["Sleman",4,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Yogyakarta",4,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Pacitan",10,1,0,[0.0,16.0,0.0,0.0,0.0,0.3,0.0,0.0,0.0]],["Ponorogo",10,1,0,[516.0,1953.0,1353.0,1445.0,0.0,4280.03,2810.19,390.34,76.97]],["Trenggalek",10,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.83,0.0,0.0]],["Tulungagung",10,1,0,[27.0,11.0,0.0,0.0,0.0,94.35,87.64,0.0,0.0]],["Blitar",10,1,0,[0.0,0.0,286.0,0.0,0.0,40.85,19.09,28.38,39.69]],["Kediri",10,1,0,[212.0,138.0,119.0,0.0,31.0,444.79,249.2,89.03,39.62]],["Malang",10,1,0,[0.0,781.0,0.0,0.0,68.0,1185.18,73.01,20.46,24.26]],["Lumajang",10,1,0,[0.0,2825.0,294.0,287.0,207.0,1322.28,252.56,315.09,641.85]],["Jember",10,1,0,[68.0,2292.0,29.0,751.0,13.0,714.23,674.86,355.29,305.12]],["Banyuwangi",10,1,0,[5.0,1222.0,2863.0,1026.0,396.0,2659.64,1810.95,1800.06,671.84]],["Bondowoso",10,1,0,[2795.0,1970.0,271.0,970.0,94.0,5285.14,1462.5,83.9,646.05]],["Situbondo",10,1,0,[1624.0,8057.0,2755.0,8186.0,1056.0,7994.24,5325.0,3106.5,5363.73]],["Probolinggo",10,1,0,[1828.0,332.0,350.0,188.0,52.0,3762.45,782.39,208.85,159.84]],["Pasuruan",10,1,0,[0.0,724.0,626.0,233.0,18.0,2749.38,453.53,176.43,79.56]],["Sidoarjo",10,1,0,[0.0,0.0,1136.0,0.0,15.0,195.87,213.23,385.82,0.0]],["Mojokerto",10,1,0,[0.0,262.0,1072.0,0.0,103.0,1045.43,354.74,155.39,35.01]],["Jombang",10,1,0,[0.0,47.0,1083.0,0.0,58.0,284.16,237.94,116.46,138.73]],["Nganjuk",10,1,0,[680.0,609.0,339.0,308.0,133.0,487.82,1616.22,1330.54,771.27]],["Madiun",10,1,0,[58.0,1048.0,468.0,338.0,0.0,223.82,1834.96,1175.69,147.11]],["Magetan",10,1,0,[103.0,1018.0,492.0,280.0,0.0,0.0,232.45,66.77,30.51]],["Ngawi",10,1,0,[827.0,10.0,0.0,47.0,0.0,1807.94,593.98,286.21,42.33]],["Bojonegoro",10,1,0,[0.0,0.0,155.0,1.0,0.0,4847.35,782.64,220.71,861.43]],["Tuban",10,1,0,[0.0,41.0,85.0,0.0,2.0,8048.85,317.04,11.36,21.03]],["Lamongan",10,1,0,[0.0,139.0,1596.0,926.0,0.0,356.14,299.29,57.51,272.26]],["Gresik",10,1,0,[0.0,0.0,1417.0,140.0,0.0,566.63,0.0,34.06,31.08]],["Bangkalan",10,1,0,[0.0,90.0,2143.0,294.0,53.0,322.71,3.24,104.67,114.27]],["Sampang",10,1,0,[0.0,0.0,86.0,39.0,0.0,0.0,0.0,0.0,5.38]],["Pamekasan",10,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,49.44,121.71]],["Sumenep",10,1,0,[31.0,27.0,122.0,0.0,81.0,310.57,461.3,96.96,194.63]],["Kota Kediri",10,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,8.39,0.0,0.0]],["Kota Blitar",10,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Malang",10,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Probolinggo",10,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.17,0.0]],["Kota Pasuruan",10,1,1,[81.0,0.0,0.0,0.0,0.0,0.0,0.0,1.15,0.0]],["Kota Mojokerto",10,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Madiun",10,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Surabaya",10,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Batu",10,1,1,[0.0,42.0,8.0,0.0,0.0,468.17,0.0,0.0,0.0]],["Pandeglang",2,1,0,[0.0,0.0,2.0,0.0,0.0,1.01,323.43,0.0,0.0]],["Lebak",2,1,0,[0.0,9.0,0.0,0.0,0.0,0.0,39.4,0.0,0.37]],["Tangerang",2,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.2]],["Serang",2,1,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,4.44,4.74]],["Kota Tangerang",2,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Cilegon",2,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Serang",2,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.97]],["Kota Tangerang Selatan",2,1,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Jembrana",1,0,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Tabanan",1,0,0,[0.0,0.0,0.0,0.0,0.0,4.81,0.0,0.0,0.0]],["Badung",1,0,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Gianyar",1,0,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Klungkung",1,0,0,[0.0,0.0,0.0,0.0,0.0,1.7,0.0,0.0,0.0]],["Bangli",1,0,0,[24.0,0.0,7.0,0.0,0.0,92.65,2.42,0.0,0.0]],["Karangasem",1,0,0,[0.0,39.0,6.0,0.0,0.0,1722.77,309.71,49.01,0.0]],["Buleleng",1,0,0,[990.0,334.0,16.0,3.0,0.0,189.34,4.23,44.07,108.28]],["Kota Denpasar",1,0,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Lombok Barat",21,0,0,[0.0,19.0,13.0,33.0,0.0,840.1,65.79,43.27,39.65]],["Lombok Tengah",21,0,0,[0.0,49.0,101.0,42.0,0.0,940.53,27.02,19.25,1.57]],["Lombok Timur",21,0,0,[55.0,1779.0,183.0,2153.0,180.0,1400.52,538.52,1098.77,566.16]],["Sumbawa",21,0,0,[1352.0,6840.0,11143.0,22694.0,13030.0,19016.25,9177.73,8560.38,4200.07]],["Dompu",21,0,0,[3447.0,20257.0,6933.0,20967.0,5520.0,14621.19,14709.23,7865.73,3597.8]],["Bima",21,0,0,[9560.0,30693.0,10482.0,50094.0,11692.0,29359.54,21249.4,9768.7,8578.58]],["Sumbawa Barat",21,0,0,[0.0,0.0,58.0,1551.0,39.0,258.14,137.65,222.14,268.1]],["Lombok Utara",21,0,0,[0.0,34.0,21.0,0.0,0.0,273.22,136.0,136.04,18.47]],["Kota Mataram",21,0,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Bima",21,0,1,[47.0,562.0,223.0,3639.0,106.0,6.92,148.39,120.45,136.06]],["Kupang",22,0,0,[0.0,9793.0,15103.0,12068.0,3021.0,6321.09,5859.73,6147.34,356.82]],["Timor Tengah Selatan",22,0,0,[53.0,1249.0,1128.0,1501.0,431.0,2390.41,210.96,1098.51,0.0]],["Timor Tengah Utara",22,0,0,[1249.0,3719.0,4571.0,2280.0,1581.0,4301.0,2179.38,2005.73,0.0]],["Belu",22,0,0,[65.0,150.0,544.0,319.0,52.0,29.76,640.96,869.67,6.72]],["Alor",22,0,0,[4720.0,15949.0,13223.0,20531.0,12127.0,16203.34,15587.05,22128.97,5.9]],["Flores Timur",22,0,0,[1945.0,4107.0,5071.0,4807.0,2365.0,4160.32,2848.64,3390.28,0.0]],["Sikka",22,0,0,[646.0,1136.0,1224.0,1969.0,1874.0,2237.28,2235.65,3021.75,26.33]],["Ende",22,0,0,[1933.0,1147.0,1959.0,2403.0,2392.0,2400.6,2124.93,2343.02,491.42]],["Ngada",22,0,0,[3679.0,3853.0,5489.0,10925.0,2027.0,5099.38,1926.87,2579.46,929.14]],["Manggarai",22,0,0,[7.0,0.0,0.0,56.0,301.0,175.61,273.08,25.0,0.0]],["Sumba Timur",22,0,0,[24213.0,61652.0,44100.0,42565.0,21944.0,34044.48,44989.98,48164.05,7533.18]],["Sumba Barat",22,0,0,[252.0,1592.0,1126.0,988.0,1128.0,400.72,2294.79,661.24,357.88]],["Lembata",22,0,0,[1348.0,3462.0,3197.0,6421.0,3784.0,7228.53,5708.58,6810.07,0.0]],["Rote Ndao",22,0,0,[0.0,740.0,816.0,904.0,474.0,860.46,183.51,173.65,135.39]],["Manggarai Barat",22,0,0,[189.0,724.0,807.0,2432.0,2090.0,1753.97,891.81,900.16,220.51]],["Nagekeo",22,0,0,[2249.0,5415.0,5112.0,6562.0,3307.0,3835.86,2653.53,3794.67,0.0]],["Sumba Tengah",22,0,0,[0.0,18526.0,6946.0,15235.0,8694.0,8256.92,16717.21,11453.49,7308.49]],["Sumba Barat Daya",22,0,0,[0.0,373.0,619.0,568.0,1208.0,766.11,2556.99,667.57,968.49]],["Manggarai Timur",22,0,0,[2054.0,3335.0,3337.0,4570.0,1655.0,1926.92,2845.81,1824.62,991.09]],["Sabu Raijua",22,0,0,[0.0,0.0,0.0,82.0,165.0,48.11,67.79,111.25,53.92]],["Malaka",22,0,0,[6.0,0.0,0.0,0.0,154.0,28.28,0.0,40.42,0.0]],["Kota Kupang",22,0,1,[4775.0,0.0,346.0,155.0,169.0,67.75,292.25,198.19,179.88]],["Sambas",11,2,0,[7054.0,4199.0,518.0,4261.0,3460.0,8369.71,2742.59,5004.03,2318.48]],["Mempawah",11,2,0,[0.0,0.0,881.0,1959.0,3343.0,2582.63,882.67,2695.33,6144.98]],["Sanggau",11,2,0,[752.0,2572.0,462.0,622.0,2196.0,7490.48,3286.68,2611.74,620.88]],["Ketapang",11,2,0,[19807.0,91388.0,1843.0,2929.0,4573.0,43561.91,2986.63,3948.85,12443.79]],["Sintang",11,2,0,[2229.0,6530.0,326.0,784.0,829.0,6359.8,2518.82,2315.9,139.82]],["Kapuas Hulu",11,2,0,[603.0,1291.0,208.0,245.0,269.0,2188.97,1210.74,1421.34,450.38]],["Bengkayang",11,2,0,[1612.0,1320.0,1233.0,478.0,701.0,2777.91,1674.73,1090.62,1596.15]],["Landak",11,2,0,[652.0,847.0,721.0,275.0,1744.0,5246.45,1732.8,964.09,853.68]],["Sekadau",11,2,0,[26.0,533.0,251.0,16.0,382.0,3916.46,410.2,1263.32,55.03]],["Melawi",11,2,0,[2052.0,10940.0,842.0,563.0,932.0,9736.63,3669.22,2045.36,172.21]],["Kayong Utara",11,2,0,[7139.0,14677.0,0.0,74.0,565.0,6351.25,547.83,499.38,4228.1]],["Kubu Raya",11,2,0,[22883.0,13565.0,357.0,8271.0,2475.0,12539.31,2383.06,2548.38,8614.31]],["Kota Pontianak",11,2,1,[609.0,378.0,5.0,83.0,107.0,14.79,66.51,46.33,295.29]],["Kota Singkawang",11,2,1,[61.0,547.0,0.0,31.0,263.0,712.16,42.15,248.14,377.76]],["Kotawaringin Barat",13,2,0,[1273.0,17631.0,136.0,403.0,67.0,6986.8,160.19,8.72,70.97]],["Kotawaringin Timur",13,2,0,[7974.0,17725.0,174.0,9.0,31.0,13876.39,179.1,685.93,851.39]],["Kapuas",13,2,0,[4660.0,42882.0,1542.0,249.0,421.0,38062.3,518.72,662.88,442.43]],["Barito Selatan",13,2,0,[2126.0,36287.0,1603.0,1791.0,207.0,10494.64,785.32,390.34,846.08]],["Barito Utara",13,2,0,[27.0,229.0,1877.0,94.0,69.0,832.46,942.86,533.13,119.53]],["Katingan",13,2,0,[1812.0,26906.0,303.0,65.0,134.0,8945.58,956.47,1210.96,507.17]],["Seruyan",13,2,0,[2596.0,31785.0,6.0,0.0,28.0,17288.95,251.35,207.92,696.85]],["Sukamara",13,2,0,[1190.0,12153.0,210.0,333.0,374.0,16432.9,927.07,89.05,3562.16]],["Lamandau",13,2,0,[0.0,127.0,145.0,134.0,70.0,658.08,78.44,78.69,201.01]],["Gunung Mas",13,2,0,[0.0,4541.0,38.0,4.0,21.0,1006.35,207.48,373.24,81.8]],["Pulang Pisau",13,2,0,[22348.0,95574.0,798.0,43.0,0.0,45701.12,4857.14,107.56,123.8]],["Murung Raya",13,2,0,[0.0,1240.0,780.0,348.0,125.0,474.08,1446.4,293.07,0.0]],["Barito Timur",13,2,0,[2343.0,10881.0,40.0,145.0,0.0,1244.65,123.27,154.52,14.24]],["Palangka Raya",13,2,0,[1084.0,19848.0,29.0,34.0,0.0,3892.15,26.08,7.98,117.03]],["Tanah Laut",12,2,0,[12509.0,18255.0,606.0,1581.0,18.0,31095.95,1189.38,667.66,2846.53]],["Kotabaru",12,2,0,[569.0,7565.0,269.0,287.0,156.0,2421.95,250.34,433.1,13.81]],["Banjar",12,2,0,[24390.0,22943.0,469.0,911.0,34.0,49529.82,896.88,2440.2,1629.82]],["Baritokuala",12,2,0,[6584.0,20927.0,675.0,53.0,212.0,22027.55,422.76,167.11,31.89]],["Tapin",12,2,0,[14619.0,19789.0,35.0,1131.0,3.0,26832.15,19.33,1221.25,597.12]],["Hulu Sungai Selatan",12,2,0,[26609.0,29587.0,1097.0,3194.0,0.0,33031.51,1465.22,5425.1,1594.67]],["Hulu Sungai Tengah",12,2,0,[973.0,2635.0,0.0,216.0,0.0,3390.38,146.95,419.74,513.05]],["Hulu Sungai Utara",12,2,0,[4360.0,8294.0,395.0,498.0,0.0,10710.36,194.53,618.76,324.93]],["Tabalong",12,2,0,[7.0,335.0,14.0,17.0,0.0,705.79,7.48,67.43,4.96]],["Tanahbumbu",12,2,0,[1940.0,0.0,0.0,0.0,0.0,3611.66,112.06,9.77,9.23]],["Balangan",12,2,0,[610.0,894.0,0.0,33.0,5.0,1040.33,186.61,210.6,26.76]],["Kota Banjarmasin",12,2,1,[0.0,88.0,0.0,0.0,0.0,103.46,0.0,0.0,0.0]],["Kota Banjarbaru",12,2,1,[5469.0,4644.0,457.0,703.0,0.0,5893.69,102.35,215.64,426.86]],["Paser",14,2,0,[2961.0,4014.0,33.0,97.0,0.0,6396.42,90.44,341.57,175.8]],["Kutai Kartanegara",14,2,0,[9055.0,29640.0,1951.0,466.0,54.0,19730.34,12084.63,2232.43,445.39]],["Berau",14,2,0,[827.0,7399.0,93.0,1301.0,124.0,4476.46,3019.76,2907.14,861.26]],["Kutai Barat",14,2,0,[10224.0,9883.0,319.0,145.0,71.0,6961.71,1594.54,808.33,341.61]],["Kutai Timur",14,2,0,[4622.0,16422.0,2290.0,683.0,108.0,1504.06,5335.24,3114.09,874.51]],["Penajam Paser Utara",14,2,0,[203.0,84.0,9.0,0.0,0.0,41.38,8.67,0.0,0.0]],["Mahakam Ulu",14,2,0,[0.0,1038.0,502.0,327.0,16.0,345.51,83.12,169.58,0.0]],["Kota Balikpapan",14,2,1,[0.0,0.0,0.0,10.0,0.0,0.0,0.0,0.0,0.0]],["Kota Samarinda",14,2,1,[0.0,0.0,0.0,0.0,0.0,3.1,16.5,0.0,0.0]],["Kota Bontang",14,2,1,[0.0,45.0,24.0,0.0,0.0,35.44,337.61,0.0,17.19]],["Bulungan",15,2,0,[438.0,7461.0,197.0,248.0,61.0,322.19,1442.94,666.13,210.0]],["Malinau",15,2,0,[71.0,268.0,1275.0,1248.0,291.0,407.42,661.59,1697.36,0.0]],["Nunukan",15,2,0,[61.0,391.0,172.0,13.0,7.0,53.39,180.74,128.06,185.59]],["Tana Tidung",15,2,0,[0.0,0.0,77.0,170.0,0.0,0.0,66.35,246.69,2.34]],["Kota Tarakan",15,2,1,[58.0,439.0,0.0,0.0,11.0,13.36,77.59,2.72,2.69]],["Bolaangmongondow",34,5,0,[0.0,1365.0,0.0,6.0,8.0,2.79,33.93,0.0,24.54]],["Minahasa",34,5,0,[10.0,67.0,24.0,29.0,13.0,103.27,0.0,0.0,6.24]],["Kepulauan Sangihe",34,5,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kepulauan Talaud",34,5,0,[0.0,0.0,0.0,0.0,4.0,0.0,0.0,0.0,0.0]],["Minahasa Selatan",34,5,0,[157.0,307.0,0.0,0.0,0.0,543.05,0.0,0.0,59.3]],["Minahasa Utara",34,5,0,[106.0,1333.0,108.0,498.0,383.0,670.49,527.88,0.0,38.42]],["Minahasa Tenggara",34,5,0,[45.0,105.0,0.0,10.0,0.0,816.8,1.03,0.0,9.02]],["Bolaangmongondow Utara",34,5,0,[0.0,1314.0,45.0,36.0,40.0,305.17,87.48,6.51,231.26]],["Kepulauan Siau Tagulandang Biaro",34,5,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Bolaangmongondow Timur",34,5,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Bolaangmongondow Selatan",34,5,0,[0.0,0.0,0.0,0.0,22.0,3.29,1.36,0.0,0.0]],["Kota Manado",34,5,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Bitung",34,5,1,[9.0,83.0,0.0,0.0,0.0,86.59,0.0,0.0,0.0]],["Kota Tomohon",34,5,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Kotamobagu",34,5,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Banggai",32,5,0,[90.0,2007.0,81.0,238.0,31.0,1163.75,341.04,239.48,228.58]],["Poso",32,5,0,[1858.0,3082.0,882.0,631.0,656.0,3061.09,571.97,2513.09,355.68]],["Donggala",32,5,0,[0.0,0.0,8.0,9.0,0.0,128.77,37.8,52.69,11.58]],["Tolitoli",32,5,0,[0.0,0.0,47.0,0.0,2.0,0.0,47.18,54.56,55.01]],["Buol",32,5,0,[83.0,1030.0,10.0,0.0,35.0,13.27,403.76,31.88,211.1]],["Morowali",32,5,0,[0.0,52.0,130.0,49.0,0.0,249.87,3.03,69.75,0.0]],["Banggai Kepulauan",32,5,0,[0.0,0.0,30.0,0.0,13.0,0.0,6.08,1.43,0.0]],["Parigimoutong",32,5,0,[49.0,10.0,77.0,89.0,55.0,68.69,5.56,60.74,144.36]],["Tojounauna",32,5,0,[368.0,2430.0,253.0,870.0,557.0,1638.59,1492.07,59.14,1043.65]],["Sigi",32,5,0,[253.0,362.0,225.0,88.0,173.0,219.96,127.93,294.45,8.24]],["Banggai Laut",32,5,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,14.92,0.0]],["Morowali Utara",32,5,0,[1446.0,2578.0,811.0,1161.0,2181.0,4293.77,1884.28,1186.2,1077.39]],["Kota Palu",32,5,1,[0.0,0.0,1.0,0.0,0.0,6.51,0.0,0.0,2.51]],["Selayar",31,5,0,[0.0,0.0,12.0,17.0,48.0,0.0,9.12,0.0,0.0]],["Bulukumba",31,5,0,[0.0,0.0,0.0,0.0,0.0,0.0,8.8,0.0,0.0]],["Bantaeng",31,5,0,[516.0,0.0,0.0,0.0,0.0,206.25,20.21,14.99,0.0]],["Jeneponto",31,5,0,[77.0,269.0,168.0,186.0,40.0,441.27,1185.68,704.9,1.69]],["Takalar",31,5,0,[116.0,2909.0,342.0,449.0,571.0,2751.15,1489.77,621.36,0.0]],["Gowa",31,5,0,[672.0,923.0,47.0,0.0,3.0,480.67,169.17,758.13,0.0]],["Sinjai",31,5,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Bone",31,5,0,[34.0,3872.0,413.0,0.0,0.0,351.96,126.48,194.26,64.22]],["Maros",31,5,0,[15.0,295.0,340.0,0.0,13.0,63.97,13.59,0.0,0.0]],["Pangkajene Kepulauan",31,5,0,[0.0,198.0,0.0,0.0,13.0,7.45,0.0,0.0,0.0]],["Barru",31,5,0,[3.0,24.0,0.0,0.0,0.0,65.19,12.5,93.6,23.0]],["Soppeng",31,5,0,[0.0,373.0,0.0,0.0,3.0,0.0,0.0,92.71,0.0]],["Wajo",31,5,0,[0.0,1457.0,0.0,0.0,31.0,321.1,3.88,68.71,683.19]],["Sidenreng Rappang",31,5,0,[0.0,887.0,290.0,0.0,10.0,45.09,66.76,153.18,526.0]],["Pinrang",31,5,0,[74.0,1372.0,119.0,157.0,2.0,291.62,59.37,422.53,83.9]],["Enrekang",31,5,0,[0.0,44.0,0.0,0.0,0.0,35.38,0.0,6.94,0.0]],["Luwu",31,5,0,[0.0,87.0,39.0,0.0,5.0,41.95,2.48,46.49,2.38]],["Tana Toraja",31,5,0,[43.0,1461.0,5.0,0.0,31.0,750.18,0.1,0.0,7.55]],["Luwu Utara",31,5,0,[0.0,886.0,90.0,106.0,107.0,262.56,163.28,196.65,86.89]],["Luwu Timur",31,5,0,[171.0,588.0,38.0,1.0,120.0,327.0,136.25,163.83,10.18]],["Toraja Utara",31,5,0,[0.0,45.0,0.0,0.0,0.0,18.28,0.0,0.0,0.5]],["Kota Makassar",31,5,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Pare-Pare",31,5,1,[19.0,6.0,0.0,0.0,0.0,28.18,55.46,0.0,0.0]],["Kota Palopo",31,5,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.94,0.0]],["Kolaka",33,5,0,[245.0,483.0,12.0,183.0,98.0,1219.08,255.64,75.34,235.79]],["Konawe",33,5,0,[454.0,1095.0,458.0,95.0,196.0,969.19,32.54,219.29,63.58]],["Muna",33,5,0,[144.0,1798.0,103.0,160.0,7.0,396.06,80.52,0.0,1.9]],["Buton",33,5,0,[95.0,3228.0,52.0,7.0,25.0,844.86,139.02,74.64,0.0]],["Konawe Selatan",33,5,0,[651.0,1267.0,335.0,455.0,182.0,2227.39,149.95,575.99,258.5]],["Bombana",33,5,0,[4871.0,5084.0,1439.0,918.0,2000.0,10217.32,639.81,4137.19,1905.64]],["Wakatobi",33,5,0,[0.0,0.0,220.0,13.0,134.0,71.62,14.67,0.0,20.08]],["Kolaka Utara",33,5,0,[0.0,35.0,0.0,0.0,0.0,167.87,0.0,0.0,0.0]],["Konawe Utara",33,5,0,[579.0,2012.0,157.0,254.0,382.0,1225.1,37.03,1908.78,63.73]],["Buton Utara",33,5,0,[0.0,1178.0,0.0,0.0,18.0,6.18,20.36,12.24,1.32]],["Kolaka Timur",33,5,0,[1546.0,695.0,13.0,0.0,0.0,933.58,9.35,31.22,61.9]],["Konawe Kepulauan",33,5,0,[0.0,54.0,0.0,0.0,0.0,0.0,5.71,0.0,0.0]],["Muna Barat",33,5,0,[0.0,0.0,202.0,11.0,24.0,184.12,27.85,0.0,89.19]],["Buton Tengah",33,5,0,[0.0,0.0,48.0,8.0,0.0,28.07,164.78,0.0,16.39]],["Buton Selatan",33,5,0,[0.0,0.0,164.0,19.0,0.0,239.42,0.0,16.56,17.46]],["Kota Kendari",33,5,1,[0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Bau-Bau",33,5,1,[9.0,0.0,0.0,0.0,33.0,6.6,52.51,0.0,0.0]],["Gorontalo",6,5,0,[0.0,28.0,0.0,25.0,13.0,107.01,199.25,18.6,111.53]],["Boalemo",6,5,0,[29.0,489.0,0.0,128.0,84.0,237.13,446.49,0.0,142.53]],["Bone Bolango",6,5,0,[0.0,0.0,0.0,7.0,0.0,12.53,24.91,2.35,8.93]],["Pahuwato",6,5,0,[0.0,122.0,5.0,0.0,4.0,42.24,23.74,2.92,0.0]],["Gorontalo Utara",6,5,0,[130.0,1271.0,75.0,3.0,0.0,267.43,72.65,65.99,192.96]],["Kota Gorontalo",6,5,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Pasangkayu",30,5,0,[0.0,0.0,0.0,0.0,13.0,77.36,27.17,33.42,47.45]],["Mamuju",30,5,0,[864.0,2316.0,299.0,635.0,353.0,1163.24,592.86,608.46,593.97]],["Mamasa",30,5,0,[0.0,483.0,90.0,23.0,3.0,34.37,52.95,9.69,0.0]],["Polewali Mandar",30,5,0,[22.0,0.0,140.0,32.0,8.0,366.33,61.38,172.25,87.39]],["Majene",30,5,0,[0.0,0.0,34.0,2.0,15.0,166.24,48.45,44.07,37.17]],["Mamuju Tengah",30,5,0,[92.0,231.0,6.0,193.0,94.0,324.78,211.92,211.53,99.62]],["Maluku Tengah",19,3,0,[283.0,420.0,175.0,102.0,415.0,999.07,322.22,59.94,171.45]],["Maluku Tenggara",19,3,0,[166.0,0.0,0.0,0.0,0.0,1896.68,20.57,0.0,13.08]],["Kepulauan Tanimbar",19,3,0,[0.0,0.0,0.0,0.0,6880.0,11502.62,6301.3,11378.95,3011.62]],["Buru",19,3,0,[2455.0,3880.0,455.0,265.0,1573.0,10229.44,866.56,435.57,4978.01]],["Seram Bagian Timur",19,3,0,[0.0,7483.0,69.0,0.0,61.0,2312.22,14.15,0.0,505.82]],["Seram Bagian Barat",19,3,0,[0.0,527.0,79.0,107.0,121.0,750.62,93.83,14.47,866.21]],["Kepulauan Aru",19,3,0,[9540.0,729.0,710.0,936.0,2226.0,9396.42,1372.79,1564.36,2133.86]],["Maluku Barat Daya",19,3,0,[1174.0,6726.0,4558.0,2106.0,2097.0,5778.8,2558.7,7964.76,96.43]],["Buru Selatan",19,3,0,[381.0,2727.0,244.0,968.0,1617.0,2801.83,1835.92,517.92,2893.27]],["Kota Ambon",19,3,1,[0.0,0.0,86.0,0.0,0.0,0.0,18.79,0.0,2.73]],["Kota Tual",19,3,1,[9.0,0.0,0.0,0.0,0.0,331.68,0.0,0.0,4.52]],["Halmahera Barat",20,3,0,[11.0,90.0,4.0,9.0,9.0,43.81,0.0,9.17,17.32]],["Halmahera Tengah",20,3,0,[30.0,179.0,2.0,5.0,0.0,2.74,0.0,0.0,74.01]],["Halmahera Utara",20,3,0,[0.0,1063.0,0.0,26.0,58.0,102.39,0.0,12.87,114.83]],["Halmahera Selatan",20,3,0,[0.0,681.0,0.0,0.0,10.0,106.4,2.07,0.0,36.79]],["Kepulauan Sula",20,3,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.24]],["Halmahera Timur",20,3,0,[0.0,674.0,0.0,33.0,78.0,238.61,68.53,0.0,150.98]],["Pulau Morotai",20,3,0,[29.0,36.0,23.0,34.0,17.0,48.23,31.97,5.49,173.81]],["Pulau Taliabu",20,3,0,[0.0,58.0,30.0,0.0,0.0,0.0,0.0,0.0,17.47]],["Kota Ternate",20,3,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Kota Tidore Kepulauan",20,3,1,[851.0,4718.0,0.0,0.0,0.0,0.0,0.0,0.0,3.19]],["Jayapura",24,4,0,[24.0,46.0,396.0,161.0,253.0,291.9,500.33,164.39,442.21]],["Kepulauan Yapen",24,4,0,[0.0,0.0,4.0,0.0,0.0,1.89,0.0,5.45,4.79]],["Biak Numfor",24,4,0,[0.0,0.0,5.0,5.0,0.0,283.16,1.86,0.79,0.0]],["Sarmi",24,4,0,[0.0,0.0,1.0,6.0,0.0,0.0,0.0,0.0,2.29]],["Keerom",24,4,0,[0.0,55.0,159.0,0.0,556.0,0.0,0.26,6.83,31.96]],["Waropen",24,4,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Supiori",24,4,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Mamberamo Raya",24,4,0,[0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0]],["Kota Jayapura",24,4,1,[0.0,6.0,71.0,6.0,60.0,27.06,41.75,22.28,63.36]],["Manokwari",23,4,0,[0.0,0.0,0.0,28.0,130.0,21.25,59.41,7.99,30.98]],["Fak-Fak",23,4,0,[0.0,3.0,2652.0,0.0,745.0,49.21,0.0,980.54,2171.05]],["Telukbintuni",23,4,0,[154.0,1193.0,98.0,0.0,314.0,30.02,0.0,240.18,223.5]],["Telukwondama",23,4,0,[0.0,0.0,0.0,0.0,4.0,34.72,58.48,0.0,0.0]],["Kaimana",23,4,0,[260.0,0.0,0.0,0.0,0.0,28.93,28.69,0.0,0.0]],["Manokwari Selatan",23,4,0,[83.0,0.0,6.0,0.0,80.0,27.04,32.49,0.0,34.35]],["Pegunungan Arfak",23,4,0,[13.0,0.0,22.0,0.0,25.0,67.87,19.78,0.0,36.51]],["Merauke",27,4,0,[87315.0,107453.0,26528.0,13934.0,4776.0,0.0,26942.24,8079.98,25035.87]],["Boven Digoel",27,4,0,[994.0,0.0,0.0,0.0,8.0,0.0,13.68,0.0,0.0]],["Mappi",27,4,0,[56.0,11.0,217.0,177.0,194.0,0.0,222.99,27.93,784.45]],["Asmat",27,4,0,[0.0,124.0,43.0,3.0,0.0,0.0,3.28,0.0,18.21]],["Nabire",28,4,0,[0.0,47.0,23.0,0.0,6.0,0.0,3.85,8.35,39.15]],["Puncak Jaya",28,4,0,[0.0,0.0,128.0,135.0,339.0,0.0,14.91,153.66,119.23]],["Paniai",28,4,0,[0.0,0.0,276.0,0.0,40.0,0.0,65.65,4.42,1220.29]],["Mimika",28,4,0,[0.0,0.0,35.0,0.0,0.0,0.0,0.0,0.0,0.0]],["Puncak",28,4,0,[0.0,0.0,13.0,0.0,17.0,0.0,4.86,6.37,118.87]],["Dogiyai",28,4,0,[151.0,72.0,0.0,0.0,223.0,0.0,2.77,69.38,919.5]],["Intan Jaya",28,4,0,[0.0,0.0,0.0,0.0,39.0,0.0,11.98,0.0,38.39]],["Deiyai",28,4,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,64.45]],["Jayawijaya",26,4,0,[0.0,171.0,102.0,642.0,873.0,0.0,295.89,256.87,1100.0]],["Pegunungan Bintang",26,4,0,[0.0,0.0,28.0,18.0,84.0,0.0,25.45,28.08,12.11]],["Yahukimo",26,4,0,[0.0,35.0,12.0,63.0,90.0,0.0,15.25,7.85,65.36]],["Tolikara",26,4,0,[29.0,23.0,86.0,423.0,372.0,0.0,59.86,59.54,121.14]],["Mamberamo Tengah",26,4,0,[7.0,19.0,19.0,61.0,61.0,0.0,24.62,66.93,22.74]],["Yalimo",26,4,0,[0.0,0.0,9.0,2.0,0.0,0.0,0.0,0.0,0.0]],["Lanny Jaya",26,4,0,[52.0,48.0,123.0,340.0,345.0,0.0,38.21,237.94,360.08]],["Nduga",26,4,0,[0.0,0.0,0.0,0.0,0.0,0.0,2.26,14.86,0.0]],["Sorong",25,4,0,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,33.09]],["Sorong Selatan",25,4,0,[0.0,29.0,1067.0,0.0,0.0,0.0,0.0,0.0,30.56]],["Rajaampat",25,4,0,[0.0,0.0,0.0,0.0,0.0,5.57,0.0,0.0,27.87]],["Tambrauw",25,4,0,[0.0,309.0,439.0,49.0,436.0,0.0,28.42,189.12,588.35]],["Maybrat",25,4,0,[0.0,0.0,1433.0,0.0,4.0,0.0,0.0,0.0,8.36]],["Kota Sorong",25,4,1,[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,28.47]]]};window.__MAP__={"viewBox":"0 87 2379 864","geo":[{"id":"ac","d":"M110 276l0 0-3-3-3-4-3-1-2 0-1-1 1 0 3-1 6 0 2 4 1 3 0 2-1 1z m-83-183l8 4 0 2 1 1 3 3 6 5 2 1 12 3 12 0 6-1 7-2 1 0 2 1 5-1 3 0 5 2 1 1 1 3 2 0 2 0 12-5 2 0 2 3 4 4 6 7 5 4 3 1 3 5 0 5 2 3 1 2 0 2 2 0 3 1 2 1 6 5 1 4-1 2 0 0-2 1-2-1-2 1-1 1 0 0-2 1-1-1 0 1 0 2 0 1-1 0 1 2-2 2 0 3 0 1-1 4-4 2 0 1 0 1-2-2 0 0 0 1 1 3-1 1-4 3-1 2 1 3 1 1 0 1 1 1 0 2 2 1 1 2 1 2-1 1 1 2 0 1 2 2 1-1 1 2-1 3-7 2 1 0 1 1 2 1 0 2 2 2 0 3-2 0-1 0 1 1 0 2 1 2 0 4 2 0 2 3 3 1 0 1 1 0-1 2-1 1 1 2 1 2 0 0-1 1-1 4 0 3 2 2-1 2 3 1 1 5-1 8 0 0-11-6-1 0-3 2-6-2-5-7 0-12-1-6-2-6-1 0-2 0-5-2-1-1-2-2-4-5-1-6-2-2-4-2-5-7-4-7-4-2-1-2-1-3-5-4-8 0-4 0-2 0-2-1-5-5-5-8-5-6-3 0-3-3-3-2-4-3-6-7-8-8-7-5-6-9-7-14 1-2 0-1-4-5 1-7-1-4 0-4 3 0 6-5 2 0 8 2 7 2z"},{"id":"ba","d":"M1058 837l-2 0-3-2-3-2 1-1 2-2 1 0 3 0 0 0 2 4 0 1-1 2z m-58-37l1 0 1 2 1 0 2-1 10 3 6 1 5-1 2 0 5-5 3-1 1 0 13 5 6 4 4 5 4 2 0 1 0 1-1 1-4 4-6 3-3 1-3 0-3 2-3 2 0 3-4 2 2 2 0-1 1 2-1 2-4 0-3 0 0-1 2-2 2-1-1-1 1-2-1-1-4-5-8-6-2-2-5-2-4 0-6 0-8-9 0-6 0-1 2 0z"},{"id":"bb","d":"M606 537l-2 1-1-1-5-3 1-2 3-2 5 3 0 1-1 3z m49-25l13 4 9 7 2 5-5 8 0 6-5 2-1 4-5 1 0-1-1-4-5-5-1 0-1 1 1 2-1 2-1 1-9 3-1-1-2-11 2-5 0-6 1-2 0-3 1-5 0-2 3 0 3 0 3-1z m-90-39l2 4 2 4 0 5 1 6 3 8 1 4 2 3 3 2 1 0 12 3 9 3-2 1-4 4-3 9-1 3 1 1 2 2 1-1 3 2 0 4-1 1-10 0-4-6-8-4-7-2-3-1-5-1-1-1-3-4-1-4 0-2 2-4 0-3-2-2-2 0-2-3-1-10-1-1-2-2-14-1-3 1-4 0-11-3-1-2 2-4 1-1 6-3 5-3 1-1 0-2-1-1-2-2 0-2 2-3 4-2 6-2 1 0 3 6 0 5 3 2 4 1 1 0-5-13 2-1 7-2 1 0 6 4 1 2-1 2 1 2 3 5z"},{"id":"be","d":"M356 524l0 2 3 1 0 2 3 2 0 1 2 0 0 4 2 2 2 0 1 1 3-1 3 1 2 2 1 2 0 4 0 0 0 1 5 5 2 0 0 1 3-2 2 0 3-1 1 0 0 1 1 1 1 0 1 1 2-1 0 0 0 2 0 1 3-1 2 0 1 1-1 1 0 3 0 3 0 0-1 0-1 3-2 2-1 0-1-2-1-2-2-1 0 0-1 5-1 0-2 3 0 3-4 2-1 1-2 0 3 1 1 1 0 1 3 2 2 3 2 1 3 1 2-1 1 0 1 2 0 0 4 0 3 0 1 1 1 0 1 4 2 2 0 5 6 1 1 2 2 1 2 0 2 0 1 0 1 2 2 1 3-1 2 0 0 2 1 2-2 2-1 1 3 3-2 2 3 0 1 2 1 1 1 3-1 1 1 0 2 1 1 0 1 2 0 1 0 0-1 0 0 0 0 0-2 0-1 2-1 1-2 0-1 2-1 0-1 1 0 0-2 0-2-2-1 0-3-1-1 1-1-1 0 0 1-1-1-1-1-1-1 0-1 1-1-1-1-1 1-1-5-5-9-6-8-3 0-1-2-3-3-2 0-1-11-8-2-2-14-10 0 0 0-4 1 0 0-1-2-5-1-5-7-5-6-4-4-1 1-1-17-12-4-6 0-1-1-1-1-1-1-2-1-1-3-5-4-9-9-5-4-5-2-3 0 0 5-3 1-1 3-1 2-2 3-3 0 0 0 0 0 0 14 9-1 6 0 0 1-1 2-1 0 1 2-1 0 0 2 0 1 2 4 4 1 1 1 1 1 0 1 2 3 0 4 0 2 1 1 1 0 0z"},{"id":"bt","d":"M597 696l-1 1 0 3 1 1 0 2 2 0 0 2 1 3 0 0 0 0 0 0 0 2-9 0-1-1-3-1 0 0 1 1 0 0-2 1-1-2-1-1-2 2 2 4-1 1-2 1 0 3 1 3 0 6 0 1 1 0 1 1 1 0 2 2-2 1 0 0-2 2-1 2-2 2 1 1-1 1 1 2 0 0-2 1-3 0 0-1-2 0 0-1-1 0 0-1-3-2-2 0-1-1-2 0-2-3-1 0-5-1-9 2-4 0-6 1-2 0-2 0-1 0-2-1-1-1 0 1-1 0 1 0-2-2-4 0 0 0-1 1-1 1-1 0-1-3 0-1-1 0 0-1 3 0 1-1 2-2 0-1 2-1 2 4 0 0-1 0 2 1 1 2 0 1 1 1 1 0 1-2 0-3 4-2 0-2 1 0 1-1 1-3-1-2 2-3 1-1 0 2 0 1 1 0 1 1 3-1 2-3 1-2 0-9 2-7 1 0 0-2 2-2 1-1 2-2 1-2-1 0 3-3 2 0 2 2 0 4 3 1 0 1 3-1 1-1 0-2 1 0 2 1 1 0 0 0 2-1 0 1 1 0 0 1 1 1 1 1 1 0 3 0 2-1 1 1 3-1 1 0 1 0 1 0 2 1 0 1z"},{"id":"go","d":"M1400 329l2 0 7 0 5 1 11 3 0 1 9 5 4-2 2-3 8-2 0 0 0 3 2 1 3 1 2 2 0 1 0 3 2 1 4 3 6 1 2 2 1 2-1 4 0 3-2 4-1 3 0 0-6 0-5-1-4-4-2-3-3-3-2 1-4 1-25-1-6 0-9 1-7-1-1 1-2 1-5 1-5 0-5-5-9-1 0 1-1 2-1 1-8 1 0 0 1-2-1-4-2 0-3-1-2-3-1-1-1-1 1 0 0-4 1-1 3-1 3 1 2 0 0-3 1-1 2 1 4 1 2-2 4 0 6-3 4 0 2-2 3-1 1 3 2 1 1 1 1-1 0-2 1 0 2-2 1 0z"},{"id":"ja","d":"M482 467l-4-2-2 1-1 0 0 1 0 2-1 2-3 0-3 0-2 1-5 1-3-1-2 0-2 1-3-2-1 0-2 1-1 2-5 0-6 3-4 2 0 3 0 2 0 1-1 1 0 4 2 2-2 1-3 1-1 1 1 5-1 1 1 2-1 0 0-1-2-1-1-1-2-2-1-1-2-2 0-2-1-1-1 0-1 0-1 2-1 0 0 1-1 2 2 2 0 2-4 2-4-1 0-1 0 0-1 1-6-1-2 0-2 2 2 3-2 1-3 5-1 2-1 0-1-1-2 2-3 1 0 1 0 1-2 2-2-1-1 1-2 1 0-1-2 0-2 0-2-2-2-1 0 1-1 0-3-2-1 1-1 2-1 2-2 0-1 1-2 0-1 2 0 0-2 0 0 0-1-1-2-1-4 0-3 0-1-2-1 0-1-1-1-1-4-4-1-2-2 0 0 0-2 1 0-1-2 1-1 1 0 0 1-6-14-9 0 0 0-2 0 0 0-5-2-5-1-2-2-1-1-1-1-2-1-1 0-1-1-11 0 0 2 1 0-1 1 0 2 2 2-1 3 0 1-1 2 0 2 0 1 1 3-1 4-6 6-3 2-4 0 0-2-1 0-1 2-1-2-5 2-2 2 0 1-1 2 0 2-3 1-3 0 0-1 1-2-2 1-2-1 0 0-3 0 0 0 0 0 0 2 0 0-1 2 0 1-2 2-1 0 0 1-1 1 0 1 0 2 1 1-1 3 2 1-1 1 0 1 1 0 1 1 0 1 0 3-1 1-1 1 3 3 1 0 2 4 1 1 2 2 0 3 1 2 0 2 1 1 0 1-2 2 0 2-3 1-1 0-1 7-5 2-3 3-4 3 0 3 0 11 2 1 1 2-2 4 0 0 0 1 1 3 1 2 4 3 2 3 1 2 2 3 0 2 1 2-1 0 1 4-1 8 2 6 2 6-2 1 0 3 5-1 5 0 2 3 4 0 3-1 6 1 5z"},{"id":"jb","d":"M617 688l2 2 2 0 6-1 3 1 3 3 3 6 5 2 3 0 3 3 1-1 1 0 1 0 4-2 2 0 0 1 2-1 1 1-1 0 0 1 3 1 5 3 4 1 3-1 2-2-1-1-1-1 1 0 1 1 4 0 2 1 0-1 1 0 1 1 0 1 0 1 1 2 4 5 4 2 0 4 0 2 1 5 2 4 2 0 1-1 1 1 0 2 4 0 3-1 0-1-1 0 0-1 2 0 0 0 0 4-2 3-1 0-1 2 0 1 0 2 2 1 0 1-1 1 1 1-1 1 0 1-1 1-2 0-1 2-2 0-1-1-1 0-3 2 0 1 1 1 0 2-1 2 0 2 0 0 1 1 4 0 1 1 0 2 2 2 0 1 0 1 1 1 1 3 0 2-1 1 2 2 1 1 0 0-2 1-1-1-2 0-2 1 0 1 1 1 0 0-1-1-1-1-3 0-3 0-1 1 0 4-2 1-1 1-6 0-13-3-5-1-4-1-3 0-1 0 0-1-1-1-2-1-4 0-1-3-4-2-6-3-1 0-4-1-8-1-6-1-29-2-2-1-2-1-2-1-2 0 0-1-1-3 0-2 1-3 3-1-1-1 1-1 1-2 1 0 2-3 0-2-1-2-4 0-1 0-1 1 0 0-1-2 1-1-1-1 2-2 1-2 2-2 0 0 2-1-2-2-1 0-1-1-1 0 0-1 0-6-1-3 0-3 2-1 1-1-2-4 2-2 1 1 1 2 2-1 0 0-1-1 0 0 3 1 1 1 9 0 0-2 0 0 0 0 0 0 2-1-1 2 1 1 2-1 3 2 0 0 1-3-1-1 0-2 2-1 1-2 0-6 0 0 2 0 0-1-1-1 2-1-1-1 0 0-1-1 1 0 1-2-1-1-1 0 0 0 2-1z"},{"id":"ji","d":"M939 818l2 1 3 0 1 1 0 1-3 0-3 0-2 0 0-2 1 0 1-1 0 0z m128-69l2 0-1 1 1 1 2 0 0 0 1 0 0 0 0-1 1-1 0 0 1-1-1 5 0 1-3 0-4-2 0-1 1-1-1-2 1 0 0 1z m-71 3l-1 0-2 0-3-2-1-2 1-1 3-1 1 1 2 4 0 1z m65-11l1 1 1 2-2-1-2 0-1 0 0-1-1 0 0-1 0-1 4 1z m-86-4l6 3 1 2-2 0-1 1-2 0-3 1-2 1-1-1 0 0 1 1 2 2 4 0 1 2-5-1-2-1 0-1-1-1-2 2 0 0 0 1 0 0 1 1-1 1-10-1-2 1-1 0-2 0-1 1-1 4-2 1-1 0 1-1-1 0-2 0-9-1-1 1-4 0-1-2-1 1 0-1 1-1-1-1-1 2 0 1 1 1-3 0-10-3-2-1-4 0-1 1-2 0-2-1 1-3-1 0-1-2 1-1 2 0 3-3 2-3 0-1 3-1 5 0 2 0 5 0 17 0 3 1 11-1 3 0 8-1 4 1z m67-3l7 1 3 1 4 2 1 1-1 2-2 0-1 0-1-2-3 1-1-1-2 0 0 0-2 0 1 1 2 1 1 1-4 1 0-1-1 0-1 0 1 1-1 0-2-1 1-2-1 0-2 0-1-1 1-2 1 0 1-1 0-1-1 0 0-1 1 0 2 0z m-184-3l1 0 3 2 2 0 3-1 2-1 1 0 3 6 2 0 2 1 3 0 3-2 2 1 3-1 4 0 1 0 2 0 1 2 2 0 1-1 0-1 1-1-1-1 2 1 0 0 0 1 1 1 1 0 0 1 0 1-1 0 0 0 1 4 2 1 0 2-1 1 0 2 2 2 0 1-1 1 0 1 1 0 2 1 1-2 2 0 1 1 1 2 2 2 0 1 0 1 0 0 0 4 0 4-1 0 1 2 1 0 1 1-1 2 1 0 1 2 2 1 1-1 1 1 1 1 1 0 2 0 2 2 4 3 2-1 2 1 2 2 1-1 1 0 2 0 1-2 2 0 5-2 2 1 2 0 4 1 2-1 2 1 1 0 2 0 1-2 2-1 3 1 4-3 2-1 2 1 2 4 0 0 5 0 2-1 2 3 5 0 3 2 1 2 0 3-2 2 1 4 0 3-2 3 0 2-1 2 0 2-1 2-1 7 0 2 1 2 0 2 0 1 1 0 0-3 0-1 0-1 1 1 0 1 0 2 0 2 1 3 2 1 1-1 2 2 3 0 2 3-1 3-1 0-2 1-5-2-3 0-2 0 0-1 1 0 1-1-1-2-1-2-4-2-2 0 0 1 0 1-1 1-5-2-4 1 0 0 0-2-1 0-1 0 0 1-2 0-1-1 1 0 1-1-1-1-1 0-1 1-2-1-2 0 0-1-1 1-1 0 0-3 0 0-2 0-1 1 0 0-1 0-1 1 0-1 1-1-1-1-1 1 0 0-1 0-2-3-2 0-1 0 0 0 0-1-1 1-1-1-3-1 0-1-1 0-2 0-2 1-1-3-1-1-3-2-3 0-2-1-8 2-3 2-1 1-2 2-11 1 0 2-1 0-3-2-4-1-6 0-1-1-1 0-3-2-2-1-2 1-2 0-1-1-8 0-1 0-1-1-2-1-2 0 0 0 0 1-2 0-2-2-1 0 0 1-2-1 0 0-1 0 0 3-1 1-1 0 0-1 0-2-1 0-1 1 1 1-1 0 0 1 1 1 0 0-2 1 0 0-1-1-2 0 0-1 0-1-1 0 0 0-1 0 0 1-1-1 0-1-1 0-1 2-4-1 0-3-1 0-2 1-8-2-1 1-4 1-2-2 0-1-1 0-1 1-3 0-5-2 0 0-1-2 1-3 2-2 4 0 2-1 2 1 1-3 0-3 1 0 0-1 0-1 2 0 0 1 2-1 1 1 0 0 2-2 1-2 1-1-2-4 0-1-3 0-2-2 0-1 0-3 1-1-2-2-1-2 0-2-1-1-1-3 2-3 0-2 0-1 0 0 0-2 0-1 1 1 2-1 0 0 1 0 1 1 3 2 3 1 3 1 1 1 1 0 0 0-1-1 1-2-2 0 2-2 0-1 1 0 0 0 1 0 2-1 2-2 2-4 0-2 1-1-1-2 1-2-3-2 1-1 1-1 1-4 2 0 0-1 0-2 1 0 0 0 1-1 0 0 1 1 1 0z m50-54l1 1 0 0 1 2-1 2-2 2-2-1 0 0-1 1-2 0-1-2 1-3 1 0 0-1 1-1 1 0 1 0 1-1 1 1z"},{"id":"jk","d":"M522 719l-1 1 1 2-1 2-2 1-1 1-1 0 1-2 0-1-1-1 0-1-1 0-1 2 0 1-1-1 1-2 3-2 1 0 0 0 2 0 0-1 1 1z m77-23l5 1 2-1 4 0 0 0 0 6-1 2-2 1 0 2 1 1-1 3 0 0-3-2-2 1-1-1 1-2-2 1 0 0 0 0 0 0-1-3 0-2-2 0 0-2-1-1 0-3 1-1 0 0 2 0z"},{"id":"jt","d":"M856 730l-1 1-1 0 0 0 0 2 0 1-2 0-1 4-1 1-1 1 3 2-1 2 1 2-1 1 0 2-2 4-2 2-2 1-1 0 0 0-1 0 0 1-2 2 2 0-1 2 1 1 0 0-1 0-1-1-3-1-3-1-3-2-1-1-1 0 0 0-2 1-1-1 0 1 0 2 0 0 0 1 0 2-2 3 1 3 1 1 0 2 1 2 2 1-1 2 0 3 0 1 2 2 3 0 0 1 2 4-1 1-1 2-2 2 0 0-1-1-2 1 0-1-2 0 0 1 0 1-1 0 0 3-1 3-2-1-2 1-4-1-2 3-1 3 1 2 0 0-4 0 0 0 0-2 0 0-1 0 0 0 1-2-1 0-1 1-1 0 1-2-2-5 0-2 0-3 1-3 0-2 0-1-1 1-1-1-1-1-1 1-1 0-1-1 0 1-1-1-3 1-1-1 0 0-1 0-2-1-1 0-2-12-7 6-2 2-1 0 0-2 0 0-1 0-4-1-2 1 0 1 1 1-1 3-1 1 0 1-1 1-1 1-1 3-2 0 0 0-5-2-11-3-10-1-1-1-4 1-1-1 0-1-5-2-10 0-2 0-2 1 0 1 0 1 0 1 1 0 0 0 0 1-11-3-2 1 0-1 0-1 0 0 0-1 2 0 0-1 2 0 0-1-1 0-3 1 0 0-1-1-2-2 1-1 0-2-1-3-1-1 0-1 0-1-2-2 0-2-1-1-4 0-1-1 0 0 0-2 1-2 0-2-1-1 0-1 3-2 1 0 1 1 2 0 1-2 2 0 1-1 0-1 1-1-1-1 1-1 0-1-2-1 0-2 0-1 1-2 1 0 2-3 0-4 0 0 0 0 0 1 1 0 1 2 4 1 1-1 1 0 2-2 1 1 1-2 1 3 2 2 2 0 2 1 3 0 3 0 1 0 2 0 3-1 3-2 2-1 3 3 4 0 11 4 3-1 2 1 2 0 7-3 1 0 1-1 2 1 1 2 3 1 1 1 3 1 3-1 1 1 2-1 0-1 1-2 1-3 1-1 2-2-2 0-1-1 2 0-1-1 1 0 1 0 1-1 2-2 0-3 0 0 1-2-1-1 2-2-1-1 1 0 2-3 3-1 2 0 1-1 4 0 2 1 2-1 3 1 3 9 2 3 3 1 2 1 7 1 4-2 1-2 1-1 1 1 1 0 2 1z"},{"id":"kb","d":"M708 467l-1 0-2-4 1-1 4-2 2 1 2 2 0 0-1 2-5 2z m35-34l2 0 1-1 2 0 2 1 1 1 1-1 1-1 1 1 1 1 1 3 0 2 0 0 0 1-15 9-4-1-1-2 2-2 0-1 1-7 0-1 3-3 1 1z m6-159l-1 5-1 0-1 2-2 1 0 1 0 2 2 1 1 2 3 1 1 1-1 6 1 2 5 6 1 0 3 4 3 0 2 1 1 1 0 4 5 2 1 3 1 1 2-1 2 1 1 2 1 1 1 2 1 2 1 3 3 0 3 1 3 4 1 0 4 2 2 0 1 0 2-2 1 1 1 0 1-1 3-1 3-2 2 0 2-2 0-1 12-2 6-2 1 1 5 2 2 1 1 0 2-1 2 0 3 4 0 0 1-2 1 0 4-2 0 0 3 1 2 0 5 1 1-3 4-4 10 0 0-2 0-2 1-5 2-2 1-2-2-2 2-2 1 0 4-2 5-1 1-1 1-1 3-1 8 1 5 0 2 1 1 0 2-1 1-1 0 0 3 0 3 0 1 0 2 1 0 1 0 1-2 3-1 0-1 1 0 1 2 1 4-2 1 0 1 2 2 1 5 0 2 0 3 2 0 1 2 1 1 1 1 0 1-1 2-1 2 0 2 1 2 4 1 1 1 0 1-1 1-2 6-2 1-2 0-1 0 0 6-3 1-1 9-1 3 2 0 1 0 0 0 0 0 0-2 1 0 5 0 1-1 1 0 2 0 2-1 1-2 0-2 1 0-1-3 0-1 2 0 2-1 0-2 1-1 1 1 1 1 1-1 2-1 1-1 1 1 2 2 2 0 0-2 2 1 3-1 1-2 1-1 1 1 1 0 0-2 1 0 2-1 1-1 1-1 0-1 2-1 0-2 1-1 3-4 3 0 0-3 3 0 1-2 1-3 2-4-1-2 0-2 2 0 0 3 3 5 3-1 4 1 1 1 0-1 2 0 2 1 0 0 1-1 2-1 1 1 0-1 1-1 1 0 1-2 2-3 0-1 2-2 1 0 2-1 1 2 2 1 2-2 3-1 1 0 0 0 0-1-2-2 0 0-1-1 1-1 1-1 0-1 1-4 0-1 0-4 2-2 2-3 0-1-1-2 1 0 2-2 1-1 1-3 0-2 1 0 1-2 0-1 0-2 0-1 1 0 1-1-1 0-2-1 0-2 1-3 1-1 0-1 1-1-1-2-4-1-1-2 0-2 3 1 2-1 1-1 0-2-1-3-1-1 1 1 3 0 1-4 1-1 0-1-2-1 3 1 2-2 0 0 0-1 2-1 0-3 0-3 1 0 1-3 2-2 0-1 1 1 2-2 1-1 1-1 1 1 2-1 2 1 1 0 0-4 1-1 1-3 0-1 0 0 2-1 0-1 2-2 1 0 2-2 2 0 0 0 1-3-1-1 1-1 0 0 2 0 2-1 0 0-2-1 0-2 1 1 2 0 1-3 1-1-2-1 1-1 1-1-1-2 1-2 1-1 1-2 1 0 3 2 0 0 1 1 1 1-1 1 0 0-1 1-1 1 1 1 1 0 4 0 1-1 1-1 1 0 2 1 1 0 2-1 1 0 1 1 1 2-1 3 1 0 0-1 1 1 2-3 1 3 4-1 1 0 1 0 1-2 2 2 3 2 6 0 3 2 7-1 2 1 1 1 0 0 1-1 3-3 1-4 1-1 2-2 2-3 0-2 2-4 1-1 1-1 3 0 0-4 2-1 0 0-1-1-2 1-3-1-2-2-2-2 0-3 1-4 2-6 4 0 0-2-1 0-3-1-1 1-3 1-2-1-2-2 0 0-5-4-1 2-3 1-4-3-11-3-3 1-3 1-4 0-2-2-6-2-1-5-2-2-3 0-2 4-3 2-3 2-10 0-5 0-2-1-1-2-2-2 0-3-4 1-4-5-2-4-5-2-1-2 2-3-3-2-2-1-1-5-1-1-1-2 0 1 3-1 1-1 0-5-1-2-2-1-3 1-8 1 1 1 1 4 1 2 0 3 2 0-2-3-2-2 0-1-1 1-2 0-2-4 0-2 1-5-2-2-2-1-6-3-8 1-2 2 0-1-3 4-5 1-5-1-3-2-6-4-3-2-1-4 0-1-1 1-2 1-3 0-1-2-3 1-6-1-3-2-2 1-3-2-3 0-1 2-2 2 0 2-2 1-3-1-4-2-2-1-4 0 0 2 0 0-2 2-4 2-2 1-2-1-4 1-3 1-2 2-2 7-4 1-1 0-2 2-3 2-3 0-3-1-2 1-1 1 0 4 0 1-2 2 0 5 0 3-5z m-42-40l0 1-3-3 3-2 1-3 1-1 1 1 0 1 0 4-3 2z m-160 1l-2 0 0-1-1-8 0-2 1-1 7 5-2 4-2 2-1 1z m133-43l-7 1-4-2 2-3 3-3-2-1-5-1-3-6-1-3 2-3 2 0 6-6 4 1 0 2 1 2 6 6 1 5-1 3-4 8z"},{"id":"ki","d":"M1181 254l5 5 2 4 0 1-2 3-8 7-3-1-1 0 1 1 1 2 0 7 0 1 3 3 6 5 5 4 15 9 1 4 4 2 2 0 2 0 9 8 1 3 2 3 4 1 1 0 3 1 1 1 0 3-2 2-2 2-7 5-6-2-9 1-8-1-10-2-5-2-2-2-2-6-2-1-2-2-1 1 0 1 7 12 1 2-1 2-1 0-1-1-3-2-1 0-5 2-4 3-1 2 0 3-5 11-3 2-2 5-2 6-1 4 1 4 2 1 0 2 0 1-2 2-3 8 1 1 1 4-1 9 8-5 1 0 1 0 0 1-3 11 2 5 0 1 0 1-9 4-6-1-2-2-1 1-1 2-6 7-6 10-1 1-4 2-6 1-4-9 1-3 0-1-1 0-1 4 0 2 2 2 2 4-2 6-7 2-4 3 0 1 0 2 1 2 0 2-1 1-7 3-5 2-4 3 0 1 2 1 2-1 1-1 3-1 2 1 1 0 1 7 0 7-1 1-4 1 0 1 4 1 2 0 1-1 1 2 0 1 4 1 0 4-2 8 0 0-4-2-3-1-9 0-3-1-9-1-1 0-1-1-2 1-2 1-1 1-1 1-1 0-1-1 0-3-2-5 0-5 1-2 0 0-2-1-1 0-1-1-1 1 1-2-1-1 0-1 1-3 0-2 0-5-1-3-2-1 0-2 0-1-2-1 0-1 0-2-1-2-2 0-1 1-1-1 0-1 2-2 1-2 3-2 1 0-1 2 1 1 3-4 1-3 0 0 0 0 0 0 1-4 1-2 3-2 0 0-2-2-1 0-1 1-1-1-1-2-1 0-1-1-1 0-1-3 0-1-4-2-2-3-3-3-5 0-1-3 0-4-1-6-1-1-1-3-2-2-1 0 1-4-2 0 0-4 1-1 0-1-1-1 2-3 0-2 1-1 2-2-1-3-8 3-1 2-1 0-1 1-3 2-2-1-3 1 0-2-1-1 0-2-1-3 0-4-1-1-1 0-1-1-2 0-1-1 1-3 0-1 1-1 0-1 1-1 1 0 2-4 2-1 0 0 1 1 1-1 2 0 0 0 1 2 1-1 3-3 1-1 0-2-2-2-1-2-2-2-2-4 0-5-2-2-1-1-1 0-3 2 0 1 1 1-2 0 0-1-2-1-1 0-1 0-3 2-1-1-1 1-2 2-3 2-2 0 0 2-1 1-3 0-2 1 1 2-1 0-2 0-2-1-2-1-5 1-1-1 0-1-2-1 0-1 1-1-1-3-2-1-1 0-1 0-4 2-2 0-2 1 0-1-1 1-1-1-2 0 0 0 0-1 0-1 2-1 1-1 0-3 1-2 0 0-2-2 0-2 0-1 1-1 1-2 0-1-1-1 0-1 2-1 1 0 0-2 2-2 2 0 1 1 1-1 2 0 1-1 0-2 0-2 1-1 0-1 0-5 3-1 0 0 1-1 0 0 0-1 3 0 4-3 2-1 8 4 1 0 1-1 0 0 2 1 1 1 2 2 4 1 3 3 0 3 1 1 2-2 2 1 2 0 1 2 0 1 2 2 1 0 2 0 3-2 4 0 1 0 3 1 2-3 3 1 3-3 1-1 1-5 1-1 6 0 7-2 7-1 3-2 2-4 2-2 5-6 4-8-1-3 0-2 2-2 3-2 1-2 2-1 0-2 0-7 1-2 2-4 2-1 0-4 1-1 2 0 1 2 3 0 1 1 0 2 2 1 2-1 3-1 5-3 7-2 6-4 4 0 4 1 5-1 2 0 2 3 2 2 4 1 1 1 3-1 2 1 3 4 4 2 2 0 3-3 4 0"},{"id":"kr","d":"M481 399l1 1 2 0 0 2 2 2 1 1 0 1-3 3-1 2-1 3 0 1-1-1-2-2-1 0-1 0-1 4-1 1-1-1 0-3-1-4-2-1-2-2 1-2 1-1 0-1 1 0 1-1 0-2 1 2-2 1 2 2 0 0 0-2 0 0 1 0 2 1 1-1 0-2 1-1 2 0 0 0z m16-7l1 0 1 0 0-3 0-1 4 5 3 2 2 1 0 1-1 0-3-1-1 0 1 2 0 1-3-2-1 1-3-2 0-1 0 0-1 0-1-2-2-1-3 0-3 2-1 0-2 1-1 0-1-1-2 0-2-1 0 0 0-2 2-2 1 0 2-1-1-7 2-1 4 2 1 1 2 3 1 0 1 1 1 2 0 1 1 1 2 1z m-21-18l1 0 0-1 1 0 1 0 5 6-1 1 0-1-2 2-1-1-4-5-3-4 1 0 2 3z m8-5l5 7 2 2 2 1 0 1 0 0-2 0-2-2-3-2-3-4-2-2 0-1 2 0 0 0 1 0z m-6-5l1 1 0 1-1 0 0 0 0 0 1 1-1 0-2-1 0 1 0 0-1 1-1 0-1-3-1 1 0-2 0-1 1 1 1 0 0-1-1-1-1-1 1 1 5 2z m-8-23l0 1 0 1 2 2-1 0-1 1 2 0 1-1 1 1-1 1-2 0 0 2 0 1-2-2-4-6 0-1 2 0 1 0 2-1 0 1z m-18 1l0 0-1-2-4-2 0-1 0-2 3 1 2 2 0 1 1 2 0 1-1 0z m-4-1l-1 2 0-2-1 0-3-2-1-2 0-1 0 0 1-1 4 3 1 3z m-19-6l1 2 3 4-1 1-2-2 1 2-1 3 1 1-1 3-1 0-1 0 0-1-1 1-1-1-1-2-2-2-1-5 1-2 0-2 2 0 1 1-1-1 1-2-1 0 2-1 2 0 0 1 0 2z m33-3l1 1 1-2 1 0 1 1 0 2-1 0 0 2 1 0 1 0 3 1 0 0-1 2-3 2-1 0-1-4-2-1-1 0 0-2-1-1-1 1 0-1 0-2 2 0 1 1 0 0z m-16-1l-1 0-2-2 0-1 2-1 1 2 0 2z m4-5l-1 0 1 2 1 0 1 1 4 2 0 2-1-1 0 1-1 0 1 2-1 0-1 0-1-2-2-1-2-1 0-2 0 0-2-2 1-1 1 0 1 0 0-2 0 1 1 1z m-24-4l0 1-1 0-1 0 0 2 1 2 1 0 1 3-2 0 0 0-2-1-2-1 0-3 0 0 0-1 3-1 1-2 1 1z m38 0l0 2-1 0 0 4-2 0 0 1 0 2-2-1-1 1-2-1 0 0-2-1-2-1-1-3 0-1 1 0 0 2 1-1 0-2-1 0 0-1 4 1 0-3 1 0 2 2 1 0 1 0-1-1 0-1 2-1 1 2 1 1z m22-1l1 2 2 1 1 4 0 3 0 1 0 1 0 1 0 0 0 1 0 0 2 0 0 2-2 3-2-1-3 0-2 0-2-2-1 0-2-1 0 0 2-1-1-1 0-1 0 0-2-1 1-1 2 0-1-1 2-2-2-1-2 1 0 2-1 0-1 0 1-1-2 0 0 1-1 0-3 0-2-1 0-2-1-1 2-3 4 0-1-3 2 0 2 0 0 0 1-1 4 2 2 0 1-1 1-2 1 0 1 0-1 3z"},{"id":"ks","d":"M1099 569l0 0-4-5 2-5 3-3 1-1 0 2 0 2-2 10z m-14 20l-2 1-1 0 0-1 0-2 1-4 0-5-3-4-1-3 0-2 6-16 7-5 1 0 0 1-1 7 1 8 3 12-1 7-8 5-2 1z m-19-140l-1 3-3 4-1-1 1-2-1 0-3 2-1 2-2 2 0 1 1 1 1-1 2 0 1 2 0 2 0 1 2 1 0 1 0 2 2 1 1 3 0 5 0 2-1 2 0 2 1 1-1 2 1-1 1 1 1 0 2 1 0 0-1 2 0 5 2 5 0 3 1 1 1 0 1-1 1-1 2-1 2-1 1 1 1 0 9 1 3 1 9 0 3 1 4 2 0 0-1 5-2 2-1 0-1 0 0-2-2-1-6 1 0 5 3 3 0 9-1 3-4 5-1 1-1 0-1-2 0-3-3-5-1-1 0 1-1 5 0 3 3 4 2 1 0 3-2 1-4 6-5 8-1 8 0 1-2 1-5 0-4 4-2 1-10 4-13 5-19 8-11 7-4 0-1-1 0-2 0-22-1-2-1-2-3-4-2-2-2 0-5-3 0 0 0-2 3-8 4-6 1-7 5-9 3-1 1-1 0-1 0 0 1-1 1 0 2-1 2-2 0-5 3-2 1-2 0-2 1-1 1 0 18-13 1 1 1 0 1-4 1-2-2-5 0-1 3-3 0-2-2-3 0-2 2-7 3-11 0-1 6 0 5-2 1-1 2 0 3-2 0 0 1-1z"},{"id":"kt","d":"M806 536l1-3 1-1 4-1 2-2 4 0 1-2 1-2 4-1 3-1 1-3 0-1-1 0-1-1 1-2-2-7 0-3-2-6-2-3 2-2 0-1 0-1 1-1-2-4 2-1-1-2 1-1 0 0-3-1-1 1-1-1-1-1 1-1 0-2-1-1 0-2 1-1 1-1 0-1 0-4-1-1-1-1-1 1 0 1-1 0-1 1-1-1 0-1-2 0 0-3 2-1 1-1 2-1 2-1 1 1 1-1 1-1 2 2 2-1 0-1-1-2 2-1 1 0 0 2 1 0 1-2-1-2 1 0 1-1 3 1 0-1 0 0 2-2 0-2 2-1 1-2 1 0 0-2 1 0 3 0 1-1 4-1 0 0-1-1 1-2-1-2 1-1 1-1 2-1-1-2 1-1 2 0 3-2 0-1 3-1 3 0 1 0 1-2 0 0 2 0-1-2 1-3 1 2 1 0 4-1 0-1-1-3 1 0 3 0 2 1 1 0 1 0-1-3 3-3 1 0 1 1 2 4 1 1 1-1 2 0 2-1 2-1 1 0 0 2 1 1 1-1 0-1 2 0 1 0 2 0 0-1 2-1 3 0 1-1 2-1 0-2 2-1 2 1 2 0 2-2 4-2 1 0 4 0 1-1 1 0 1-1 1-1 0 1 2 0 1 2 0 0 1 0 0-1 2-3 0-2-3-2 1-1 1-2 1-1 1-2 3 0 2-2 1-1 1-1 0-1-1 0 1-1 1-2 0-1-1 0 0-2 1-2-1 0 0-1 0-4-5-3-3-3 0 0 2-2 3 0 4 1 2-2 2-1 0-1 3-2 1-1 3-3 1-3 2-1 2 0 0-1 1-1 1-1 1-1 1-2 1-1 0 0 2 0 1 1 1-1 0 1 2-1 2 0 4-2 1 0 1 0 2 1 1 3-1 1 0 1 2 1 0 1 1 1 5-1 2 1 2 1 2 0 1 0-1-2 2-1 3 0 1-1 0-2 2 0 3-2 2-2 1-1 1 1 3-2 1 0 1 0 2 1 0 1 2 0-1-1 0-1 3-2 1 0 1 1 2 2 0 5 2 4 2 2 1 2 2 2 0 2-1 1-3 3-1 1-1-2 0 0-2 0-1 1-1-1 0 0-2 1-2 4-1 0-1 1 0 1-1 1 0 1-1 3 1 1 2 0 1 1 1 0 1 1 0 4 1 3 0 2 1 1 0 2 3-1 2 1 3-2 1-1 1 0 1-2 8-3 1 3-2 2-1 1 0 2-2 3 1 1 0 1-1 1 0 4 2 0-1 4 1 0 2 2 1 3 1 1 1 6 0 4 1 3 5 0 3 3 2 3 4 2 0 1 1 3 1 0 1 1 1 0 1 2 1 1 1-1 1 0 2 2 0 0-3 2-1 2-1 4 0 0-1 1 0 0-3 2-1 0-2 1-5 2-6 0 0 1-3 11-2 7 1 2 2 3-1 3-3 2 0 1 2 5-1 2-1 4-1 0-1-1-18 13-1 0-1 1 0 2-1 2-2 2-1 5-2 2-2 1-1 0-1 1 0 0 0 1-1 1-3 1-5 9-1 7-4 7-3 7 0 2 0 0-7-3-5-2-4 1-11 5-5 1-3 0-3-2 1-5 1-5-1-3-1-1-7 0-1 2-1 2-4 0-6-4-9-9-2-1-4 5-1 2 2 2-1 3-10 6-4 2-2 2-5 2-1 0-6-5-6-2-3 0-4 2-11 10-2 1-1 1-5-2 2-7-1-11 0-2 1-4 0-2-4-7-2-5-1 0 0 2-2 3 2 1-1 1-2 1-1 1-4 2-1-1-2-3-3-2-1 0-4 0-9 5-4 2-3 1-4 1-7-5z"},{"id":"ku","d":"M1165 212l-1 1-4-3-2-4 0-1 1-1 4 0 3 1 0 1-1 6z m-14-15l7 4 0 1-2 1-5-2-6 0-2-1-1-2 0-1 3-1 6 1z m17-22l-2 1-4-2 0-3 0-1 2-2 2 0 4 3 0 1-2 3z m9-10l1 1 1 6-2 1-1 1-2-1-10-9 0-1 2-2 2 0 3 1 0 1 2 1 4 1z m-114 5l0-3 1-2 1 0 2-3 1 0 1 1 1 0 1-2 2-1-1-2 1-3 1 0 1 1 5 1 1 1 0 1 2 2 0-1 2-2 2-1 1-2 0 0 4 1 1 0 5-1 3 3 1 2 2-1 0-1 1 0 2 0 0-2 1-2 1 2 2 0 0 2 3-1 1 0 1 0 1 0 1-2 1 1 1 1 1 0 1 1 2-1 2-1 2 1 1 0 2 0 1 1 1-1 3 1 2-1 2 0 2 0 0-1 2 0 9 6 1 3 1 0 3 1 3 0 1 0 0 0-3 2-2 0-5-1-1 1 0 1 2 1 2 1 8 7-5 0 5 3 5 1 4 4 0 1-1 1 3 1 0 1-4 3-3 1-9 1-8-1-6 1-1 0-2 2 1 2 1 2 5 3 3 0 3 0 0 3-1 1 5 3 0 1-4 0-3 1 0 2-3 0-1 1 2 1 6 1 8 4 4 6-1 5 0 4 3 0 2 2 1 1 0 4 1 2 8 8 0 0-2 2-4 0-4 3-1 0-4-2-3-4-2-1-3 1-1-1-4-1-2-2-2-3-2 0-5 1-4-1-4 0-6 4-7 2-5 3-3 1-3 1-1-1 0-2-1-1-3 0-1-2-2 0-1 1 0 4-2 1-2 4-1 2 0 7 0 2-2 1-1 2-3 2-2 2 0 2 1 3-4 8-5 6-2 2-2 4-3 2-7 1-7 2-6 0-1 1-1 5-1 1-3 3-3-1-2 3-3-1-1 0-4 0-3 3-2-1-1 0-2-2 0-1-1-2-1 0-3-1-2 2-1-1 0-3-3-3-4-1-2-2-1-1-2-1 0 0 1-3-1 0 1-3 2-1 2-3 1-1 0-3 0-3 0-1 1-2 0-1 2 0 1 1 2-2 2-1 1-1-2-2 1-1 2-1 0-1-2-1-2 1-1-1 1-3-1 0-1-1 0-3 1-4 6 0 2-2 0 0-1-2 1-2 2 1 1-1 2-2 2 0 0-2 2-1 2 0 2 0 2-2 0-1-2-1 0-1-2-2-3 1-1-2 1-1 0-1 0-1 0-1 0-1 2-2 0-1 0-1 0-1-2 0 0-1 3-2 1-3 4-3 1-3 2 2 0 1 4 0 2-2 3-1 1-1 0-2 0-1 3-2 0 0-2-2 0-1 1-8 2-4 1 0 1 2 1-2-2-3 0-3-1-1-1-3 1-5 0-2 1-3 1-1-1-1-2-2 0-1 2 0 2-2 2-6 0 0 0 0z"},{"id":"la","d":"M445 629l2-1 0 2 1 0 1 1 0 2-1 1 0 1 1 0 2 2 1-1 1-3 1 2 4-1 1-1 1 1 0 0 3 1 3-1 0-2 1 0 2 1 1 0 1-1 1 2 1-1 2-3 0-1 0-1-2-2 0-2-2-1 1-2 2-2-1-8 1-3 1 0 0-1 2-2 2-2 2 0 2-1 3-2 2-1 1 1 1 0 7 1 4-1 0-1 4-2 2 0 1 0 2-2 1-1 1-3 1-1 1 0 0-1 1-1 1-4 0 1 1-1 0-1 2-1 2 1 2-2 1-2-1-1 1-1 0-2 1-1 1 0 1 3 1-1 1 0 1 0 1 3 2-1 1 1 1 0 0 3 0 0 2 0 1 0-1 2 1 0 1 0 1 0 0 1-1 0 1 1 0 1 1 1-1 1 0 1 0 0 0 0 1 0 1 0 1 0-1 1 0 1 2 0 0 0 1 1-1 1 1 0 2 1 1-1 0-1 1 0 1 1 1 2 0 0 0 8 4 7 0 1 0 4-1 2 0 1 2 2-2 4-1 5 0 3 2 2 0 1 0 0-1 1-1 4 0 11 0 1-2 1 0 2 0 6 0 5 0 2-1 7 0 3-1 3-3 4 0 0-1-3-5 0-1-1-1-2 0-1 1-1 0-1-2-2-2 0 0 0-4-3-3-2-1-2-3-5-1-1-1 1-1 1 0 5 0 1-2-1-2 1 1 2 0 1 1 0-1 1 0 1 0 1 2 0-1 1-2 0-1 1 1 1 2 0-1 2-2 0-5-3-5-2-9-5-2-2-3-3-1 0-3-1-3 1-1 1 1 1 0 2 3 4 1 0 1 2 0 1 0 0 3 6 0 0 1 4 0 1-7 0-2-1 0 0 1-1 0-2-7-6-1-2-3-2-3-1 1-2-3-3-9-7-4-5-1-3-1-1-3-1-1-1 2-1 0-2-2-1 0-1-1 0-2-2-3-2-1 0 0 1 0 0-1-1 0-2-2-2-2 0-2-1-2-1 0 0 1-1 1 0 1-2 2 0 1-2 1-1 2 0 0 0 0 0 1 0z"},{"id":"ma","d":"M1754 809l-4 0-5-2 0-1 3-2 4 1 3 1 0 2-1 1z m-60-9l5 2 5 1 3-1 1 1 0 1-4 5-1 0-10-3-1-1-3-4 5-1z m153 13l-2 0 0 0 5-5 4-2 1-3 3-3 1-1 8 3-2 2-10 3-3 3 0 1-4 2-1 0z m-54-15l-3-1-6-7 0-1 0-2 0-1 1-1 5-1 6 2 1 1 1 4-5 7z m-158-20l3 0 1 4-4 0-5 2-3 2-3 3-4 2-8 0-8-2-3 0-7 2-6 5-1 0-1-1 2-8 9-10 11 4 8-2 3-3 4-2 7-2 1 1 0 2 4 3z m35-1l0 0-2 0 0-1 1-6 1-1 5 2 0 1 0 2-5 3z m191-7l-4-2 0-1 0-2 2 0 7-1 1 0-3 3-3 3z m35-16l-2 1-1 0-2 1 2 10 0 2-3 8-3 4-9 6-3 5 0 4 0 1-2 0-9 0-1-1-1-7 5-9 0-2 3-9 3-3 2 0 2-3 4-4 4-7 2-2 4 0 3 2 2 3z m10-5l2 4 1 1-1 2-1 0-2-2-1-2-3-1-4 1-1 0-1-1 0-1 1-1 10 0z m-170 5l-2 0-4-3-1-1 0 0 1-1 4-3 4 3 0 0-1 3-1 2z m324-45l-1 1-2 5 0 2-2 3-1 0-1 0 0 1 0 1 1 1 0 1-1 0-1 1 0 2-2 3-2 1-1 0-2-1 1-1 1-2 1-2 0-3 2-1-1 0-1-1-1-3 0-1 2-2 2 0 0-3 1 0 2-1 1-2 3-2 1 0 1 1 0 2z m-110-21l-2 1-3-1-1-2 0-3-1-7-1-4 0-1 4-1 5 11 0 3-1 4z m101-13l0 3 2 3-2 0 0 1 4 2 0 1-1 1-1 0-2-1-1 2 2 1 0 0 0 2-1 0-1 0-2-2-1 1 0 1 3 1 1 2 1 1 2 1-2 7 0 3-2 3-4 2-2 0 0 1 1 3 1 1 0 1-3 3-3-1-1 1-1 2 1 0 1 0 0 1-2 4-2 1-4 4 0 2-1 2-6 3-1 1-2 0-1-3-1-1-2 0-2-4 0-1 1 0 1-5 0-9 1-3 0-1 1-3 0-5-2-5 2 0-1-3 1-2 0-2 1-1 1 1 0 1 0 0 2-1 1 0 1 2 0 1 1-1 2-1 1-4 0-1-1-1 0 0 0-1 2-2 0-1 1-1 1-1 0-1-1-1-2 1-2-1-2-1-2-1 0-1 2-2 3 2 1 0 4-3 2-5 2-2 1-2-1-2 1-2 2-3 2-1 1 1 3 5 2 1 0 1 1 2 0 3 3 4-1 1-1 1z m-92 9l-6 7 0 0 0-1 5-15 1-2 1-1 7-17 1-1 2 1 1 2-4 13-2 2-2 1-4 5 0 3 0 3z m-230-116l-6 1-1 0 1-2 0-3 2-1 3 0 3 3 0 0-2 2z m5-5l3 1 1-2 0 0 1 2 0 4-4 0-1 0-3-5 0-1 0 0 1 0 2 1z m-15 5l-2 4-3 2-6 2-1 0 5-5 1-2-1 0-11 7-2 0-1-2-1-2 3-3 3-2 8-2 3-3 2-1 2 1 1 1 1 0-1 5z m-36-13l-6-2-2-2 2-2 2 1 3 2 2 2-1 1z m7-6l-5 0-2-1 4-4 2 0 2 1 0 4-1 0z m-40-6l5 4 1 3-3 0-1 1 1 2 2 2 1-1 1-1 6 2-1 13-1 2-1 0-2 0-3 0-4 2-8 4-9 3-10-3-6-3-7-5-11-10-1-4-1-9 1-1 4-3 1 1 1 1 2 2 2 0 2-2 2-2 7-1 16-1 5 1 9 3z m145-12l12 5 3 0 13-1 2 0 11 8 2 6 0 4 1 2 1 2 4 0 2 1 2 1 3 8 0 1-2 3-1 8 1 2-12-4-3-3-8-5-14-5-7-4-2-2 0-2-2-2-1-1-13-1-7-1-1 1 1 2 2 2 1 2-1 2-2 0-11-2-3-1-5-2-2-1-8 0-1 0 0-2 2-1 0-2-2-2-2 0-6 3-5 4 0 2-3 2-6 2-2 0-2-1-1-1-6-8-4-3-2-7-2 0-2 2-2 5-1 6-1 2-2 1-3 5-1 4 0-1-1-3 2-3 0-4-2-4-2-4 7-6 10-11 12 0 8-1 15 1 6-1 3-3 1 1 1 0 0 1 0 4 2 2 1 1 5-1 7-4 1-1 0-2 2-1 6 0 5 1 8 3 1 2z"},{"id":"mu","d":"M1602 509l-2 0-2-1-1-2-1-2-1-5-2-4-2-7 1-3 1-1 1-1 2 0 2 2 0 1-2 5 0 2 6 13 0 3z m-33-35l11 1 4 0 2-1 11-1 19 2-1 1-4 2-14 2-27 1-6-3 0 0 0-3 2-2 1 0 1 1 1 0z m-25-5l3 1 5-2 9 3 2 3 0 5-1-1-8 0-5 1-1 0-1 2-1 0-7-2-4 1-5 3-6 1-3 1-6 0-4-7 0-3 2-6 2-2 7-1 5 0 17 3z m151-14l12 7 2 1 1 2 0 1-1 2-3 2-1 0-18-2-4 2-5 1-6-3-2-1 0-2 0-3 0-1 1-3 1-2 1-2 1 1 9-5 4 1 8 4z m-13-9l-6 1-2-2 0 0 2-3 2 0 6 2-2 2z m-16-24l-2 1-6-1 0-1 0-2 2-5 0-1 2 0 1 0 2 4 1 5z m14-24l5 7-1 3-2 2-1 3 0 1 3 3 1 1 2-1 4 0 3 1 2 3 0 2-4 3-3 1-4-2-4-4-6 3-1-1-1-2-2-8-5-5-1-3 1-6 3-1 2 2 4-1 2-2 3 1z m-21 11l-3-1-1-1 0-11 2-1 5-1 1 2 1 5-1 6-4 2z m36-121l1 1 1-1 2 1 3 2 0 2 2 10-3 9-4 7-4 3-9 7-1 2 0 3 1 2 5 3 2 1 3 0 3-3 1-7 2-4 4-2 2-1 3 1 1-1 2-3-1-2-1 0-1-1 0-2 3-5 9-7 4-1 5-2 4 0 3 0 2 0 0 1-1 23-2 2-11 7-8 2-4 5 0 1 1 3 3 2 3 2 12 4 2 0 3 1 1 7-1 3 2 1 6 2 2 2 2 3-3-2-2-1-14-3-5-4-5 0-4 0-3-1-2-1-1-1-4-1-7 0-1 1-1 1-2 7 2 1 1 7-2 3 0 4 8 21 3 5 2 3 4 7 10 10-7 0-1-1-1-1 0-1-5-4-5-2-1-1-4-9-5-7-7-4-3-5 2-14 0-7-2-7-2-2-3-2-2-7 0-3 1-6 2-2 2-3 0-2-6-2 0-1 0-2-1-5-4 0-1-1 1-8 6-11 1-3-1-1 2-12 7-9 11-12 2-2 6 0-1 3-5 8-1 1-2 1-2 1 0 5 1 1z m33-12l-6 0-6 1-2-4 0-8 0-3 3-5 3-4 4-4 7-4 1 1 5 7 1 3-4 11-3 5-3 3 0 1z"},{"id":"nb","d":"M1249 816l0 1 2-1 0 0 1 1-1 2-1-1 0 1-1 0 0 0-1-3 1-1 0 1z m-132-2l0 1-1 1 0 2-2 2-1 5-5 7-1 2-2 3 0 1 2 1 1 1 1 0-1 2-2 0 0 0-1 0-1 1-2 0 1-5-2 1-1 1 0 2 0 3-2 0 0-2-4-1-1 1-3-1-1 1-1 0-1-3 0 0-3 1-1 0-1 0-1-1 0 1-1 1-1 0-2-1-1-2-1 0-2-1-2 0-1-1 0-2 1-2 1 0 0 1 3 1 0 0 2-2 1 0 2 1 1-1 0 0 1 0 0-1 1-5 0-4-2-2-1-2 2-2 2-2 1-1 0 0 1 0 3-2 1-2 3-2 5-2 3 0 2 1 2 1 7 2 4 3 1 1z m45-11l3 0 1 1 1 0-4 3-3 5-2 3-3-2 2-3 0-1-1 0 0-2 0-2 2-2 2-1 2 1z m76 5l-2 0-1-1 0-3 1-1 1-1 2 0 2 1 0 2-1 2-1 1-1 0z m-57-8l3 0 1 1 1-1 4 2 0 2 1 4 2 1 1 0 1 3 3 2 1 0 1-1 3-1 0-1 4-3 2 0 1 1 2 0 5 1 1 3 1 1-1 5-1 2 0 1 2 0 1-2 0-2-1-1 1-2 1-2 1-1 3-2 1 0 1 0 3 0 5 1-1 2 0 2 3 4 0 3-1 0 0 2-1 0 2 2-1 2 1 1 2 0 1-1 1 0-1-2 1 0 1 0 0-1 1-1 1 2 0 2-1 1 0 3-2 2-1 0-1 0-2-1-4 1-1-2-2-1-2 0 0 1-1 1-2-1-2 0-1-1-1 1 0 1-2 1 0 0 2 1 8 0 3 1 0 2-1 1-4 0-2 0-2-2-2 0-4 0-7 3-3 1-4-1-1-2 1-2 2-3 0-1-1-1 1-1 0-1-1-2-1 0 0 1 0 2 1 0-1 1-1 0-1 0-1 2-2 1 0 1-2 1-4 4-3 1-2-2-1 0-1 1-2 0-1 2-2 0-1 0-3 2-2 0 0-1 0-1-2 1-1 1-1 0-1-1-1 0-1 0-8 4-7 3-4 0-5-2-3 1-2 3-5 1-3-1-1-2-2 0-1 1-6-2-3-2 0-1 0-1 0-1 0-1 0-3 1 0 1 0 0-2 2 0 0-2-2-3 1 0-2-3 2-5 2 0 0-1-1-2 2 1 5-1 7-5 2-2 1-1 1 0 3 2 1 0 8 4 1-2 1-1 2-1 2 1 3-1 1 1 1 0 1 2 2 0 1 2 0 1-2 1 0 0 0 1 2 1 2-1-1-3 2-1 1 3 1 0 0 1-2 1 1 1 0 2 1 3 1 2 4-1 4 1 1 0 4-3 5-1 2 0 1 1 4-2 0-2-1 0-1-1-1-1-1 1-1-2-2-1-1-2-1 1-1-2-5 0-9-5-2-3-3-3-1-1 1-3 4-2 2 0 5-3 2 1z"},{"id":"nt","d":"M1463 925l2 0 0 1-3 4-2 0 1 1 3 0 0 3-1 1-3 0-2 1 0 1-3 1 0 1 0 1-1 3-1 0-1 0-2-1-1 0-1 1-1 1-6 1-1 1 1 1-1 2-1 0-1-1-1 0 0-1-2 1 0 1-2-1 0-2 0-2-1-3 0-1 3-1 2 0 2-1 2 0 1 0 2 0 5-5 1 1 2-1 0-2 2 0-1-1 3-3 5-2 1-3 1 2-1 1 1 0z m-75-3l2 1 1 0-1 4-1 1-2 1-1 2-2 1-2 0-2-1-3 1-3-2 8-5 0-2 2-1 2-1 2 1z m79-14l1 0 0 1-2 1 0 1-1 0-1 0 0-1-1 0 0 2 1 0 0 1 0 1 0 1-1 0 0 1 1 0-1 1-1 0 0-1-1-1-1 1-1 1 0 0-1-1 0-2 0-1 1-1 2-1 1-3 1-1 3-2 0 1 1 2z m-179-41l1 1 1 3 1 1 2 0 3 0 1 0 1 2 0 1 0 4 2 1 2 1 1 1 0 0 2-1 6-2 1 2 0 1 5 3 1 3 4 6 3 1 3 2 1 2 1 3 0 3-2 2-2 0-2 3-2 1-2 0-1 2-3-1-2 0-3 2 0 1 0 1-1 0-3-2-2-1-4 0-2-1-1 1-4-2-2-2-1 0-2-3-1 0-1-1 1-1-1-2-3-3-2-1 0-1-2 0 0-1-4-1-1 0-1-1-3-2-1-1-1-3-1 0-1 1 0-1-2-1-3 0-3-1-3 1-1 2-3-2-1 0 0-1-5 0-2 0 0 0-6-2-1-1-3-4-2-2-1-1 2-4 1-1 2-1 5-1 3-2 1 0 1 1 3-2 1 0 2 1 4 0 2-1 4 1 3-2 3 0 2 2 3 0 1 0 2 1 1-2 4-2 2-2 0 0 2 3 3 2z m255-22l0 0 0 2 0 2 0 1 2 0 1 0 2-1 2-1 1-1 1-2 1 2 1 0 2 1 0 3-1 3 0 2-2 0-2 1 0 1-2-2-3 0-1 2 0 1 1 3 3 2 0 2 1 2 1 3 0 0-3 2-2 3-1 5-1 1-4 2-1 1-5 6-1 3-3 0-2 3-6 3-2 4-4 4-1 0-2 0-10-1-2 1-1 0-2 2 0 1-2 2-1 1-3 0-4 2-1 1-3 1-3 0-2 0-2 0-1 0-2 1-1-1-3-1-4 1 0-1 1-1 1-3 0-2 1 0 1-2 4-2 2 0 2-1 3-2 1-2-1-1-3-1 0 0-2 0-2 1 0 1-1-1 0 0 0-6 1-1 0 0 1 0 2-1 0-4-1-2 1 0 1-1 0-2-1-4 4-3 2-1 0-2 1-1 1 0 1-1 2-1 1-1 2-1 0-1 1-1 1-1 1-1 2 0 0 0 3 3 1 0 1 1 1 0 1-1 2-2 1 0 2 3 1 2 0 2 3-1 1-1-1-1 2-2 0-1 0-1 0 0 1-1 2 0 0-2 1 0 0-2 0-1 0-2 1-1 0-1 0 0 1 1 3-1 2 0 5-4 0-2 3 0 3-2 3-1 1-1 3-1z m-267-7l-1 0 0-1 1-1 0 1 0 1z m-7-1l0 0-2 0 2-1 0 1z m-3-8l-1 1 0-1-1 0 0 1 0 1 0 0-1-1 3-2 0 0 0 1z m2-2l1 0 0 2 1 2 0-1 1 0 0-1-1-1 2 1 0-2 1 1 1-1 2 0 0 1 0 1-2 1 0 1-1 0-1 0 0 0 0 0-1 1 0 1 1 0 1 1 0 1-2 2-1 0 0-1-1-1-2 1-1-2 1-2 1-1 1 1-1-2 0 1-1 0 1-1 0-1-1-2 1-1 0 1z m142-10l2 1 0 0 0 0 0 2-1 1-2-1-1-1 0-1 2-1z m-151 2l0 1 1 0 3 1 1-1 0 2 1 1-1 0 0-1-1 1 1 1 0 2 0 0-2 0 0-1-1 0-1 1-1 1-1 0 1 1 1 0 0-1 0 0 0 1 0 0-1 1-1 0-1 1 1 2 0 1 1 0-1 1-2-1-2 0 0-1 2-1 0-2 0-1-1 0-1 0 1-2-1 0 1-2 1 0 1 0 0-1 0-1 0 0-1-1 1-1 0 0 0 0 0-2 1 1 0-2 1 2z m192-2l0 1-1 1-4 2-2 0-1-1-2 2-2 4-1 1-2 0-1-2 1-3 3-1 1-2 1-1 1 0 1 0 1 0 4 0 1-1 2 0z m-75-7l0 1 1 1 0 1-1 1-2-1-1 0 0 0 1-1 0-1 1-1 1 0z m77-3l1 1 0-1 1 0 1 1 2 0 2 1-1 1-1 0 0 3-1 2-2 1-4-1-5 1-1 0-3 0 0-2 2-3 4-2 2-2 2 0 1 0 0 0 0 0z m55 6l-3 3 0 4-4 3-3 1-1-1 1-2-2-4-2 0-2 1-1 1-1-1 0 0 1-2 1-3 5-3 2 1 0 2 0 1 1-1 2-2 1-1 2-1 2-4 1-1 2 0 1 1 0 1-1 2 0 3 0 1-2 1z m-22-7l3 0 1 2-4 2-2-1-2 1-1 2-1 1-1 2 0 1-2 1-1 0 0-1 0 0-1 0-2 2-1 1-1 1 1 1 1 2-2 1-2 0-1-2 0 0-2 1-2 2-1 0-2 0-1-2-1 0-2 1-2-1-1 1-1-1 0-1 1 0 4-4 1-2 3-1 0-1 3 0 2-1-3-2-1-1-3 1 2-2 1-1 1 1 2 0 2-1 1-1 2 1 1 0-1 1-1 1-2 3 0 0 3 1 2-1 0-1-1-1 0-1 2 0-1 1 1 0 1-1 0-2-1-1 0-1 2 0 0 1 0 1 2 0 1 0-1-2 5-2 3 2z m35-5l4 1 0 1 0 2 1 0 2-1 5-1 4 0 4 1 3-2 2 1 2 0 3 0 2 4 0 3 0 2-1 1-3 1-9 0-4 2-4 0-4-1-3 3-3 0 0-1-2 0-4 2 0 0 0-1-3 0-1-1 0-1 0-1 3-3 0-1 1-1 3-2 2 0 1-1 0 0-2 0-5 2 0-1 0-1 3-4 1-1 2-1z m-82 0l2 1 0 1-1 2 1 1 0 2 2 2 0 1-2 2-1 0-2-1 0 0-2 3 1 2-1 1-1 1-2-1-1-1-1 1 0 2 3 3 0 2 0 1-3 1-3 0 0 1-1 0-2 0-3 1 0 0-1 0-2 1-1 2-6 2-2 0-2 0-3 0-2 0-2 0-2-1-3 0-1 1-1 1-1 0-1 1-6 2-3 0 0 1-4 2-2 0-2-2-2 0 0 1 0 1 0 1-1 0-1 0 1-3-2-1-1-1-3 0-7-1-1 0 0 2 0 3-2 1-1 1-2-2-4 1-1-1-5 2-3 2-1 0-4-2-3-2-1-2-1-1-2 1-1 2-2 1-2-2-3 0-3-2-7 0-3 0 0 0-4 2-1-1-1 1-3-1-3-3-1 0-6 2-3 0-1 0-1 1 0 1-1 0-1 0 0-1 0 0 0-2-3 0 0-1-2-1 0-1 0-1 0-1 0-1 1-1 0-3-1-1 0-1 2-1 0-1 1 0 1-1 0-2-1-1 0-2 1 0 1 2 0 0 1 1 1-1 1 0 1-1 2 1 0-1 0-1 0 0 1-2 1 0 1 0 1 0 0 1 1 1-1 1 1 0 1-1 0-3 2 0 1-1 0 0 1-2 1 0 1 0 1-1 1 0 2 0 3 0 2 0 0-2 1 0 1 1 0 1 1 0 3-1 1 1 3 0 0 0-1-1 1-1 2 1 2 3 2 0 1 1 3 0 3 0 4 0 1 0 2 0 0 1 0 1 1-1 0 2 1 1 2-1 2 1 2 0 1 1 1 0 3 1 2 1 1 0 3 4 3 2 3-2 1 1 1 0 0 2 2-2 2 0-1-1 0-1 0 0 2 1 0-1 0-3 1 0 1 0 0 1 1 0 1 1 2-1 3 0 1 1 1-1 1-1 1 1 3 0 1-1 1-2 0 2 2-2 1 0 1 0-1 3 0 2 3-1 1 1 1 0 3 1 3 4 4 0 2-1 1 0 5-1 1 1 2-3 0-2-2-1 1-1 3-1 1-2 1 0 1-2 0 1 1-1 2 0 3-1 2 0 2-3 4-1 1 0 1-4 1-1-2-1-2 0-2 1-2 2-3 0 0-1 2-1 1-2 0-2 2-1 2-1 4 2z"},{"id":"pa","d":"M2267 816l-8 0-8-1-1-1-1-2 0 0 8-7 6-2 0 0 1 3 4 8 0 1-1 1z m-15-8l-8 7-4 1-4 1-1 0-1-1-2 0-18-2-9 2-1 1-2 1 0-2 0-1 5-13 9-18 6-9 1-1 9-7 8-2 14-3 6 0 3 1 1 1 3 5 2 2 4 1 2 3-3 8-4 6-2 8-1 2-4 3-6 2-3 4z m1-79l2 1 4 1 3 4-3 1-3 0-3-5-1-1 1-1z m-121-261l9 2 18 1 4 2 1 1-2 1-9 2-8 2-17-1-12-3-2-2-4-1-7-3-3 0-4 0-6-1-3-4 3-1 3 1 33 3 6 1z m134 14l3 0 6 2 19 9 19 10 6 1 7-1 4-2 3 0 1 2 2 2 5 3 3-1 0 0 5 0 8 1 5 2 1 0 0 2 0 2-2 1 0 1 1 1 5-1 8-1 2 1 0 0 0 192-2 1-2 5 1 2 0 1-3 5-2 2 0 2 1 6 1 3 3 3 2 0 1-1 0 117-3-2-4-1-2-1-4-6-8-7-5-9-14-12-10-7-3-4-1-1 1-2 4-3 4-7 0-3-5 2 0 4 0 3-4 2-3 1-10 0-5 0-5 3-6 2-2 0-2-1-3-1-3-4-7 2-6 4-1 4-2 1-3-7-1-2 4-5 0-7 1 0 3-2 1-2 0-3 3-7 2-2 0-2-2-1-3-1-4-3-2-4-1-3-6-3-4-2-1-2 1 0 13 1 3 1 3 1 7-1 2-4-2 2-1 1-6 0-10-3-5-2-9-8-1-1 0-2 2-1 2 0 3 1 2 0 4-2 5-1 4 1 3 4 3 2 2 0 2-1-3 0-2-1-4-4-1-1-3-1-3 0-10-6-1-3 2 0-1-2-10-10-3-3-1-4-1-3 0-2-1-5-4-6 0-6-4-2-3-2 2-1 8-4-1-1-1 0-5 1-3 2-4 1-1-1-1-5 1-10 0-1-1 2-5-2-9-5-1-2-5-3-3-1-1-1-1 0 2-2-4 0-6-2-5-4-2-2-3 1-11-3-9-1-2-2-8-4-14-7-6 0-11-5-2-1-2-3-2-1-7 0-3 1-16-4-5 1-5 1-3-1-11-7-5-2 0 0 5-7 3-2 2-4 3-5 7-9-2-1-2 0-4-2-8-2-9-4-20-6-5-3-5-1 4-7 3-4 5-3 0-2 0-4 5-2 7-7 0 0 2 7 2 2 2-1 2-1 0-2 1-1 1 0 1 2-1 4-1 1-1 4 3 7 7 4 6 2 11 1 7-1 3-1 2-2 1-2-1-1 2-3 2-1 4-1 3-2 0-1-2-1 2-1 7-4 2-2 0-8 4-4 1-1 7-3 4-3 1-2 4-9 0-2-1-2 1-1 3-2 4-1 3 0 0 1 0 1 3 0 4 1 4-1 4-2 8-4 4-1 3 0 4 0 2-2 0-1-2-5-2-1-3-3 1-4 4-2 3-1 5-1 7-4 1-2 5-2 13-5 1 0 3 1 3 3 4 3 18 7 13 3 4 3 3 3 2 2 2 0z m-205-42l-3 0-3-5 0-3 2-2 2 0 2 1 4 3-1 3-1 2-2 1z m29-24l5 0 5 1 5 3 3-2 1-1 2 2 9 7 7 10 4-1 5 3 1 1-2 2-4 2-6 1-3 0-3-2-1 0-3 0-2 1-2-1-3-2-2-10 0-3-2-3-1 0-6 2-5-4-2-1 0 2-1-1-3-2-2-4 1-2 5 2z"},{"id":"pb","d":"M1991 600l2 3-15-7 0-3 1 1 4 2 8 4z m-176-112l-3 0-11-3-9-5-1-1 2-2 10-4 4-2 17-3 0 1 4 6 0 8-3 2-10 3z m-13-44l-5 1-5-1 0-1 1-1 6-2 4 2-1 2z m50-17l2 3 3-1 2-1 2 3 0 6-2 8-2 5 0 1-2 0-4-1-6-5-1-3-2-3 1-2-1-2-1-2-2 0 0-1 0-1 1 0 10-4 2 0z m1-5l-1 2-5 2-7 2-4 0-6 0-1 0-2 1-1 0 3-3 2-2 12 0 4-1 2-2 3 0 1 1z m-16-13l-7-1-1-3 1-1 7-2 3 1 2 2 0 0-2 3-3 1z m154 11l9 0 0-1 12 0 7 5-4 7 5 10 4 3 4 7-3 3 0 8-7 6 1 10 2 3-1 6 1 14 4 5 1 1 4 3 7 19 2 0 1-2-2-10 0-4 0-2 3-2 2 0 3 2 1 3 0 13 0 0-7 7-5 2 0 4 0 2-5 3-3 4-4 7 5 1 5 3 20 6 9 4 8 2 4 2 2 0 2 1-7 9-3 5-2 4-3 2-5 7 0 0-3-1-8-7-1-1 3-8 1-1 7 1 4 2 0-1 2-1 0-1-3 0-12-1-3 2-1 3-4 1-3-4-1-2-4-1-1 5-2 1-5-3-1-1-1-2 0-2 1 0 0-1-1-2-2-2 0 0-6 2-5-2-5-9-1 1 0 1 0 3-1 0-4-3-3-6-1-2 0 0 3-2 1-1 0-3-1-4 1-4 4-3 4-3 0-4-2-2-5 4-4 5-1 8 1 6-2 0-4 3 2 1 1 2 0 2-5 4-5 5 0 1 0 2 2 2 1 2-7 7-4 4-2 0-8-1-1 0-2 3-4-1-4-5-1-4 0 0 0-2-4-9 2-4 6-2 1-2 1 0-3-5-1 0 0 0-2-1-1-4 1-2 0-1-1-2-2 0-2 1 0 2 0 1-1 0-2-1-4-5 0-2-2-4-5-4-7-5-3 0-4 0-6 1-6-9 1-1 8-4 4-1 6 1 10 0 3 1 4 3 1 1 3 2 6-5 9-12 5-3 2 0 5-1 3 2 4 3 6 3 3 0 3-2 2 0 1 3 0 2 0 4 1-1 1-7 0-2 0 0 2 0 3 7 0 0 1-6-1-2-1-1 3-3 4-1 2-4 0-4-1-2-1 3-4 2-1 0-2-2 0-1 6-2 2-2 0-3-3 0-12 7-6 0-5 0-2-1-5-1-5 0-13 4-3 0-4-2-2 1-5 2-3-1 0-1-1-2-1-2-1 0-6 2-3 2-3 0-2 0-8-6-2-1-4-2-3-6-2-5-1-3 3-3-1-3-4-3-8-3-1-1 0-1-6-3-16-5 0 1 3 1 0 2-3 1-4 2-1-3-4-1-3 0-5-2 3-4 1-3 1-2 7-1 3-6 2-9-1-5 13-5 1 0 0 1 2 1 11-2 5-2 2-4 10-8 3-2 5-2 9-2 14 1 6 3 15 6 3 0 11 9 2 1 8 1z m-140-38l9 3 5 0 8 5 1 2 0 3-1 3-2 3-5-2-3-1-4 2-3 0-1-1-4-5-4-2-5-6-1-1-4 1 1 2 5 6 5 2 3 1 2 1 1 2-1 2-3 2-5 1-2-1-1-1-1-6-5 1-2 2-2-6-4 1-4 0-6-2-1-1 1-1 1 1 7 1 2-2-2-2-3 0 0 2-2-1-1-2 0-1 4-1 5 0 11-2 2-1 1 1 2 0 0-1 1-1 2 0 3 0z m-69 10l-1 1-2-3-10-10 0-1 0 0 2 1 11 9 1 2 0 1-1 0z"},{"id":"ri","d":"M414 355l-2-1-1-2 2-5 1-2 2 0 2 2 1 2 1 4-2 1-4 1z m-29-25l1 0 4-1 2 0 8 5 6 4 0 1 1 2-1 4-1 0-4-3-3-2-11 0-5 1-1 0-4-1-4-4 2-2 3-1 0 0 0-3-1-3 0-3 1-1 2-1 1 1 3 4 0 2 1 1z m21-2l7 7 0 2-1 1-2 0-1 0-8-5-9-5-2 0-2 0-1-1 2-5 2-1 2 0 4 2 5 2 4 3z m-33 5l-1 0-5-4-1-1-1-2-2-11 0-6 0 0 3-1 1 1 9 8 1 1 0 1-2 5 1 3 1 4 0 1-4 1z m5-26l1 8-1 1-2 0-8-8-2-1-6 0-2-1-3-3-3-5 1 0 2 0 6 2 9 1 5 1 2 2 1 3z m-46-14l-3 0-3-1-1-1-1-1-3-8 0-4 1-2 1-1 11-3 2 0 1 1 4 5 0 3-3 3 1 4-1 1-4 3-2 1z m-51-21l2-1 3 2 3 1 1-2-3-2-1-2-1-2 1-1 3-2 7-1 7 1 0 2 1 2 11 7 2 3 1 2 0 4 2 6 2 4 7 3 2 0 5-1 4 1 13 11 6 3 4 10-1 5 1 4 2 2 10 9 2 2 4 1 1 1 7-1 8 0 2 1 2 1 7 10 1 1 0 2-27 14-2-1-2-3-3 1 5 4 3 0 4-3 12-2 14-8 1-1 2-3 7-3 1 1 4 1 15 12 0 1 3 13-2 1-8 0-1 2-1 2-8 6 1 1 1 0 2-2 2-1 2 1 0 0-1 1 5 1 0 1 5 1 2 4-2 0-2 0-5 3-1 0 1 1-1 2-8 5-1 7 0 1 3 3 0 0-4 0-2 2-1-1-11-2-3 0-3 0-3 4-2 3-7 5 0 1-1 1-2 3-2 0-1 2-1 0-2-1-2 0-3-1-2 0-1-2-4-1 0-2-3-1-1-3-1 1-3 1-1 0-1 0 0-1-1-1-1 0-1 1-3-2-1 1-2-1-1 0-1 0-1 1 0 0-2 1-1 2-2 0 0 1-2 0 0 0-1-1 0 0-2 0-2-1-4-1 1-1-2 0-1-3-4-2-1 0-1-1-4-3 0-1-2-1-1 0 0-1 0-1-5-2-1-1-2-1-1-1-3-2-1-1-1 0-1 0-2-5 1-1 0-2-3-2-1 0-2 1-1 0 1 1-1 1-2-1-1 0-1-1 0-2-2-1-1-1 0 0 0-2 0-1 0 0-1-3 0 0 0-1-1-2 1-2 1-1 1 0 1 2 1-3 1-3-2-3 0-1 1-3-1-3 0-1-1 0-2 1-4 3 0 1-4 0-8-3-2-5-2-1-1 0-3 1 0 0-1-1 0-3-4-8 1-3 2-4-1-2-3-1 0 0-3-4 1 0-1-1 1-3-1 1-2-2 0 0 2-1 1 0 1-2-1-3-2-1 1-1 1-1 2 0 0-1-2-2-1-1 0-5-2-3-1 0 0 0 0-1 1-1 9-1 0-1 1 0 2 0 1 0 0-1 2 0 3-3 0-1-1-1 1-1 1-2 0-1 0-1 0-1 0-1-2-1 0-1 1-1-1-2-5-1-1-1 0-1 1-4 1-9 1-5 0-3-2-5-1-4 0-2 1-3 3 7 2 4 4 4 4 3 3 2z"},{"id":"sa","d":"M1553 308l-2 4-3 7-3 6-4 6-4 2-5 3-3 4-5 7-1 4-6 7-6 3-4 1-3 0-13 2-9 2-6 1-3-1-7 0 0 0 1-3 2-4 0-3 1-4-1-2-2-2-6-1-4-3-2-1 0-3 0-1-2-2-3-1-2-1 0-3 0 0 7 0 7 2 9 3 1 0 1-1 12 2 5 0 3-2 16-7 2-2 2-6 3-1 8 0 1 0 1-2 0-2-2-1-1 0-1-1 0-1 1-2 3-3 3 1 3 0 6-3 0-2-1-3 0-1 8-6 3 0 5 1 2 2-1 1 1 2 4 3-1 3-2 1-2 0-1 1z m15-62l-1 0-1-1-2-4 2-4 1-1 2 1 0 1 0 1-2 3 0 1 1 2 0 1z m9-51l-1 1 3 4 1 0 1 1 0 3-2 3 0 0-1 0 0 2-1 0 0-1-1-2-1 0-1-1-1 0 0-1-1 0-1-2 0-1 1-3 0-1-1 0 0-1 1 0 0-1-1 0-4-2 0-1 0-3 2 0 3 0 5 6z m58-10l-1 0-1-1-3-8-1-3 1 0 1 1 4 5 1 2-1 4z m3-9l-4-1 0-4 2-2 3-5 0-1-1-1-3-1 0 0-1-3 0-2 1-7 1-2 4 1 3 2 2 11-2 3-4 10-1 2z"},{"id":"sb","d":"M273 540l0 1 0 2 0 1-3 0-1 1 4 8 0 0-1 1-1 0-1-2-1 0-1-1 1-1-1-1-2-1 0-2 0-1 0-2-2-2-2 0-2-2-2-4 0-1 1-2-1-5 0-1 3-1 4 5 3 1 3 5 2 1 0 3z m-17-14l0 2-3 0 0 0-2-1 0 1-1 1-1-2 0-1-1-1 1-3 0-2-1-3 0-2-1 0 0-1 0-3 1-1 1 1 2 3 4 1 0 2 3 1 1 3 1 1 0 2-2 1-2 1z m-22-34l2 4 1 2 0 1 2 1 2 2 1 2 0 1-1 0-1 0 1-1-1-1-1 1-1 0-1-2-2 0-3-2-1-1-3 0-1-2-1 0-2-4 0-1 1 0 1 0 0 0-1-1 0-3 1-1 1-1 2 0 4 3 1 3z m-41-62l1 3 0 1-1-2 0 0 1 4 3 3 0 2 2 2 0 1 1 3 0 0 2 2 0 2 3 3 0 1 1 2-1 0-1 0 1 1 2 1 0 1 0 1 1 3 2 0 2 2 0 4-1 1-2-3 0 0 1 3 0 2-1 1-1-1-2 0-2 0 0 1-2 0-12-6 0-2-2-1 0-1 0 0-2-4-8-12 0-2-1-1-1-1 0-1 1-1 2-6 0-4 2-2 1 0 2 1 3-1 2-1 2-1 1 0 1 2z m50-95l1 1 2-1 1 2 4 2 1 1 6 2-1 0 0 0 4 1 1 2-2 4-1 3 4 8 0 3 1 1 0 0 3-1 1 0 1 1 3 5 8 3 4 0 0-1 4-3 1-1 2 1 0 0 1 3-1 3 0 1 2 3-1 3-2 3-1-2 0 0-2 2 0 1 1 2 0 1 0 0 1 3 0 0 0 1 0 2 0 0 1 1 2 1 0 2 1 1 1 0 2 1 1-1-1-1 0 0 3-1 1 0 3 2-1 2 0 1 2 5 1 0 1 0 1 1 3 2 0 1 2 1 2 1 5 2 0 1 0 1 1 0 1 1 1 1 4 3 1 1 1 0 3 2 2 3 1 0 0 1 4 1 2 1 2 0 0 0 1 1 0 0 0 3 0 0 0 2 2 2 1-1 0 0-1 3-2 3-2 0-1 1-2 0-2 2 0 1 1 3 0 1-1 1 0 1 1 1 0 0-1 4-7 3-3 6-3 1-1-1-2 0-2 0-1 1-4 0-1 1-2-2-1 0 0 1-2-1 0 0 0 11 1 1 1 1 1 2 1 1 2 1 1 2 2 5 0 5 0 0-1 2 0 0-2 3-2 1-3 2-2 1-4 3 0 0-1-1-6-7-1-5-3-3 0-1 2-2 1-2 0-4-1-5-6-8-4-6-3-7-2-2 1-2 0-2-1-3-2 0-2-1-2-2-1 1-2 0 1-2 1 0-1-2-1 0-2-3 0-1 1 0-1-2 1-1 0-1-1-5-1-4-1-1-1-2-9-9-2-4-2-3-7-5 0-1-1-2-4-2-1-3 0-1-2-4-1 0 1-2 0-1 0-1-2-3-2-2-2-1-4-3-7-3-2 0-1-3-1-1-3 0-3 1-4-1 3-4 3-1 2-1 2-2 2-5 2 0 3-2 4 1 4-2 2 2 0 1 2 2 2-1 1-1 2 1 0 0 2 1 2-1 1-1 2-2 0-2-2-2 0-3-2-1-2 0 0-2 0-1 0-1 0-6 2-1 1 0z"},{"id":"sg","d":"M1341 524l5 1 1 1 2 1 1 1 2-2 2-1 1 1 2 4-1 2 0 0 1 1 3 2 4 1 1-1 3-4 5-1 0 0 8 3 6 2 2-1 2 0 3 0 1 1 2 2 3 0 1 1-1 3 1 0 2 2 1 0 2 3 1 0 1 0-1 1 1 1 0 0-3 4 1 2 4 1 1 2 1 0 2 4 0 1-1 0-6-5-1-1-3 0 3 4-2 3-3 2 0 1 2 4 5 4 7 3 0 1 1 2 1 2 1 0 5 0 2 0 0 1-2 2 0 2 2 2 0 1-1 1 2 4 0 0 8 0-1-2-2-1-1-2 1 0 2 0 2 2 2 4 0 3 0 9-4 3-2-2-5-4-1 0 0 0 0 2 4 3 1 1 0 2-1 1-1 0-1-1-1 1-2-4-3-2-4 2-2 1-2 0-9 2-2 0-4 2-3 0-1 4-2 4 1 3 3 3 0 1-4 4-5 0-4-2-6-1-2 1-1-1-1-1-1-1-5-1-2-2 0-2-2-1 0-2 0-5 1 0 2-7-1-4 1-4 2 0 2-5 0-4-1-2-4-1-7-1-1-1-4-5-1-1-1-1 0-1-1 0-2 0-3-4-10-8-1-3-2 0 0-2 0-3 1-3 4-6 3-1 1-5 0-7 1-2 1-1 0-3-1-1 1-1-1 1-1-1 0-2-1 0 0 1-2 0 1 1 0 0 0 0-1 0 0-2-1 0 0-1 1 0 2-2z"},{"id":"sn","d":"M1335 758l3 0 4 1-1 1-3 0-9-1-1-1 0-1 1 0 3 0 3 1z m-13-13l3 2 2-1 0 2 0 2-5 1-2-2-1-2 0-3 2 0 1 1z m-9-32l-2 3-1-5 1-4-1-8-1-12 2-7 0-1 1 0 0 1 0 2 2 2 2 9-2 11-1 9z m-33-228l1 2 1-1 2-1 2-3 1 1 5 0 0 1 3 1 5 0 4 2 2-7 0-1 1-1 4 5 1 1 4 6 3 3 4 2 3 1 2 0 0-1 2 0 3 0 1 1 2 0 14 6 5 1 3 2 3 0 2 0 3 3 2 1 3 0 2 3 1 0 2 1 4 8-2 0-1 1-2 5-1 0-1 2 0 0-5 2-3 4-1 0-4 0-3-2-1-1 0-1 1-1-2-4-1-1-2 1-2 2-1-1-2-1-1-1-5-1 0 0 1-2-2-3-11-3-2 0-5 2-6 3-10 7-9 6 3 9 4 3 2 1 2 2-1 3 0 10 2 4 1 7-1 2-3 5-1 3-1 10 3 3-2 12 2 5 1 10-1 5-3 3-1 1 0 7-3 8 7 11 4 13-1 1-2-1-3-5-1 0-6 1-4 3-2 0-9-2-4 4-1 2-3 2-5 0-1-1-1-2 0 0-1-2-8-2-6-9 0-3 1-8 2-3 3-4 3-7 0-2-1-3-1-4 6-9 1-12 0-7-1-12-3-5-5-9 2-4 2-3-2-4 0 0-1-5-1-4-1-3-2-2 0-1 1-1 2 0 0 1 3-1 1 0 0-2 2-1 3 0 0-1-1-2-2-3 1-2 0-2-1-1 1-3 0-3 1-2 2 1 3-2 1 0 3-2 0-2 4-3 1-2-1-2 0-1-2-1-3-1 0 0-1-2 0-2-1-1-4-3 0-3 5-4 1-2 1-1 2 0 0-1 0-3 3-1z"},{"id":"sr","d":"M1264 424l0 3 0 2 0 3 0 2 1 4 0 1 1 0 0 1-1 4 0 2-1 1-4 0-1 2 2-1 0 1-2 1-2 0 0 1 2 2 1 0 1 0 1 2 2-1 2-1 1 0 2 1 2 2-1 1-1 2 1 2 3 3 0 2 1 0 1 3-1 1 0 1 1 1 2 0 1 1 1-1 1 9 0 1-1 0 1 3 0 0-3 1 0 3 0 1-2 0-1 1-1 2-5 3 0 4 4 3 1 1 0 2 1 2 0 0 3 1 2 1 0 1 1 2-1 2-4 3 0 2-3 2-1 0-3 2-3-1-1 2 0 3 0 3 1 1 0 1-1 3 2 3 1 2 0 1-3 0-2 1-1 2 0 0-3 1-1-1-1 0-1 1 0 1 2 2 1 3 1 4 1 5 0 0-7-3-3 0-4 3-1 1-3-1-5 1-4 2-2 2 0 0-4-10-1-2 0-14 1-1 2-9 0-1-1-1-3 0-2 1-1-5 1-5 1-2 2 0 2 1 2 0 5-3 7-7 0-3-1-3 0-3 1-4 3-10 2-1 1-1 2-1 2 1 1-2 1-5-1-1-1-1 0 0-2-5 0-2 1-3-1-7 0-4 0 0 2-2-1-3 0-1 0-1 2-4 5-5 2-6 1-4 1-1z"},{"id":"ss","d":"M445 629l0-1-1-2-1 0-2-1-1 0 1-1-1-3-1-1-1-2-3 0 2-2-3-3 1-1 2-2-1-2 0-2-2 0-3 1-2-1-1-2-1 0-2 0-2 0-2-1-1-2-6-1 0-5-2-2-1-4-1 0-1-1-3 0-4 0 0 0-1-2-1 0-2 1-3-1-2-1-2-3-3-2 0-1-1-1-3-1 2 0 1-1 4-2 0-3 2-3 1 0 1-5 0 0 2 1 1 2 1 2 1 0 2-2 1-3 1 0 0 0 0-3 0-3 1-1-1-1-2 0-3 1 0-1 0-2 0 0-2 1-1-1-1 0-1-1 0-1-1 0-3 1-2 0-3 2 0-1-2 0-5-5 0-1 0 0 0-4-1-2-2-2-3-1-3 1-1-1-2 0-2-2 0-4-2 0 0-1-3-2 0-2-3-1 0-2 0 0 1 0 0 0 1-2 2 0 1-1 2 0 1-2 1-2 1-1 3 2 1 0 0-1 2 1 2 2 2 0 2 0 0 1 2-1 1-1 2 1 2-2 0-1 0-1 3-1 2-2 1 1 1 0 1-2 3-5 2-1-2-3 2-2 2 0 6 1 1-1 0 0 0 1 4 1 4-2 0-2-2-2 1-2 0-1 1 0 1-2 1 0 1 0 1 1 0 2 2 2 1 1 2 2 1 1 2 1 0 1 1 0-1-2 1-1-1-5 1-1 3-1 2-1-2-2 0-4 1-1 0-1 0-2 0-3 4-2 6-3 5 0 1-2 2-1 1 0 3 2 2-1 2 0 3 1 5-1 2-1 3 0 3 0 1-2 0-2 0-1 1 0 2-1 4 2 0 0 2 3 0 3 0 1-2 1-1 3 0 2 1 1 1 0 1-4 1 0 4 4 6 3 5 1 2 2 0 1 1 5 0 1-1 1-1 0-1 2-1 0-2 2-3 5 3 0 0 0 3-4 4-1 1 2 3 0 2 2 4 1 5-3 7 3 9 1 5 0 1 2-1 5 0 4 1 1 2 2 2 1 3 0 1 0 0 2 0 6 2 4 2 2 3 0 2-1 1 1 2 1 2 1 0 3 0 3 2 5 0 1-1 2-5 2-3 4-4 7-1 4 0 3 0 3 2 1 4 2 1 3-1 3-3 4-1 4-1 5-1 1 0 0-1-2-1-1-1 1 0 0-1 1-2 0-1-1 0-1 0-1 0 0-2 0 0-1 1-1-1 0-1 0-1 0 0 0 0 0 0-1 1-1-1-1 0-1-1-1 1 0-1-1 0 0-1 0-1 0 1-2-1 0-1 0-1 0 0-3-1 0-1-1-2 1-1-3-1 0-1 0-1 1-1-3-1 0-1 1 0 2-1 1 0 1 0 2-2 2-2-1-2 1 0 1-1 1 0-1-1 3-2 2 1 1-1 0-1 1-1 3-1 1-2 2-1 0-2 0-4 2 0 1-4 1-7-1-1 0-1-1-2 1-3 2-2 1-2 0-2 2-2 2 0 1-1 0-1 3 1 8-2 2-1 2 2 1 0 2 2 2 0 1 0 1-2 3-1 1-1-2-1 1-1 0-2-1-1 0 0 2-3 1-3-1 0 0-1-1-1 1-4 1-1-2-1 3-1 1-2-2-1 0 0-1 1-1 0-2-1-1-1 0 0-2-2 1 0 0z"},{"id":"st","d":"M1475 659l-3-1-2-3-1-3 4 1 2 1 0 1 0 4z m-84 5l-3 0-5-6-3-5 1-2 2-7 3-2 3 1 0 1 4 7 0 10 0 2-2 1z m37-43l1 12 1 1 0 3-7 5-2 6 0 1 1 1 2 3-1 4-2 4-3 1-5-2-7-1-2 0 0-3 2-9 1-2 3-1 0-1 0-5-3-7 2-5 1 0 3 0 4-1 4-4 5-2 2 2z m25 3l0 6 0 3-2-2 0-3-2-4-1 1 1 6-2 1-1-1-1-1 0-1 1-1 0-1 0-1-1 1-2 4-1 6-1 8 2 2 1-1 9 7 0 2-3 4-5 2-1 0-2-1-5 2-1 1-1 2 2 1 1 1-1 1-4 6-1 1-8 0-2-5-2-4 8-14 3-6 3-16 0-9 1-4 3-5 6-4 1-1 1 1-1 1 1 2 3 2 3 4 1 7z m-7-35l1 0 5-1 2 2 1 2 0 2-5 6-1 1-4 0-2-3-3-4 0-1-1-2 3-3 2-1 2 2z m7-147l1 3-2 3 3 5 1 0 1-3 2-1 0-2 2-2 3-1 7 4-1 8-2 1-2 3-2 0-3-2-1-2-2-2-2 1 0 1-1 2 0 5-1 1-1 0-1 1-2-1-1 0-1 0 0-1 0-1 1 0 3-3-1-3-1-7 0-1-2 1-3 4-1 3-2 3 0 1-4 3-1 1-2-1-2-4-1-1-1-1 0-3 1-5 3-4 1-1 1-2 2 0 2 2 1-1 6-2 2 2 1-2 1 0 1 1z m-102-124l1 0 6-1 3-3 1 0 1 1 0 1-1 1-1 0-1 1 1 0 0 2 2 3 3 3 1 0 2 1 18-2 0 0 2 3 1 1 1 0 2-3 2 0 5 3 0 0-6 2-1 0-2 2-1 0 0 2-1 1-1-1-2-1-1-3-3 1-2 2-4 0-6 3-4 0-2 2-4-1-2-1-1 1 0 3-2 0-3-1-3 1-1 1 0 3-1 1 1 1 1 1 2 3 3 1 2 0 1 4-1 2 0 0-4-2-6 2-1 2-6-1-5 1-2 0-1-2-6-1-2-2-10 0-4 2-5 1-5 5-6 10 1 1-2 2 0 7-2 1-2 0 0 4-1 3 0 4 1 2 0 3 2 4-1 2 0 7 1 2 3 6 7 8 1 1 1 1 2 0 2-2 1 0 2 1 0 2 4 0 4 7-1 5 0 2 1 1 1 1 3 6 2 0 2-1 1-2 2 0 2 0 0 2 0 1 2 0 3 0 8 1 1-1 3-4 3-6 7-9 1 0 1-1 2-2 2-4 2-1 3-1 1-3 2 0 1 0 1 1-1 4 0 1 1 0 4 2 6 1 3 1 4-3 2 0 2 1 2 0 1-2 1-5 5-2 3 1 8-3 11 2 5 0 8-1 2-1 0-1-5-2-6 0-1-1 0-1 5-2 4 0 6 0 1-1 1-2 1 0 8 1 4 1 5 3 3 6-1 4-2 2-1 6-2 2-1 1-3-1-1 0-4-5-1-2-4-1-13 1-1 2-1 2-1 3-4 4-3 5-4 3-6 7-3 4-11 6-8 1-3 2-6 2-2 1-3 7-3 3-1 1-3 0-4 0-1-2-4-4-5-2-2 1 0 3 2 7 1-1 4 0 2 3 5 7 2 1 3-1 2 1 7 7 7 11 2 8 6 5 9 6 0 2-2 3 0 2 6 5 0 0 2-1 3 2-3 4-3 0-1 0 0 0-1-1 1 0-1-1-1 0-2-3-1 0-2-1-1-1 0-3 0-1-3 0-2-2-1-1-3 0-2 0-2 1-6-2-8-3 0 0 0-2 2-1 2-5 1 0 2-1-4-8-2-1-1 0-2-3-3 0-2-1-4-3-2 0-2 0-3-1-5-1-14-6-3-1 0 0-3-1-2 1 0 1-2 0-3-1-4-2-3-4-4-6-1-1-4-4-1 0 0 1-2 8-4-2-5 0-3-1 0-2-5 0-1 0-3 3-1 0-1 1-2-2 0 0 0-2 1-1-1-1 0-8-1 0-1-1-2 1-1-1 0-2 1-1-1-2-2-1 1-2-4-2 0-3 1-2 1-1-2-1-2-1-2 0-1 1-2 0-1-2-1 1-1-1-2-2 0-1 2 0 2-1 0-1-2 1 1-1 4-1 1-1 0-2 1-3 0-2-1 1 0-1-1-4-1-3 0-3 1-2 0-2 0 0 6-5 0-3 2-2 1 0 2 6 1 3 2 3 0 0 1-2 1-1-1-6-3-3-2-9 0-7 1 0 0-2 2-5-1-4-4 1-1 0-2-2-3-5 3 0 0-1 2 1 2 1 0 2 1 1 1 1 2 1 2-3 1-3 0-5-1-1-4-5 0-1 1 0 3 0 2 0 0 0 0-3-2-2 0-1 1-2 0-2 2-2 2-2 3 0 1-1 1-3-1-5 0-1 0-1 2-2 3 0 5-3 1-1 0-5 1-2 1-1 2 0 1 0 0 2 0 3 0 1 4 3 8 2 2-4 0-2 2-3 2-3 4-1 2-2 1-7 0-4 1-3 6-1 7 1 3 1 5 4z"},{"id":"su","d":"M167 394l1 0 2 3 2 2 0 2-1 1 0 1 0 2 0 1 0 1-1 1 1 2 0 0-1 1-1 0 1-2-1 0 0 0-1 0-1 0-1 1 1 1 0 1-1-1-2-1-4-2 2-1 0 1 1 0 0-2 1-1 0-4 1-2 1-1 1-1 1-1-2-2 1 0z m-2-13l0 1 1-1 0 2 4 4 0 1 0 1 1 2-1 1 3 2 2 2-1 2-1 0 0 1 1 2 0 1-2-4-1-1-3-4-1-1 0-1-3-4 0-1-1-2-3-2 3-1 2 0z m12-9l3 0 1 0 1 1 4-1 3 3 0 2 0 0-1 0-1 0-2-1-1 2-1 0-2-1-2 1-3-2-3 0 0 0-1-2 3-2 2 0 0 0z m-57-64l1 2 8 10 5 2 6 6 2 3-3 5 0 12-1 2-3 3-6-2-1-1 1-1-4-10-6-6-3-1-2 0-1-3-2-5-5-8-7-7 2-1 4 1 1-1 4-4 4 0 4 1 2 3z m51-12l2 0 1-2 1 1 1 2-2 1-4-1-2 0 0-2 1-2 2 1 0 2z m-108-36l-5 0-1-1-1-3-12-8-9-3-3-1-6-5-1-2 0-1 5-6 5 1 6 7 2 1 3 0 6 7 7 4 4 2 2 2 0 2 1 3-3 1z m90 10l2-8-2-5-3-1 1-2-2-2 0-3 1-4 1-1 0 0-1-2-1-2 1-1 1-2-1 0 0-1-3-1-2-3-2 0 0-4-1-2 0-2-1-1 1 0 2 0 0-3-2-2 0-2-2-1-1-1-1 0 7-2 1-3-1-2-1 1-2-2 0-1-1-2 1-1-1-2-1-2-2-1 0-2-1-1 0-1-1-1-1-3 1-2 4-3 1-1-1-3 0-1 0 0 2 2 0-1 0-1 4-2 1-4 0-1 0-3 2-2-1-2 1 0 0-1 0-2 0-1 1 1 2-1 0 0 1-1 2-1 2 1 2-1 0 0 0 8 2 4 4-1 4 2 4 2 2 4 5 2 1 1 0 2 1 2 6 5 7 2 5 3 12 7 4 3 3 2 3 2 2 4 1 1 2 1 4 1 5 3 7 7 5 3 0 1 0 7 0 2-2 2 0 1 4 4-1 1 1 0-1-3 1-1-1-1-2 0 0-1 3-1 1 0 2 2 0 4 2 5 1 0-1-5 0-2 1-1 1-1 2 0 2 2 2 4 2 2 1 1-2 4 1 6 2 5 0 3-1 5-1 9-1 4 0 1 1 1 5 1 1 2-1 1 0 1 2 1 0 0-1 2 1 1 0 1-2 2 0 1 1 1 0 1-3 3-2 0 0 1-1 0-2 0-1 0 0 1-9 1-2 1 1 1 0 0 1 0 1 3 1 5 1 1 2 2 0 1-2 0-2 1 0 1 1 1 1 3 0 2-1 0-2 0 0 1 1 2 2-1-1 2 1 2-1 0 1 3 2 1-6-2-1-1-4-2-1-2-2 1-1-1-1-1-2 1 0 7-1 1 0 1 1 2 2 0 2 1 0 3 2 2 0 2-2 2-1 1-2 0-2 0-1 0-1-1-1 0-2 2-2-2-1-1-1-2-4 2-4-2-3 3-2 0-2 5-2 2-3 1-2 1-3 4 0 0-1-1 1-1 0-2-2-2 1-3-2-9-3-10-4-8-7-19-4-9-2-4 0-1 1 0 1 2 0 0 1 0 3-4 0-3-3-4-2-2-1 0-1 1 2 1 0 2-1 0-2-2-6-8-2-2-4-2-11-5-4-4z"},{"id":"yo","d":"M811 806l-6-1-18-6-1-1-1-2-6-1-7-4-4-2 0 0 2 0 1-3 1-1 1-1 0-1 1-1 1-3-1-1 0-1 2-1 4 1 1 0 0 0 0 2 1 0 2-2 7-6 2 12 1 0 2 1 1 0 0 0 1 1 3-1 1 1 0-1 1 1 1 0 1-1 1 1 1 1 1-1 0 1 0 2-1 3 0 3 0 2 2 5-1 2 1 0 1-1 1 0-1 2 0 0 1 0 0 0z"}],"provToId":["ac","ba","bt","be","yo","jk","go","ja","jb","jt","ji","kb","ks","kt","ki","ku","bb","kr","la","ma","mu","nb","nt","pa","pb","pb","pa","pa","pa","ri","sr","sn","st","sg","sa","sb","ss","su"],"label":{"pa":"Papua (termasuk pemekaran)","pb":"Papua Barat (termasuk Barat Daya)","jk":"DKI Jakarta","yo":"DI Yogyakarta","bb":"Kepulauan Bangka Belitung"}};</script>
+<script>
+/* ============================================================
+   Dashboard Karhutla — logika
+   ============================================================ */
+(function () {
+  "use strict";
+
+  var D = window.__DATA__;
+  var M = window.__MAP__;
+  var TAHUN = D.tahun;
+  var NT = TAHUN.length;
+  var TAHUN_PENUH = TAHUN.filter(function (t) { return D.statusTahun[t] === "lengkap"; });
+  var IDX_PENUH = TAHUN.map(function (t, i) { return D.statusTahun[t] === "lengkap" ? i : -1; })
+                       .filter(function (i) { return i >= 0; });
+
+  /* ---------- format ---------- */
+
+  function nf(x, dec) {
+    if (x === null || x === undefined || isNaN(x)) return "–";
+    var s = Math.abs(x).toFixed(dec === undefined ? 0 : dec);
+    var p = s.split(".");
+    p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return (x < 0 ? "−" : "") + p.join(",");
+  }
+  function rapi(s) {
+    return s.replace(/,(\d*?)0+$/, function (_, a) { return a ? "," + a : ""; });
+  }
+  function ringkas(x) {
+    if (x >= 1e6) return rapi(nf(x / 1e6, 2)) + " jt";
+    if (x >= 1e3) return rapi(nf(x / 1e3, 1)) + " rb";
+    return nf(x, 0);
+  }
+  function pct(x, dec) { return nf(x, dec === undefined ? 1 : dec) + "%"; }
+  /* Satu aturan desimal di seluruh halaman: di atas 1.000 ha presisi meter
+     persegi tidak berarti, di bawahnya masih relevan. */
+  function ha(x) { return nf(x, Math.abs(x) >= 1000 ? 0 : 2); }
+  var KOSONG = "\u2014";   /* satu-satunya lambang nilai kosong */
+
+  /* ---------- identitas pulau ----------
+     Warna mengikuti entitas (pulau), bukan peringkat: menyaring satu wilayah
+     tidak pernah mengecat ulang wilayah yang tersisa. Urutan slot inilah yang
+     lolos uji pasangan bersebelahan pada validator buta warna. */
+
+  var PULAU_VAR = ["--p3", "--p2", "--p4", "--p6", "--p7", "--p5", "--p1"];
+  var URUT_PULAU = [6, 1, 0, 2, 5, 3, 4];   // Sumatera → Papua, barat ke timur
+  function warnaPulau(i) { return css(PULAU_VAR[i]); }
+
+  /* ---------- state ---------- */
+
+  var S = {
+    year: "all",
+    pulau: "all",
+    prov: "all",
+    region: null,
+    q: "",
+    wilayah: "prov",
+    sortKey: "luas",
+    sortDir: -1,
+    limit: 25
+  };
+
+  var KAB = D.kab.map(function (k, i) {
+    return { i: i, nama: k[0], prov: k[1], pulau: k[2], kota: !!k[3], v: k[4] };
+  });
+
+  function nilai(row) {
+    if (S.year === "all") {
+      var s = 0;
+      for (var j = 0; j < NT; j++) s += row.v[j];
+      return s;
+    }
+    return row.v[S.year];
+  }
+  function nilaiTahun(row, yi) { return row.v[yi]; }
+
+  function lingkup() {
+    var q = S.q.trim().toLowerCase();
+    return KAB.filter(function (r) {
+      if (S.region && M.provToId[r.prov] !== S.region) return false;
+      if (S.prov !== "all" && r.prov !== S.prov) return false;
+      if (S.pulau !== "all" && r.pulau !== S.pulau) return false;
+      if (q && r.nama.toLowerCase().indexOf(q) < 0 &&
+          D.prov[r.prov].toLowerCase().indexOf(q) < 0) return false;
+      return true;
+    });
+  }
+
+  function median(a) {
+    if (!a.length) return 0;
+    var b = a.slice().sort(function (x, y) { return x - y; });
+    var m = Math.floor(b.length / 2);
+    return b.length % 2 ? b[m] : (b[m - 1] + b[m]) / 2;
+  }
+
+  /* ---------- util dom ---------- */
+
+  function $(s, r) { return (r || document).querySelector(s); }
+  function el(tag, cls, txt) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (txt !== undefined) e.textContent = txt;
+    return e;
+  }
+  var NS = "http://www.w3.org/2000/svg";
+  function sv(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) if (attrs[k] !== undefined && attrs[k] !== null) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function css(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  /* ---------- tooltip ---------- */
+
+  var tip = el("div", "tip");
+  document.body.appendChild(tip);
+
+  /* Nama daerah masuk lewat textContent, bukan rangkaian HTML: isi data
+     tidak pernah ditafsirkan sebagai markup. */
+  function tipIsi(nama, baris, petunjuk) {
+    var f = document.createDocumentFragment();
+    var h = el("div", "t-name"); h.textContent = nama; f.appendChild(h);
+    baris.forEach(function (b) {
+      if (!b) return;
+      var r = el("div", "t-row");
+      r.appendChild(el("span", null, b[0]));
+      var v = el("b"); v.textContent = b[1]; r.appendChild(v);
+      f.appendChild(r);
+    });
+    if (petunjuk) f.appendChild(el("div", "t-hint", petunjuk));
+    return f;
+  }
+  function tipShow(isi, x, y) {
+    tip.textContent = "";
+    if (typeof isi === "string") tip.textContent = isi;
+    else tip.appendChild(isi);
+    tip.style.left = Math.max(130, Math.min(window.innerWidth - 130, x)) + "px";
+    tip.style.top = Math.max(70, y) + "px";
+    tip.classList.add("on");
+  }
+  function tipHide() { tip.classList.remove("on"); }
+
+  /* ---------- sumbu bantu ---------- */
+
+  function tickBagus(max, n) {
+    if (max <= 0) return [0, 1];
+    if (max < 1) return [0, 1];
+    var raw = max / n;
+    var mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    var norm = raw / mag;
+    var step = (norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 2.5 ? 2.5 : norm <= 5 ? 5 : 10) * mag;
+    var out = [];
+    for (var v = 0; v <= max + step * 0.001; v += step) out.push(v);
+    if (out[out.length - 1] < max) out.push(out[out.length - 1] + step);
+    return out;
+  }
+
+  /* ============================================================
+     SPARKLINE
+     ============================================================ */
+
+  function sparkline(host, vals, warna) {
+    host.innerHTML = "";
+    var w = host.clientWidth || 270, h = 42, pad = 3;
+    var max = Math.max.apply(null, vals) || 1;
+    var svg = sv("svg", { class: "chart", width: w, height: h, viewBox: "0 0 " + w + " " + h });
+    var x = function (i) { return pad + i * (w - pad * 2) / (vals.length - 1); };
+    var y = function (v) { return h - pad - (v / max) * (h - pad * 2); };
+    var dArea = "M" + x(0) + "," + (h - pad);
+    var dLine = "";
+    vals.forEach(function (v, i) {
+      dArea += "L" + x(i).toFixed(1) + "," + y(v).toFixed(1);
+      dLine += (i ? "L" : "M") + x(i).toFixed(1) + "," + y(v).toFixed(1);
+    });
+    dArea += "L" + x(vals.length - 1) + "," + (h - pad) + "Z";
+    svg.appendChild(sv("path", { d: dArea, fill: warna, "fill-opacity": ".10" }));
+    svg.appendChild(sv("path", {
+      d: dLine, fill: "none", stroke: warna, "stroke-width": 2,
+      "stroke-linejoin": "round", "stroke-linecap": "round"
+    }));
+    var li = vals.length - 1;
+    svg.appendChild(sv("circle", {
+      cx: x(li), cy: y(vals[li]), r: 4, fill: warna,
+      stroke: css("--surface"), "stroke-width": 2
+    }));
+    host.appendChild(svg);
+  }
+
+  /* ============================================================
+     BAGAN KOLOM (satu seri)
+     ============================================================ */
+
+  function colChart(host, opt) {
+    host.innerHTML = "";
+    var w = host.clientWidth || 560;
+    var h = opt.h || 210;
+    var padL = 42, padR = 8, padT = 10, padB = 26;
+    var iw = w - padL - padR, ih = h - padT - padB;
+    var vals = opt.values;
+    var max = Math.max.apply(null, vals) || 1;
+    var ticks = tickBagus(max, 3);
+    var top = ticks[ticks.length - 1];
+    var y = function (v) { return padT + ih - (v / top) * ih; };
+    var band = iw / vals.length;
+    var bw = Math.min(opt.maxBar || 24, band - 10);
+
+    var svg = sv("svg", { class: "chart", width: w, height: h, viewBox: "0 0 " + w + " " + h });
+
+    ticks.forEach(function (t) {
+      svg.appendChild(sv("line", {
+        class: t === 0 ? "baseline" : "gridline",
+        x1: padL, x2: w - padR, y1: y(t), y2: y(t)
+      }));
+      var tx = sv("text", { class: "tick-num", x: padL - 8, y: y(t) + 3.5, "text-anchor": "end" });
+      tx.textContent = t === 0 ? "0" : ringkas(t);
+      svg.appendChild(tx);
+    });
+
+    vals.forEach(function (v, i) {
+      var cx = padL + band * i + band / 2;
+      var bh = Math.max(v > 0 ? 2 : 0, (v / top) * ih);
+      var g = sv("g", { class: "mark" + (opt.activeIdx === i ? " on" : "") });
+      var warna = opt.color;
+      var r = Math.min(4, bw / 2);
+      var yy = y(v);
+      var path = "M" + (cx - bw / 2) + "," + (padT + ih) +
+                 "V" + (yy + r) +
+                 "a" + r + "," + r + " 0 0 1 " + r + ",-" + r +
+                 "h" + (bw - 2 * r) +
+                 "a" + r + "," + r + " 0 0 1 " + r + "," + r +
+                 "V" + (padT + ih) + "Z";
+      if (bh < 3) path = "M" + (cx - bw / 2) + "," + (padT + ih - bh) + "h" + bw + "v" + bh + "h" + (-bw) + "Z";
+      g.appendChild(sv("path", {
+        d: path, fill: warna,
+        "fill-opacity": opt.partial && opt.partial[i] ? ".45" : "1"
+      }));
+      if (opt.partial && opt.partial[i]) {
+        g.appendChild(sv("path", {
+          d: path, fill: "none", stroke: warna, "stroke-width": 1.5, "stroke-dasharray": "3 2.5"
+        }));
+      }
+      svg.appendChild(g);
+
+      var tx = sv("text", {
+        class: "tick-txt", x: cx, y: h - 8, "text-anchor": "middle"
+      });
+      tx.textContent = opt.labels[i];
+      if (opt.activeIdx === i) { tx.setAttribute("fill", css("--ink")); tx.setAttribute("font-weight", "650"); }
+      svg.appendChild(tx);
+
+      var hit = sv("rect", {
+        class: "hit", x: padL + band * i, y: padT, width: band, height: ih,
+        tabindex: "0", role: "button",
+        "aria-label": opt.labels[i] + ": " + nf(v, 0) + " " + opt.unit
+      });
+      (function (i, v, cx, yy, g) {
+        hit.addEventListener("focus", function () { hit.dispatchEvent(new MouseEvent("mouseenter")); });
+        hit.addEventListener("blur", function () { hit.dispatchEvent(new MouseEvent("mouseleave")); });
+        hit.addEventListener("keydown", function (ev) {
+          if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); hit.dispatchEvent(new MouseEvent("click")); }
+        });
+        hit.addEventListener("mouseenter", function () {
+          svg.classList.add("hovering");
+          g.classList.add("on");
+          var b = svg.getBoundingClientRect();
+          var judul = opt.labels[i] +
+            (opt.partial && opt.partial[i] ? " \u00b7 tahun berjalan" : "");
+          tipShow(
+            tipIsi(judul,
+              [[opt.tipLabel, (opt.unit === "ha" ? ha(v) : nf(v, 0)) + " " + opt.unit]],
+              "Klik untuk menyaring tahun ini"),
+            b.left + cx, b.top + yy
+          );
+        });
+        hit.addEventListener("mouseleave", function () {
+          svg.classList.remove("hovering"); g.classList.remove("on"); tipHide();
+        });
+        hit.addEventListener("click", function () {
+          S.year = (S.year === i) ? "all" : i;
+          tipHide(); render();
+        });
+      })(i, v, cx, yy, g);
+      svg.appendChild(hit);
+    });
+
+    host.appendChild(svg);
+  }
+
+  /* ============================================================
+     BAGAN BATANG MENDATAR
+     ============================================================ */
+
+  function barChart(host, items, opt) {
+    host.innerHTML = "";
+    opt = opt || {};
+    var w = host.clientWidth || 560;
+    if (!items.length) {
+      host.appendChild(el("p", "card-note", "Tidak ada daerah yang cocok dengan saringan ini."));
+      return;
+    }
+    var labW = Math.min(opt.labW || 150, Math.round(w * 0.34));
+    var valW = 70, gap = 10;
+    var rowH = opt.rowH || 26;
+    var h = items.length * rowH + 4;
+    var iw = w - labW - valW - gap;
+    var max = Math.max.apply(null, items.map(function (d) { return d.v; })) || 1;
+    var svg = sv("svg", { class: "chart", width: w, height: h, viewBox: "0 0 " + w + " " + h });
+    var bh = Math.min(14, rowH - 11);
+
+    items.forEach(function (d, i) {
+      var cy = i * rowH + rowH / 2;
+      var bw = Math.max(d.v > 0 ? 2 : 0, (d.v / max) * iw);
+      var g = sv("g", { class: "mark" });
+
+      var lab = sv("text", { class: "cat-txt", x: labW - gap, y: cy + 4, "text-anchor": "end" });
+      lab.textContent = d.nama.length > 24 ? d.nama.slice(0, 23) + "…" : d.nama;
+      g.appendChild(lab);
+
+      var r = Math.min(4, bh / 2);
+      var path = "M" + labW + "," + (cy - bh / 2) +
+                 "h" + Math.max(0, bw - r) +
+                 "a" + r + "," + r + " 0 0 1 " + r + "," + r +
+                 "v" + (bh - 2 * r) +
+                 "a" + r + "," + r + " 0 0 1 " + (-r) + "," + r +
+                 "h" + (-Math.max(0, bw - r)) + "Z";
+      g.appendChild(sv("path", { d: path, fill: d.color || opt.color }));
+
+      var vt = sv("text", { class: "val-txt", x: labW + bw + 8, y: cy + 4 });
+      vt.textContent = ha(d.v);
+      g.appendChild(vt);
+      svg.appendChild(g);
+
+      var hit = sv("rect", {
+        class: "hit", x: 0, y: i * rowH, width: w, height: rowH,
+        tabindex: "0", role: opt.onClick ? "button" : "img",
+        "aria-label": d.nama + ": " + ha(d.v) + " hektare"
+      });
+      (function (d, cy, g) {
+        hit.addEventListener("focus", function () { hit.dispatchEvent(new MouseEvent("mouseenter")); });
+        hit.addEventListener("blur", function () { hit.dispatchEvent(new MouseEvent("mouseleave")); });
+        hit.addEventListener("keydown", function (ev) {
+          if (opt.onClick && (ev.key === "Enter" || ev.key === " ")) {
+            ev.preventDefault(); tipHide(); opt.onClick(d);
+          }
+        });
+        hit.addEventListener("mouseenter", function () {
+          svg.classList.add("hovering"); g.classList.add("on");
+          var b = svg.getBoundingClientRect();
+          tipShow(tipIsi(d.nama, [
+            d.sub ? ["Wilayah", d.sub] : null,
+            [opt.tipLabel || "Luas", ha(d.v) + " ha"]
+          ], opt.onClick ? "Klik untuk menyaring" : null),
+            b.left + w / 2, b.top + cy);
+        });
+        hit.addEventListener("mouseleave", function () {
+          svg.classList.remove("hovering"); g.classList.remove("on"); tipHide();
+        });
+        if (opt.onClick) hit.addEventListener("click", function () { tipHide(); opt.onClick(d); });
+      })(d, cy, g);
+      svg.appendChild(hit);
+    });
+    host.appendChild(svg);
+  }
+
+  /* ============================================================
+     PETA
+     ============================================================ */
+
+  var mapSvg = null;
+  var mapPaths = {};
+
+  function buildMap() {
+    var host = $("#peta");
+    host.innerHTML = "";
+    mapSvg = sv("svg", {
+      class: "map-svg", viewBox: M.viewBox, role: "img",
+      "aria-label": "Peta sebaran luas kebakaran hutan dan lahan per provinsi"
+    });
+    M.geo.forEach(function (g) {
+      var p = sv("path", { d: g.d, "data-id": g.id, tabindex: "0", role: "button" });
+      p.addEventListener("mousemove", function (ev) { petaHover(g.id, ev); });
+      p.addEventListener("focus", function () {
+        var r = p.getBoundingClientRect();
+        petaHover(g.id, { clientX: r.left + r.width / 2, clientY: r.top });
+      });
+      p.addEventListener("blur", tipHide);
+      p.addEventListener("keydown", function (ev) {
+        if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); p.dispatchEvent(new MouseEvent("click")); }
+      });
+      p.addEventListener("mouseleave", tipHide);
+      p.addEventListener("click", function () {
+        S.region = (S.region === g.id) ? null : g.id;
+        S.prov = "all";
+        S.pulau = "all";
+        tipHide(); render();
+      });
+      mapPaths[g.id] = p;
+      mapSvg.appendChild(p);
+    });
+    host.appendChild(mapSvg);
+  }
+
+  var petaNilai = {}, petaBreaks = [];
+
+  function namaRegion(id) {
+    if (M.label[id]) return M.label[id];
+    for (var i = 0; i < D.prov.length; i++) if (M.provToId[i] === id) return D.prov[i];
+    return id;
+  }
+
+  function petaHover(id, ev) {
+    var v = petaNilai[id] || 0;
+    var urut = Object.keys(petaNilai).sort(function (a, b) { return petaNilai[b] - petaNilai[a]; });
+    var rank = urut.indexOf(id) + 1;
+    tipShow(tipIsi(namaRegion(id), [
+      ["Luas terbakar", ha(v) + " ha"],
+      ["Peringkat nasional", rank + " dari 34"]
+    ], "Klik untuk menyaring wilayah ini"), ev.clientX, ev.clientY - 6);
+  }
+
+  function hitungPeta() {
+    petaNilai = {};
+    M.geo.forEach(function (g) { petaNilai[g.id] = 0; });
+    KAB.forEach(function (r) {
+      var id = M.provToId[r.prov];
+      petaNilai[id] += (S.year === "all"
+        ? r.v.reduce(function (a, b) { return a + b; }, 0)
+        : r.v[S.year]);
+    });
+    var vals = Object.keys(petaNilai).map(function (k) { return petaNilai[k]; })
+                     .filter(function (v) { return v > 0; })
+                     .sort(function (a, b) { return a - b; });
+    petaBreaks = [];
+    for (var i = 1; i <= 5; i++) {
+      var q = vals[Math.floor(vals.length * i / 6)] || 0;
+      petaBreaks.push(bulat(q));
+    }
+    petaBreaks = petaBreaks.filter(function (v, i, a) { return i === 0 || v > a[i - 1]; });
+  }
+
+  function bulat(v) {
+    if (v <= 0) return 0;
+    var mag = Math.pow(10, Math.floor(Math.log10(v)));
+    return Math.round(v / (mag / 2)) * (mag / 2);
+  }
+
+  function kelas(v) {
+    if (v <= 0) return 0;
+    for (var i = 0; i < petaBreaks.length; i++) if (v < petaBreaks[i]) return i + 1;
+    return petaBreaks.length + 1;
+  }
+
+  function warnaKelas(k) { return css("--s" + Math.min(k, 6)); }
+
+  function gambarPeta(kosong) {
+    hitungPeta();
+    var aktif = null;
+    if (kosong) {
+      M.geo.forEach(function (g) {
+        var p = mapPaths[g.id];
+        p.setAttribute("fill", warnaKelas(kelas(petaNilai[g.id])));
+        p.classList.add("dim"); p.classList.remove("sel");
+      });
+      gambarSkala();
+      return;
+    }
+    if (S.region) aktif = [S.region];
+    else if (S.prov !== "all") aktif = [M.provToId[S.prov]];
+    else if (S.pulau !== "all") {
+      aktif = [];
+      D.provPulau.forEach(function (p, i) { if (p === S.pulau) aktif.push(M.provToId[i]); });
+    }
+    M.geo.forEach(function (g) {
+      var p = mapPaths[g.id];
+      p.setAttribute("fill", warnaKelas(kelas(petaNilai[g.id])));
+      p.classList.toggle("dim", !!(aktif && aktif.indexOf(g.id) < 0));
+      p.classList.toggle("sel", !!(aktif && aktif.indexOf(g.id) >= 0));
+    });
+
+    gambarSkala();
+  }
+
+  function gambarSkala() {
+    var sc = $("#skala");
+    sc.innerHTML = "";
+    var n = petaBreaks.length + 2;
+    for (var k = 0; k < n; k++) {
+      var sw = el("div", "sw");
+      var bar = el("div", "bar");
+      bar.style.background = warnaKelas(k);
+      sw.appendChild(bar);
+      var t = el("div", "tick");
+      t.textContent = k === 0 ? "0" : (k === 1 ? "> 0" : ringkas(petaBreaks[k - 2]));
+      sw.appendChild(t);
+      sc.appendChild(sw);
+    }
+  }
+
+  /* ============================================================
+     RENDER
+     ============================================================ */
+
+  function labelLingkup() {
+    if (S.region) return namaRegion(S.region);
+    if (S.prov !== "all") return D.prov[S.prov];
+    if (S.pulau !== "all") return D.pulau[S.pulau];
+    return "nasional";
+  }
+  function labelTahun() {
+    return S.year === "all" ? "2018–2026 kumulatif" : String(TAHUN[S.year]);
+  }
+
+  function render() {
+    var rows = lingkup();
+    var totTahun = TAHUN.map(function (_, j) {
+      return rows.reduce(function (a, r) { return a + r.v[j]; }, 0);
+    });
+    var jmlTahun = TAHUN.map(function (_, j) {
+      return rows.reduce(function (a, r) { return a + (r.v[j] > 0 ? 1 : 0); }, 0);
+    });
+
+    var vals = rows.map(nilai);
+    var total = vals.reduce(function (a, b) { return a + b; }, 0);
+    var aktif = vals.filter(function (v) { return v > 0; });
+    var urut = vals.slice().sort(function (a, b) { return b - a; });
+    var top10 = urut.slice(0, 10).reduce(function (a, b) { return a + b; }, 0);
+    var berulang = rows.filter(function (r) {
+      return IDX_PENUH.filter(function (j) { return r.v[j] > 0; }).length >= 7;
+    }).length;
+
+    var adaData = total > 0 && rows.length > 0;
+    var parsialKini = S.year !== "all" && D.statusTahun[TAHUN[S.year]] === "parsial";
+
+    /* -- angka utama -- */
+    $("#heroVal").textContent = adaData ? nf(total, 0) : KOSONG;
+    $("#heroVal").classList.toggle("kosong", !adaData);
+    $("#heroLab").textContent = "Luas terbakar · " + labelTahun() +
+      (parsialKini ? " (belum lengkap)" : "");
+    $("#heroUnit").textContent = adaData
+      ? "hektare, lingkup " + labelLingkup() + " · " + rows.length + " kabupaten/kota"
+      : "Tidak ada daerah yang cocok dengan saringan ini.";
+    if (adaData) {
+      sparkline($("#heroSpark"), totTahun, css("--accent"));
+      $("#heroSparkCap").textContent = "Tren " + TAHUN[0] + "–" + TAHUN[NT - 1] +
+        " · puncak " + TAHUN[totTahun.indexOf(Math.max.apply(null, totTahun))];
+    } else {
+      $("#heroSpark").innerHTML = "";
+      $("#heroSparkCap").textContent = "Longgarkan saringan atau tekan Atur ulang.";
+    }
+
+    /* -- ubin -- */
+    $("#tDaerah").textContent = adaData ? nf(aktif.length, 0) : KOSONG;
+    $("#tDaerahSub").textContent = rows.length
+      ? "dari " + rows.length + " dalam lingkup" : "tidak ada daerah terpilih";
+
+    /* Perubahan tahunan tidak dihitung bila salah satu tahunnya belum lengkap:
+       membandingkan tahun berjalan dengan tahun penuh menghasilkan penurunan
+       semu. Aturan ini sama dengan yang tertulis di catatan grafik tren. */
+    var dEl = $("#tDelta"), dSub = $("#tDeltaSub");
+    var parsialBanding = S.year !== "all" && S.year > 0 &&
+      (D.statusTahun[TAHUN[S.year]] === "parsial" ||
+       D.statusTahun[TAHUN[S.year - 1]] === "parsial");
+    if (S.year !== "all" && S.year > 0 && !parsialBanding && adaData && totTahun[S.year - 1] > 0) {
+      var a = totTahun[S.year - 1], b = totTahun[S.year];
+      var g = (b - a) / a * 100;
+      dEl.textContent = (g >= 0 ? "+" : "\u2212") + pct(Math.abs(g), 1);
+      dEl.style.color = "var(--ink)";
+      dSub.textContent = "dibanding " + TAHUN[S.year - 1];
+    } else {
+      dEl.textContent = KOSONG;
+      dEl.style.color = "var(--ink-3)";
+      dSub.textContent = !adaData ? "tidak ada data"
+        : parsialBanding ? TAHUN[S.year] + " belum lengkap, tidak dibandingkan"
+        : S.year === "all" ? "pilih satu tahun" : "tahun awal data";
+    }
+
+    /* Porsi 10 besar kehilangan arti bila lingkupnya sendiri kecil. */
+    var cukupBesar = rows.length >= 20;
+    $("#tKons").textContent = (adaData && cukupBesar) ? pct(top10 / total * 100, 1) : KOSONG;
+    $("#tKonsSub").textContent = cukupBesar ? "10 daerah teratas"
+      : "lingkup < 20 daerah";
+
+    $("#tMedian").textContent = adaData ? ha(median(aktif)) : KOSONG;
+    $("#tMedianSub").textContent = "hektare, daerah terdampak";
+
+    $("#tUlang").textContent = rows.length ? nf(berulang, 0) : KOSONG;
+    $("#tUlangSub").textContent = "lintas tahun · ≥ 7 dari " + IDX_PENUH.length + " tahun penuh";
+
+    var pi = totTahun.indexOf(Math.max.apply(null, totTahun));
+    $("#tPuncak").textContent = adaData ? String(TAHUN[pi]) : KOSONG;
+    $("#tPuncakSub").textContent = adaData
+      ? "lintas tahun · " + nf(totTahun[pi], 0) + " ha" : "lintas tahun";
+
+    /* -- peta -- */
+    gambarPeta(!adaData);
+    $("#petaSub").textContent = labelTahun() + " · skala nasional";
+
+    /* -- bagan tahunan -- */
+    var partial = TAHUN.map(function (t) { return D.statusTahun[t] === "parsial"; });
+    colChart($("#chTren"), {
+      labels: TAHUN.map(String), values: totTahun, color: css("--accent"),
+      partial: partial, activeIdx: S.year === "all" ? -1 : S.year,
+      unit: "ha", tipLabel: "Luas terbakar", dec: 2, h: 196
+    });
+    colChart($("#chDaerah"), {
+      labels: TAHUN.map(String), values: jmlTahun, color: css("--blue"),
+      partial: partial, activeIdx: S.year === "all" ? -1 : S.year,
+      unit: "daerah", tipLabel: "Kabupaten/kota terdampak", h: 196
+    });
+    $("#trenSub").textContent = "lingkup " + labelLingkup();
+    $("#daerahSub").textContent = "luas > 0 ha";
+
+    /* -- komposisi per pulau -- */
+    var perPulau = D.pulau.map(function () { return 0; });
+    rows.forEach(function (r) { perPulau[r.pulau] += nilai(r); });
+    var totPulau = perPulau.reduce(function (a, b) { return a + b; }, 0);
+    var pulauAda = URUT_PULAU.filter(function (i) { return perPulau[i] > 0; });
+    /* Dengan satu pulau saja, pita ini hanya jadi satu blok warna penuh
+       bertuliskan 100% — tidak ada yang bisa dibandingkan, jadi disembunyikan. */
+    $("#kartuKomp").hidden = pulauAda.length < 2;
+
+    var stack = $("#stackPulau"); stack.innerHTML = "";
+    pulauAda.forEach(function (i) {
+      var seg = el("div");
+      seg.style.flex = perPulau[i];
+      seg.style.background = warnaPulau(i);
+      seg.tabIndex = 0;
+      seg.setAttribute("role", "img");
+      seg.setAttribute("aria-label", D.pulau[i] + ": " + ha(perPulau[i]) +
+        " hektare, " + pct(perPulau[i] / totPulau * 100, 1) + " dari lingkup");
+      var tampil = function (x, y) {
+        tipShow(tipIsi(D.pulau[i], [
+          ["Luas terbakar", ha(perPulau[i]) + " ha"],
+          ["Porsi lingkup", pct(perPulau[i] / totPulau * 100, 1)]
+        ]), x, y);
+      };
+      seg.addEventListener("mousemove", function (ev) { tampil(ev.clientX, ev.clientY - 6); });
+      seg.addEventListener("focus", function () {
+        var r = seg.getBoundingClientRect();
+        tampil(r.left + r.width / 2, r.top);
+      });
+      seg.addEventListener("mouseleave", tipHide);
+      seg.addEventListener("blur", tipHide);
+      stack.appendChild(seg);
+    });
+    $("#kompSub").textContent = labelTahun();
+    $("#kompTotal").textContent = nf(totPulau, 0) + " ha total";
+
+    var leg = $("#legPulau"); leg.innerHTML = "";
+    URUT_PULAU.forEach(function (i) {
+      var b = el("button");
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(S.pulau === "all" || S.pulau === i));
+      var k = el("span", "key"); k.style.background = warnaPulau(i);
+      b.appendChild(k);
+      b.appendChild(el("span", null, D.pulau[i]));
+      b.appendChild(el("span", "num", totPulau > 0 ? pct(perPulau[i] / totPulau * 100, 1) : "–"));
+      b.addEventListener("click", function () {
+        S.pulau = (S.pulau === i) ? "all" : i;
+        S.prov = "all"; S.region = null; render();
+      });
+      leg.appendChild(b);
+    });
+
+    /* -- peringkat kabupaten -- */
+    /* Batang peringkat memakai satu warna ukuran, bukan tujuh warna pulau:
+       urutan batang di sini ditentukan nilai, jadi dua pulau mana pun bisa
+       bersebelahan. Tujuh rona tidak lolos uji semua-pasangan (Kalimantan
+       dan Papua hanya berjarak dE 7,8 pada mode gelap, ambangnya 15).
+       Identitas pulau tetap terbaca lewat nama provinsi di tiap baris. */
+    var rank = rows.map(function (r) {
+      return { nama: r.nama, v: nilai(r), prov: r.prov, pulau: r.pulau, sub: D.prov[r.prov] };
+    }).filter(function (d) { return d.v > 0; })
+      .sort(function (a, b) { return b.v - a.v; }).slice(0, 12);
+    barChart($("#chRank"), rank, {
+      color: css("--accent"), rowH: 27, labW: 165,
+      tipLabel: "Luas terbakar",
+      onClick: function (d) { S.q = d.nama; $("#cari").value = d.nama; render(); }
+    });
+    $("#rankSub").textContent = (rank.length < 12 ? rank.length : 12) +
+      " teratas · " + labelTahun();
+
+    /* -- perbandingan wilayah -- */
+    var peta = {}, petaPulau = {};
+    rows.forEach(function (r) {
+      var key = S.wilayah === "prov" ? D.prov[r.prov] : D.pulau[r.pulau];
+      peta[key] = (peta[key] || 0) + nilai(r);
+      petaPulau[key] = r.pulau;
+    });
+    var wil;
+    if (S.wilayah === "pulau") {
+      /* Urutan pulau dikunci barat ke timur, bukan menurut nilai. Dengan
+         urutan tetap, yang berlaku adalah uji pasangan bersebelahan — dan
+         pada urutan itu ketujuh rona lolos di mode terang maupun gelap. */
+      wil = URUT_PULAU.map(function (i) {
+        return { nama: D.pulau[i], v: peta[D.pulau[i]] || 0, pulau: i, color: warnaPulau(i) };
+      }).filter(function (d) { return d.v > 0; });
+    } else {
+      wil = Object.keys(peta).map(function (k) {
+        return { nama: k, v: peta[k], pulau: petaPulau[k] };
+      }).filter(function (d) { return d.v > 0; })
+        .sort(function (a, b) { return b.v - a.v; })
+        .slice(0, 12);
+    }
+    barChart($("#chWilayah"), wil, {
+      color: css("--accent"), rowH: 27, labW: 165,
+      tipLabel: "Luas terbakar",
+      onClick: function (d) {
+        if (S.wilayah === "prov") {
+          var i = D.prov.indexOf(d.nama);
+          if (i >= 0) { S.prov = (S.prov === i ? "all" : i); S.region = null; render(); }
+        } else {
+          var j = D.pulau.indexOf(d.nama);
+          if (j >= 0) { S.pulau = (S.pulau === j ? "all" : j); S.prov = "all"; S.region = null; render(); }
+        }
+      }
+    });
+    $("#wilSub").textContent = (S.wilayah === "prov"
+      ? (wil.length < 12 ? wil.length + " provinsi" : "12 provinsi teratas")
+      : "tujuh pulau, urut barat ke timur") +
+      " · " + labelTahun() + " · klik batang untuk menyaring";
+
+    var adaWil = S.wilayah === "pulau"
+      ? wil.map(function (d) { return d.pulau; }) : [];
+    var lw = $("#legWil"); lw.innerHTML = "";
+    URUT_PULAU.filter(function (i) { return adaWil.indexOf(i) >= 0; }).forEach(function (i) {
+      var s = el("button"); s.type = "button"; s.setAttribute("aria-pressed", "true");
+      var k = el("span", "key"); k.style.background = warnaPulau(i);
+      s.appendChild(k); s.appendChild(el("span", null, D.pulau[i]));
+      s.addEventListener("click", function () {
+        S.pulau = (S.pulau === i) ? "all" : i; S.prov = "all"; S.region = null; render();
+      });
+      lw.appendChild(s);
+    });
+
+    /* -- tabel -- */
+    renderTabel(rows);
+
+    /* -- catatan 2023 -- */
+    var ket = D.catatanTahun[2023];
+    $("#alert2023").style.display = (S.year === "all" || TAHUN[S.year] === 2023) ? "" : "none";
+    $("#alertTxt").innerHTML = "<b>Catatan mutu data 2023.</b> " + ket +
+      " Aturan validasi V-07 gagal pada tahun itu; temuan diteruskan ke walidata, bukan dikoreksi diam-diam.";
+
+    /* -- keadaan saringan -- */
+    Array.prototype.forEach.call(document.querySelectorAll("#tahunChips .chip"), function (c) {
+      c.setAttribute("aria-pressed", String(c.dataset.y === String(S.year)));
+    });
+    $("#selPulau").value = String(S.pulau);
+    $("#selProv").value = String(S.prov);
+    $("#reset").hidden =
+      (S.year === "all" && S.pulau === "all" && S.prov === "all" && !S.region && !S.q);
+  }
+
+  /* ---------- tabel ---------- */
+
+  var KOLOM = [
+    { k: "nama", t: "Kabupaten/Kota", num: false },
+    { k: "prov", t: "Provinsi", num: false },
+    { k: "luas", t: "Luas (ha)", num: true },
+    { k: "puncak", t: "Tahun puncak", num: true },
+    { k: "aktif", t: "Tahun ada kejadian", num: true },
+    { k: "share", t: "Porsi lingkup", num: true }
+  ];
+
+  function renderTabel(rows) {
+    var total = rows.reduce(function (a, r) { return a + nilai(r); }, 0) || 1;
+    var data = rows.map(function (r) {
+      var puncakI = 0;
+      for (var j = 1; j < NT; j++) if (r.v[j] > r.v[puncakI]) puncakI = j;
+      return {
+        nama: r.nama, prov: D.prov[r.prov],
+        luas: nilai(r), puncak: TAHUN[puncakI],
+        aktif: r.v.filter(function (v) { return v > 0; }).length,
+        share: nilai(r) / total * 100
+      };
+    });
+    data.sort(function (a, b) {
+      var x = a[S.sortKey], y = b[S.sortKey];
+      if (typeof x === "string") return S.sortDir * x.localeCompare(y, "id");
+      return S.sortDir * (x - y);
+    });
+
+    var thead = $("#tblHead"), tbody = $("#tblBody");
+    thead.innerHTML = "";
+    var tr = el("tr");
+    KOLOM.forEach(function (c) {
+      var th = el("th");
+      th.setAttribute("scope", "col");
+      if (S.sortKey === c.k) th.setAttribute("aria-sort", S.sortDir < 0 ? "descending" : "ascending");
+      var btn = el("button", "th-btn", c.t);
+      btn.type = "button";
+      if (S.sortKey === c.k) btn.appendChild(el("span", "arr", S.sortDir < 0 ? " \u25bc" : " \u25b2"));
+      btn.addEventListener("click", function () {
+        if (S.sortKey === c.k) S.sortDir *= -1;
+        else { S.sortKey = c.k; S.sortDir = c.num ? -1 : 1; }
+        render();
+      });
+      th.appendChild(btn);
+      tr.appendChild(th);
+    });
+    thead.appendChild(tr);
+
+    tbody.innerHTML = "";
+    var kunci = ["", "", "", "Puncak", "Aktif", "Porsi"];
+    data.slice(0, S.limit).forEach(function (d) {
+      var r = el("tr");
+      var sel = [
+        el("td", null, d.nama),
+        el("td", null, d.prov),
+        el("td", "big", ha(d.luas)),
+        el("td", null, String(d.puncak)),
+        el("td", null, d.aktif + " / " + NT),
+        el("td", null, pct(d.share, 2))
+      ];
+      sel.forEach(function (td, i) {
+        if (kunci[i]) td.setAttribute("data-k", kunci[i]);
+        r.appendChild(td);
+      });
+      tbody.appendChild(r);
+    });
+    $("#tblSub").textContent = nf(data.length, 0) + " baris · " + labelTahun();
+    var sisa = data.length - S.limit;
+    $("#tblMore").hidden = sisa <= 0;
+    $("#tblMore").textContent = sisa > 200
+      ? "Tampilkan 200 baris lagi" : "Tampilkan sisanya (" + nf(Math.max(sisa, 0), 0) + ")";
+  }
+
+  /* ============================================================
+     PASANG
+     ============================================================ */
+
+  function isiSelect(sel, arr, label) {
+    sel.innerHTML = "";
+    var o = el("option", null, label); o.value = "all"; sel.appendChild(o);
+    arr.forEach(function (n, i) {
+      var op = el("option", null, n); op.value = String(i); sel.appendChild(op);
+    });
+  }
+
+  function pasang() {
+    // chip tahun
+    var wrap = $("#tahunChips");
+    var mk = function (lab, val, warn) {
+      var b = el("button", "chip");
+      b.textContent = lab;
+      b.dataset.y = String(val);
+      b.setAttribute("aria-pressed", "false");
+      if (warn) b.appendChild(el("span", "dot"));
+      b.addEventListener("click", function () { S.year = val; render(); });
+      wrap.appendChild(b);
+    };
+    mk("Semua", "all", false);
+    TAHUN.forEach(function (t, i) {
+      mk(String(t) + (D.statusTahun[t] === "parsial" ? "*" : ""), i, !!D.catatanTahun[t]);
+    });
+
+    isiSelect($("#selPulau"), D.pulau, "Semua pulau");
+    isiSelect($("#selProv"), D.prov, "Semua provinsi");
+
+    $("#selPulau").addEventListener("change", function () {
+      S.pulau = this.value === "all" ? "all" : +this.value;
+      S.prov = "all"; S.region = null; render();
+    });
+    $("#selProv").addEventListener("change", function () {
+      S.prov = this.value === "all" ? "all" : +this.value;
+      S.region = null; render();
+    });
+    var t;
+    $("#cari").addEventListener("input", function () {
+      var v = this.value;
+      clearTimeout(t); t = setTimeout(function () { S.q = v; S.limit = 25; render(); }, 160);
+    });
+    $("#reset").addEventListener("click", function () {
+      S.year = "all"; S.pulau = "all"; S.prov = "all"; S.region = null; S.q = "";
+      S.limit = 25; $("#cari").value = ""; render();
+    });
+    $("#tblMore").addEventListener("click", function () { S.limit += 200; render(); });
+
+    Array.prototype.forEach.call(document.querySelectorAll("#segWilayah button"), function (b) {
+      b.addEventListener("click", function () {
+        S.wilayah = b.dataset.m;
+        Array.prototype.forEach.call(document.querySelectorAll("#segWilayah button"), function (x) {
+          x.setAttribute("aria-pressed", String(x === b));
+        });
+        render();
+      });
+    });
+
+    // tema
+    var tombol = $("#tema");
+    var simpan = null;
+    try { simpan = localStorage.getItem("karhutla-tema"); } catch (e) { }
+    if (simpan) document.documentElement.setAttribute("data-theme", simpan);
+    tombol.addEventListener("click", function () {
+      var kini = document.documentElement.getAttribute("data-theme");
+      var gelapOS = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var baru = kini ? (kini === "dark" ? "light" : "dark") : (gelapOS ? "light" : "dark");
+      document.documentElement.setAttribute("data-theme", baru);
+      try { localStorage.setItem("karhutla-tema", baru); } catch (e) { }
+      render();
+    });
+
+    buildMap();
+    render();
+
+    var rt;
+    window.addEventListener("resize", function () {
+      clearTimeout(rt); rt = setTimeout(render, 140);
+    });
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", pasang);
+  else pasang();
+})();
+
+</script>
+</body>
+</html>

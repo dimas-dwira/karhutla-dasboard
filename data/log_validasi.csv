@@ -1,0 +1,8 @@
+waktu,kode,aturan,tingkat,lulus,keterangan,diterima_operator,alasan_penerimaan
+2026-10-15T09:33:55,V-01,Kode Wilayah tidak kosong pada baris rinci,blocker,True,1 baris tanpa kode teridentifikasi sebagai baris agregat,False,
+2026-10-15T09:33:55,V-02,Kode Wilayah unik,blocker,True,0 duplikat dari 514 kode,False,
+2026-10-15T09:33:55,V-03,Kode Wilayah 4 digit numerik,blocker,True,514 dari 514 sesuai (rentang 1101–9671),False,
+2026-10-15T09:33:55,V-04,Seluruh nilai luas dapat dikonversi ke numerik,blocker,True,0 gagal konversi dari 4626 sel,False,
+2026-10-15T09:33:55,V-05,Luas tidak negatif,blocker,True,0 nilai negatif,False,
+2026-10-15T09:33:55,V-06,Dua digit awal adalah kode provinsi sah,peringatan,True,38 kode provinsi terpakai; tak dikenal: tidak ada,False,
+2026-10-15T09:33:55,V-07,Baris agregat sama dengan jumlah baris rinci,blocker,False,"2023 selisih 154,657.05 ha (13.32%)",True,"Selisih 2023 dilaporkan ke walidata sebagai permintaan klarifikasi tertulis. Sampai klarifikasi diterima, analisis memakai penjumlahan baris kabupaten dan tahun 2023 diberi penanda kualitas data di dim_tahun."

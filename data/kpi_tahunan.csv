@@ -1,0 +1,10 @@
+tahun,total_luas_ha,daerah_terdampak,median_daerah_terdampak,perubahan_tahunan_persen,konsentrasi_10_besar_persen,status_kelengkapan,catatan_kualitas
+2018,518183.0,226,259.5,,53.1,lengkap,
+2019,1625383.0,297,679.0,213.7,46.5,lengkap,
+2020,283047.0,304,132.0,-82.6,52.3,lengkap,
+2021,351529.0,270,145.0,24.2,61.8,lengkap,
+2022,205228.0,290,94.0,-41.6,48.3,lengkap,
+2023,1006499.86,345,324.28,390.4,40.9,lengkap,"Selisih agregat 154.657,05 ha belum terjelaskan. Angka memakai penjumlahan baris kabupaten."
+2024,376805.06,358,182.63,-62.6,46.6,lengkap,
+2025,359619.35,328,208.38,-4.6,41.6,lengkap,
+2026,202010.96,340,75.58,-43.8,46.7,parsial,

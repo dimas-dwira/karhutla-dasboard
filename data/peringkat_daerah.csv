@@ -1,0 +1,515 @@
+peringkat,kode_kab,nama_kab,kode_prov,nama_prov,pulau,tipe_wilayah,luas_kumulatif_ha,tahun_terbakar,share_nasional_persen,terbakar_berulang
+1,5311,Sumba Timur,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,329205.69,8,6.68,True
+2,9301,Merauke,93,Papua Selatan,Papua,Kabupaten,300064.09,7,6.089,True
+3,1602,Ogan Komering Ilir,16,Sumatera Selatan,Sumatera,Kabupaten,293706.01,8,5.96,True
+4,6104,Ketapang,61,Kalimantan Barat,Kalimantan,Kabupaten,183481.18,8,3.723,True
+5,5206,Bima,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten,181477.22,8,3.682,True
+6,6211,Pulang Pisau,62,Kalimantan Tengah,Kalimantan,Kabupaten,169552.62,7,3.44,True
+7,5305,Alor,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,120475.26,8,2.445,True
+8,6303,Banjar,63,Kalimantan Selatan,Kalimantan,Kabupaten,103243.72,8,2.095,True
+9,6306,Hulu Sungai Selatan,63,Kalimantan Selatan,Kalimantan,Kabupaten,102003.5,7,2.07,True
+10,5205,Dompu,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten,97917.95,8,1.987,True
+11,5204,Sumbawa,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten,96013.43,8,1.948,True
+12,1607,Banyu Asin,16,Sumatera Selatan,Sumatera,Kabupaten,94934.13,8,1.926,True
+13,5317,Sumba Tengah,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,93137.11,7,1.89,True
+14,6203,Kapuas,62,Kalimantan Tengah,Kalimantan,Kabupaten,89440.33,8,1.815,True
+15,6402,Kutai Kartanegara,64,Kalimantan Timur,Kalimantan,Kabupaten,75658.79,8,1.535,True
+16,6112,Kubu Raya,61,Kalimantan Barat,Kalimantan,Kabupaten,73636.06,8,1.494,True
+17,6301,Tanah Laut,63,Kalimantan Selatan,Kalimantan,Kabupaten,68768.52,8,1.395,True
+18,6305,Tapin,63,Kalimantan Selatan,Kalimantan,Kabupaten,64246.85,8,1.304,True
+19,5301,Kupang,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,58669.98,7,1.19,True
+20,1407,Rokan Hilir,14,Riau,Sumatera,Kabupaten,54709.87,8,1.11,True
+21,6204,Barito Selatan,62,Kalimantan Tengah,Kalimantan,Kabupaten,54530.38,8,1.106,True
+22,6207,Seruyan,62,Kalimantan Tengah,Kalimantan,Kabupaten,52860.07,7,1.073,True
+23,6304,Baritokuala,63,Kalimantan Selatan,Kalimantan,Kabupaten,51100.31,8,1.037,True
+24,3512,Situbondo,35,Jawa Timur,Jawa,Kabupaten,43467.47,8,0.882,True
+25,6202,Kotawaringin Timur,62,Kalimantan Tengah,Kalimantan,Kabupaten,41505.81,8,0.842,True
+26,6206,Katingan,62,Kalimantan Tengah,Kalimantan,Kabupaten,40840.18,8,0.829,True
+27,1405,Pelalawan,14,Riau,Sumatera,Kabupaten,40426.98,8,0.82,True
+28,8103,Kepulauan Tanimbar,81,Maluku,Maluku,Kabupaten,39074.490000000005,4,0.793,False
+29,1606,Musi Banyuasin,16,Sumatera Selatan,Sumatera,Kabupaten,39036.76,8,0.792,True
+30,1807,Lampung Timur,18,Lampung,Sumatera,Kabupaten,38976.33,8,0.791,True
+31,5313,Lembata,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,37959.18,8,0.77,True
+32,6101,Sambas,61,Kalimantan Barat,Kalimantan,Kabupaten,37926.81,8,0.77,True
+33,1403,Bengkalis,14,Riau,Sumatera,Kabupaten,37628.34,8,0.764,True
+34,5309,Ngada,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,36507.85,8,0.741,True
+35,6208,Sukamara,62,Kalimantan Tengah,Kalimantan,Kabupaten,35271.18,8,0.716,True
+36,6408,Kutai Timur,64,Kalimantan Timur,Kalimantan,Kabupaten,34952.9,8,0.709,True
+37,6111,Kayong Utara,61,Kalimantan Barat,Kalimantan,Kabupaten,34081.56,7,0.692,True
+38,8108,Maluku Barat Daya,81,Maluku,Maluku,Kabupaten,33059.69,8,0.671,True
+39,5316,Nagekeo,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,32929.06,8,0.668,True
+40,7406,Bombana,74,Sulawesi Tenggara,Sulawesi,Kabupaten,31211.96,8,0.633,True
+41,6110,Melawi,61,Kalimantan Barat,Kalimantan,Kabupaten,30952.42,8,0.628,True
+42,6407,Kutai Barat,64,Kalimantan Timur,Kalimantan,Kabupaten,30348.19,8,0.616,True
+43,5306,Flores Timur,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,28694.239999999998,8,0.582,True
+44,8107,Kepulauan Aru,81,Maluku,Maluku,Kabupaten,28608.43,8,0.58,True
+45,6201,Kotawaringin Barat,62,Kalimantan Tengah,Kalimantan,Kabupaten,26736.68,8,0.543,True
+46,6308,Hulu Sungai Utara,63,Kalimantan Selatan,Kalimantan,Kabupaten,25395.58,7,0.515,True
+47,8104,Buru,81,Maluku,Maluku,Kabupaten,25137.58,8,0.51,True
+48,6271,Palangka Raya,62,Kalimantan Tengah,Kalimantan,Kabupaten,25038.24,7,0.508,True
+49,1404,Indragiri Hilir,14,Riau,Sumatera,Kabupaten,24667.55,8,0.501,True
+50,1610,Ogan Ilir,16,Sumatera Selatan,Sumatera,Kabupaten,24558.55,8,0.498,True
+51,1505,Muaro Jambi,15,Jambi,Sumatera,Kabupaten,24027.74,8,0.488,True
+52,1811,Mesuji,18,Lampung,Sumatera,Kabupaten,23511.92,6,0.477,False
+53,5319,Manggarai Timur,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,22539.44,8,0.457,True
+54,6105,Sintang,61,Kalimantan Barat,Kalimantan,Kabupaten,22032.34,8,0.447,True
+55,5303,Timor Tengah Utara,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,21886.11,8,0.444,True
+56,1301,Pesisir Selatan,13,Sumatera Barat,Sumatera,Kabupaten,21542.76,8,0.437,True
+57,6403,Berau,64,Kalimantan Timur,Kalimantan,Kabupaten,21008.62,8,0.426,True
+58,6103,Sanggau,61,Kalimantan Barat,Kalimantan,Kabupaten,20613.78,8,0.418,True
+59,1805,Tulangbawang,18,Lampung,Sumatera,Kabupaten,18707.82,8,0.38,True
+60,6102,Mempawah,61,Kalimantan Barat,Kalimantan,Kabupaten,18488.61,6,0.375,False
+61,6372,Kota Banjarbaru,63,Kalimantan Selatan,Kalimantan,Kota,17911.54,7,0.363,True
+62,5308,Ende,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,17193.97,8,0.349,True
+63,7212,Morowali Utara,72,Sulawesi Tengah,Sulawesi,Kabupaten,16618.64,8,0.337,True
+64,1410,Kepulauan Meranti,14,Riau,Sumatera,Kabupaten,15921.69,8,0.323,True
+65,1507,Tanjung Jabung Timur,15,Jambi,Sumatera,Kabupaten,15825.36,8,0.321,True
+66,2103,Natuna,21,Kepulauan Riau,Sumatera,Kabupaten,15219.26,7,0.309,True
+67,6213,Barito Timur,62,Kalimantan Tengah,Kalimantan,Kabupaten,14945.68,7,0.303,True
+68,5307,Sikka,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,14370.01,8,0.292,True
+69,6401,Paser,64,Kalimantan Timur,Kalimantan,Kabupaten,14109.23,7,0.286,True
+70,8109,Buru Selatan,81,Maluku,Maluku,Kabupaten,13985.94,8,0.284,True
+71,7202,Poso,72,Sulawesi Tengah,Sulawesi,Kabupaten,13610.83,8,0.276,True
+72,3511,Bondowoso,35,Jawa Timur,Jawa,Kabupaten,13577.59,8,0.276,True
+73,1402,Indragiri Hulu,14,Riau,Sumatera,Kabupaten,13417.039999999999,8,0.272,True
+74,6108,Landak,61,Kalimantan Barat,Kalimantan,Kabupaten,13036.02,8,0.265,True
+75,1221,Padang Lawas,12,Sumatera Utara,Sumatera,Kabupaten,12827.380000000001,8,0.26,True
+76,3502,Ponorogo,35,Jawa Timur,Jawa,Kabupaten,12824.53,7,0.26,True
+77,6107,Bengkayang,61,Kalimantan Barat,Kalimantan,Kabupaten,12483.41,8,0.253,True
+78,3510,Banyuwangi,35,Jawa Timur,Jawa,Kabupaten,12454.49,8,0.253,True
+79,1217,Samosir,12,Sumatera Utara,Sumatera,Kabupaten,12245.27,7,0.248,True
+80,6302,Kotabaru,63,Kalimantan Selatan,Kalimantan,Kabupaten,11965.2,8,0.243,True
+81,1603,Muara Enim,16,Sumatera Selatan,Sumatera,Kabupaten,11735.82,8,0.238,True
+82,6501,Bulungan,65,Kalimantan Utara,Kalimantan,Kabupaten,11046.26,8,0.224,True
+83,8105,Seram Bagian Timur,81,Maluku,Maluku,Kabupaten,10445.19,5,0.212,False
+84,1608,Ogan Komering Ulu Timur,16,Sumatera Selatan,Sumatera,Kabupaten,10234.62,7,0.208,True
+85,5315,Manggarai Barat,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,10008.45,8,0.203,True
+86,1504,Batang Hari,15,Jambi,Sumatera,Kabupaten,9992.42,8,0.203,True
+87,1503,Sarolangun,15,Jambi,Sumatera,Kabupaten,9801.78,8,0.199,True
+88,3212,Indramayu,32,Jawa Barat,Jawa,Kabupaten,9467.13,8,0.192,True
+89,3210,Majalengka,32,Jawa Barat,Jawa,Kabupaten,9435.69,8,0.191,True
+90,1472,Dumai,14,Riau,Sumatera,Kabupaten,9330.83,8,0.189,True
+91,7305,Takalar,73,Sulawesi Selatan,Sulawesi,Kabupaten,9249.28,8,0.188,True
+92,1605,Musi Rawas,16,Sumatera Selatan,Sumatera,Kabupaten,9021.57,8,0.183,True
+93,1220,Padang Lawas Utara,12,Sumatera Utara,Sumatera,Kabupaten,8827.539999999999,8,0.179,True
+94,5312,Sumba Barat,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,8800.630000000001,8,0.179,True
+95,7209,Tojounauna,72,Sulawesi Tengah,Sulawesi,Kabupaten,8711.45,8,0.177,True
+96,1509,Tebo,15,Jambi,Sumatera,Kabupaten,8579.19,8,0.174,True
+97,3523,Tuban,35,Jawa Timur,Jawa,Kabupaten,8526.28,6,0.173,False
+98,6307,Hulu Sungai Tengah,63,Kalimantan Selatan,Kalimantan,Kabupaten,8294.12,6,0.168,False
+99,5302,Timor Tengah Selatan,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,8061.88,8,0.164,True
+100,5203,Lombok Timur,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten,7953.97,8,0.161,True
+101,6106,Kapuas Hulu,61,Kalimantan Barat,Kalimantan,Kabupaten,7887.429999999999,8,0.16,True
+102,5318,Sumba Barat Daya,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,7727.16,7,0.157,True
+103,3513,Probolinggo,35,Jawa Timur,Jawa,Kabupaten,7663.53,8,0.156,True
+104,1210,Labuhanbatu,12,Sumatera Utara,Sumatera,Kabupaten,7446.67,8,0.151,True
+105,7602,Mamuju,76,Sulawesi Barat,Sulawesi,Kabupaten,7425.53,8,0.151,True
+106,1903,Bangka Selatan,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten,7360.59,8,0.149,True
+107,1613,Musi Rawas Utara,16,Sumatera Selatan,Sumatera,Kabupaten,7293.0,7,0.148,True
+108,3522,Bojonegoro,35,Jawa Timur,Jawa,Kabupaten,6868.13,5,0.139,False
+109,6109,Sekadau,61,Kalimantan Barat,Kalimantan,Kabupaten,6853.01,8,0.139,True
+110,7409,Konawe Utara,74,Sulawesi Tenggara,Sulawesi,Kabupaten,6618.639999999999,8,0.134,True
+111,1802,Lampung Tengah,18,Lampung,Sumatera,Kabupaten,6605.21,8,0.134,True
+112,9203,Fak-Fak,92,Papua,Papua,Kabupaten,6600.8,5,0.134,False
+113,3518,Nganjuk,35,Jawa Timur,Jawa,Kabupaten,6274.85,8,0.127,True
+114,6210,Gunung Mas,62,Kalimantan Tengah,Kalimantan,Kabupaten,6272.87,7,0.127,True
+115,5371,Kota Kupang,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kota,6183.07,7,0.125,True
+116,3508,Lumajang,35,Jawa Timur,Jawa,Kabupaten,6144.78,7,0.125,True
+117,7405,Konawe Selatan,74,Sulawesi Tenggara,Sulawesi,Kabupaten,6101.83,8,0.124,True
+118,6502,Malinau,65,Kalimantan Utara,Kalimantan,Kabupaten,5919.37,8,0.12,True
+119,3321,Demak,33,Jawa Tengah,Jawa,Kabupaten,5754.8,4,0.117,False
+120,6310,Tanahbumbu,63,Kalimantan Selatan,Kalimantan,Kabupaten,5682.72,4,0.115,False
+121,1408,Siak,14,Riau,Sumatera,Kabupaten,5646.11,8,0.115,True
+122,1101,Aceh Selatan,11,Aceh,Sumatera,Kabupaten,5593.38,8,0.113,True
+123,8272,Kota Tidore Kepulauan,82,Maluku Utara,Maluku,Kota,5572.19,2,0.113,False
+124,3519,Madiun,35,Jawa Timur,Jawa,Kabupaten,5293.58,7,0.107,True
+125,3509,Jember,35,Jawa Timur,Jawa,Kabupaten,5202.5,8,0.106,True
+126,1406,Rokan Hulu,14,Riau,Sumatera,Kabupaten,5158.45,7,0.105,True
+127,3514,Pasuruan,35,Jawa Timur,Jawa,Kabupaten,5059.9,7,0.103,True
+128,7308,Bone,73,Sulawesi Selatan,Sulawesi,Kabupaten,5055.92,6,0.103,False
+129,5272,Kota Bima,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kota,4988.82,8,0.101,True
+130,3316,Blora,33,Jawa Tengah,Jawa,Kabupaten,4966.13,5,0.101,False
+131,1506,Tanjung Jabung Barat,15,Jambi,Sumatera,Kabupaten,4828.88,8,0.098,True
+132,6205,Barito Utara,62,Kalimantan Tengah,Kalimantan,Kabupaten,4723.9800000000005,8,0.096,True
+133,6212,Murung Raya,62,Kalimantan Tengah,Kalimantan,Kabupaten,4706.55,7,0.096,True
+134,2101,Bintan,21,Kepulauan Riau,Sumatera,Kabupaten,4579.82,6,0.093,False
+135,1308,Pasaman,13,Sumatera Barat,Sumatera,Kabupaten,4491.4,8,0.091,True
+136,7404,Buton,74,Sulawesi Tenggara,Sulawesi,Kabupaten,4465.52,8,0.091,True
+137,1106,Aceh Besar,11,Aceh,Sumatera,Kabupaten,4420.41,7,0.09,True
+138,7201,Banggai,72,Sulawesi Tengah,Sulawesi,Kabupaten,4419.85,8,0.09,True
+139,5314,Rote Ndao,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,4287.01,7,0.087,True
+140,1601,Ogan Komering Ulu,16,Sumatera Selatan,Sumatera,Kabupaten,4208.46,7,0.085,True
+141,3213,Subang,32,Jawa Barat,Jawa,Kabupaten,4177.4,7,0.085,True
+142,1905,Bangka Barat,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten,4112.85,8,0.083,True
+143,1211,Dairi,12,Sumatera Utara,Sumatera,Kabupaten,3890.49,7,0.079,True
+144,1216,Humbang Hasundutan,12,Sumatera Utara,Sumatera,Kabupaten,3700.17,7,0.075,True
+145,7106,Minahasa Utara,71,Sulawesi Utara,Sulawesi,Kabupaten,3664.79,7,0.074,True
+146,3202,Sukabumi,32,Jawa Barat,Jawa,Kabupaten,3658.5,8,0.074,True
+147,3524,Lamongan,35,Jawa Timur,Jawa,Kabupaten,3646.2,6,0.074,False
+148,3521,Ngawi,35,Jawa Timur,Jawa,Kabupaten,3614.46,6,0.073,False
+149,7402,Konawe,74,Sulawesi Tenggara,Sulawesi,Kabupaten,3582.6,8,0.073,True
+150,1202,Tapanuli Utara,12,Sumatera Utara,Sumatera,Kabupaten,3565.2000000000003,7,0.072,True
+151,9501,Jayawijaya,95,Papua Pegunungan,Papua,Kabupaten,3440.76,6,0.07,False
+152,3211,Sumedang,32,Jawa Barat,Jawa,Kabupaten,3343.2599999999998,8,0.068,True
+153,1312,Pasaman Barat,13,Sumatera Barat,Sumatera,Kabupaten,3295.04,7,0.067,True
+154,7411,Kolaka Timur,74,Sulawesi Tenggara,Sulawesi,Kabupaten,3290.05,6,0.067,False
+155,1808,Way Kanan,18,Lampung,Sumatera,Kabupaten,3287.6,8,0.067,True
+156,1401,Kampar,14,Riau,Sumatera,Kabupaten,3181.46,8,0.065,True
+157,3526,Bangkalan,35,Jawa Timur,Jawa,Kabupaten,3124.89,7,0.063,True
+158,1104,Aceh Tengah,11,Aceh,Sumatera,Kabupaten,3096.85,8,0.063,True
+159,1206,Karo,12,Sumatera Utara,Sumatera,Kabupaten,3084.0499999999997,6,0.063,False
+160,3209,Cirebon,32,Jawa Barat,Jawa,Kabupaten,3080.01,5,0.062,False
+161,7304,Jeneponto,73,Sulawesi Selatan,Sulawesi,Kabupaten,3073.54,8,0.062,True
+162,7306,Gowa,73,Sulawesi Selatan,Sulawesi,Kabupaten,3052.9700000000003,7,0.062,True
+163,3516,Mojokerto,35,Jawa Timur,Jawa,Kabupaten,3027.57,6,0.061,False
+164,6311,Balangan,63,Kalimantan Selatan,Kalimantan,Kabupaten,3006.2999999999997,7,0.061,True
+165,8101,Maluku Tengah,81,Maluku,Maluku,Kabupaten,2947.6800000000003,8,0.06,True
+166,1201,Tapanuli Tengah,12,Sumatera Utara,Sumatera,Kabupaten,2819.13,7,0.057,True
+167,7401,Kolaka,74,Sulawesi Tenggara,Sulawesi,Kabupaten,2806.85,8,0.057,True
+168,1409,Kuantan Singingi,14,Riau,Sumatera,Kabupaten,2714.95,7,0.055,True
+169,7403,Muna,74,Sulawesi Tenggara,Sulawesi,Kabupaten,2690.48,7,0.055,True
+170,5304,Belu,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,2677.11,8,0.054,True
+171,1105,Aceh Barat,11,Aceh,Sumatera,Kabupaten,2673.27,7,0.054,True
+172,2171,Kota Batam,21,Kepulauan Riau,Sumatera,Kota,2636.8599999999997,6,0.054,False
+173,7315,Pinrang,73,Sulawesi Selatan,Sulawesi,Kabupaten,2581.42,8,0.052,True
+174,7313,Wajo,73,Sulawesi Selatan,Sulawesi,Kabupaten,2564.88,5,0.052,False
+175,8106,Seram Bagian Barat,81,Maluku,Maluku,Kabupaten,2559.13,7,0.052,True
+176,5207,Sumbawa Barat,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten,2534.0299999999997,6,0.051,False
+177,6411,Mahakam Ulu,64,Kalimantan Timur,Kalimantan,Kabupaten,2481.21,7,0.05,True
+178,1502,Merangin,15,Jambi,Sumatera,Kabupaten,2472.52,8,0.05,True
+179,3205,Garut,32,Jawa Barat,Jawa,Kabupaten,2422.54,4,0.049,False
+180,1901,Bangka,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten,2404.34,8,0.049,True
+181,7318,Tana Toraja,73,Sulawesi Selatan,Sulawesi,Kabupaten,2297.83,6,0.047,False
+182,1706,Muko-Muko,17,Bengkulu,Sumatera,Kabupaten,2290.02,6,0.046,False
+183,6172,Kota Singkawang,61,Kalimantan Barat,Kalimantan,Kota,2282.21,7,0.046,True
+184,9103,Jayapura,91,Papua Barat,Papua,Kabupaten,2278.83,8,0.046,True
+185,9206,Telukbintuni,92,Papua,Papua,Kabupaten,2252.7,6,0.046,False
+186,3318,Pati,33,Jawa Tengah,Jawa,Kabupaten,2245.4,4,0.046,False
+187,3520,Magetan,35,Jawa Timur,Jawa,Kabupaten,2222.73,6,0.045,False
+188,1310,Dharmasraya,13,Sumatera Barat,Sumatera,Kabupaten,2210.09,7,0.045,True
+189,3525,Gresik,35,Jawa Timur,Jawa,Kabupaten,2188.77,4,0.044,False
+190,3507,Malang,35,Jawa Timur,Jawa,Kabupaten,2151.91,5,0.044,False
+191,5107,Karangasem,51,Bali,Bali & Nusa Tenggara,Kabupaten,2126.49,5,0.043,False
+192,8102,Maluku Tenggara,81,Maluku,Maluku,Kabupaten,2096.33,3,0.043,False
+193,7505,Gorontalo Utara,75,Gorontalo,Sulawesi,Kabupaten,2078.03,7,0.042,True
+194,7108,Bolaangmongondow Utara,71,Sulawesi Utara,Sulawesi,Kabupaten,2065.42,7,0.042,True
+195,1208,Simalungun,12,Sumatera Utara,Sumatera,Kabupaten,2040.8999999999999,6,0.041,False
+196,9604,Tambrauw,96,Papua Barat Daya,Papua,Kabupaten,2038.89,6,0.041,False
+197,3208,Kuningan,32,Jawa Barat,Jawa,Kabupaten,2023.72,6,0.041,False
+198,1203,Tapanuli Selatan,12,Sumatera Utara,Sumatera,Kabupaten,1991.3700000000001,7,0.04,True
+199,7314,Sidenreng Rappang,73,Sulawesi Selatan,Sulawesi,Kabupaten,1978.03,6,0.04,False
+200,3517,Jombang,35,Jawa Timur,Jawa,Kabupaten,1965.29,6,0.04,False
+201,3515,Sidoarjo,35,Jawa Timur,Jawa,Kabupaten,1945.92,5,0.039,False
+202,1118,Pidie Jaya,11,Aceh,Sumatera,Kabupaten,1944.94,6,0.039,False
+203,7322,Luwu Utara,73,Sulawesi Selatan,Sulawesi,Kabupaten,1898.38,7,0.039,True
+204,1113,Gayo Lues,11,Aceh,Sumatera,Kabupaten,1892.4,7,0.038,True
+205,1213,Mandailing Natal,12,Sumatera Utara,Sumatera,Kabupaten,1878.87,7,0.038,True
+206,7205,Buol,72,Sulawesi Tengah,Sulawesi,Kabupaten,1818.01,7,0.037,True
+207,7210,Sigi,72,Sulawesi Tengah,Sulawesi,Kabupaten,1751.58,8,0.036,True
+208,1703,Bengkulu Utara,17,Bengkulu,Sumatera,Kabupaten,1744.5,6,0.035,False
+209,3309,Boyolali,33,Jawa Tengah,Jawa,Kabupaten,1714.38,5,0.035,False
+210,9303,Mappi,93,Papua Selatan,Papua,Kabupaten,1690.37,7,0.034,True
+211,5108,Buleleng,51,Bali,Bali & Nusa Tenggara,Kabupaten,1688.92,7,0.034,True
+212,3329,Brebes,33,Jawa Tengah,Jawa,Kabupaten,1674.33,7,0.034,True
+213,1906,Belitung Timur,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten,1655.3899999999999,8,0.034,True
+214,2102,Karimun,21,Kepulauan Riau,Sumatera,Kabupaten,1646.6599999999999,7,0.033,True
+215,1307,Lima Puluh Kota,13,Sumatera Barat,Sumatera,Kabupaten,1631.8500000000001,4,0.033,False
+216,9403,Paniai,94,Papua Tengah,Papua,Kabupaten,1606.36,4,0.033,False
+217,6171,Kota Pontianak,61,Kalimantan Barat,Kalimantan,Kota,1604.92,8,0.033,True
+218,1812,Tulang Bawang Barat,18,Lampung,Sumatera,Kabupaten,1573.05,6,0.032,False
+219,1110,Aceh Singkil,11,Aceh,Sumatera,Kabupaten,1566.08,7,0.032,True
+220,7502,Boalemo,75,Gorontalo,Sulawesi,Kabupaten,1556.15,6,0.032,False
+221,7324,Luwu Timur,73,Sulawesi Selatan,Sulawesi,Kabupaten,1555.26,8,0.032,True
+222,9507,Lanny Jaya,95,Papua Pegunungan,Papua,Kabupaten,1544.23,7,0.031,True
+223,6209,Lamandau,62,Kalimantan Tengah,Kalimantan,Kabupaten,1492.22,7,0.03,True
+224,3315,Grobogan,33,Jawa Tengah,Jawa,Kabupaten,1471.13,6,0.03,False
+225,1671,Palembang,16,Sumatera Selatan,Sumatera,Kabupaten,1467.5800000000002,6,0.03,False
+226,1904,Bangka Tengah,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten,1467.55,7,0.03,True
+227,7606,Mamuju Tengah,76,Sulawesi Barat,Sulawesi,Kabupaten,1463.85,8,0.03,True
+228,1612,Penukal Abab Lematang Ilir,16,Sumatera Selatan,Sumatera,Kabupaten,1455.64,6,0.03,False
+229,1115,Naganraya,11,Aceh,Sumatera,Kabupaten,1451.12,8,0.029,True
+230,9605,Maybrat,96,Papua Barat Daya,Papua,Kabupaten,1445.36,2,0.029,False
+231,7101,Bolaangmongondow,71,Sulawesi Utara,Sulawesi,Kabupaten,1440.26,5,0.029,False
+232,9406,Dogiyai,94,Papua Tengah,Papua,Kabupaten,1437.65,5,0.029,False
+233,1175,Kota Subulussalam,11,Aceh,Sumatera,Kota,1431.92,8,0.029,True
+234,1223,Labuhanbatu Utara,12,Sumatera Utara,Sumatera,Kabupaten,1427.64,8,0.029,True
+235,3312,Wonogiri,33,Jawa Tengah,Jawa,Kabupaten,1406.51,4,0.029,False
+236,1212,Toba Samosir,12,Sumatera Utara,Sumatera,Kabupaten,1395.6899999999998,8,0.028,True
+237,8203,Halmahera Utara,82,Maluku Utara,Maluku,Kabupaten,1377.09,5,0.028,False
+238,1107,Pidie,11,Aceh,Sumatera,Kabupaten,1342.81,6,0.027,False
+239,3529,Sumenep,35,Jawa Timur,Jawa,Kabupaten,1324.46,7,0.027,True
+240,3506,Kediri,35,Jawa Timur,Jawa,Kabupaten,1322.64,7,0.027,True
+241,3317,Rembang,33,Jawa Tengah,Jawa,Kabupaten,1320.8600000000001,4,0.027,False
+242,1302,Solok,13,Sumatera Barat,Sumatera,Kabupaten,1301.42,6,0.026,False
+243,3328,Tegal,33,Jawa Tengah,Jawa,Kabupaten,1291.51,7,0.026,True
+244,8206,Halmahera Timur,82,Maluku Utara,Maluku,Kabupaten,1243.12,5,0.025,False
+245,7410,Buton Utara,74,Sulawesi Tenggara,Sulawesi,Kabupaten,1236.1,5,0.025,False
+246,3327,Pemalang,33,Jawa Tengah,Jawa,Kabupaten,1232.54,8,0.025,True
+247,6503,Nunukan,65,Kalimantan Utara,Kalimantan,Kabupaten,1191.78,8,0.024,True
+248,5202,Lombok Tengah,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten,1180.37,6,0.024,False
+249,9504,Tolikara,95,Papua Pegunungan,Papua,Kabupaten,1173.54,7,0.024,True
+250,6309,Tabalong,63,Kalimantan Selatan,Kalimantan,Kabupaten,1158.66,7,0.024,True
+251,9602,Sorong Selatan,96,Papua Barat Daya,Papua,Kabupaten,1126.56,2,0.023,False
+252,1803,Lampung Utara,18,Lampung,Sumatera,Kabupaten,1099.2,7,0.022,True
+253,2104,Lingga,21,Kepulauan Riau,Sumatera,Kabupaten,1081.15,6,0.022,False
+254,7105,Minahasa Selatan,71,Sulawesi Utara,Sulawesi,Kabupaten,1066.35,3,0.022,False
+255,3314,Sragen,33,Jawa Tengah,Jawa,Kabupaten,1063.26,5,0.022,False
+256,5201,Lombok Barat,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten,1053.81,6,0.021,False
+257,1222,Labuhan Batu Selatan,12,Sumatera Utara,Sumatera,Kabupaten,1048.7,8,0.021,True
+258,3320,Jepara,33,Jawa Tengah,Jawa,Kabupaten,1048.37,5,0.021,False
+259,9302,Boven Digoel,93,Papua Selatan,Papua,Kabupaten,1015.68,3,0.021,False
+260,1117,Bener Meriah,11,Aceh,Sumatera,Kabupaten,1010.4,6,0.021,False
+261,7107,Minahasa Tenggara,71,Sulawesi Utara,Sulawesi,Kabupaten,986.8499999999999,5,0.02,False
+262,1508,Bungo,15,Jambi,Sumatera,Kabupaten,893.02,6,0.018,False
+263,9402,Puncak Jaya,94,Papua Tengah,Papua,Kabupaten,889.8,5,0.018,False
+264,7604,Polewali Mandar,76,Sulawesi Barat,Sulawesi,Kabupaten,889.35,7,0.018,True
+265,1114,Aceh Jaya,11,Aceh,Sumatera,Kabupaten,841.11,8,0.017,True
+266,5310,Manggarai,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,837.69,6,0.017,False
+267,8204,Halmahera Selatan,82,Maluku Utara,Maluku,Kabupaten,836.26,4,0.017,False
+268,9111,Keerom,91,Papua Barat,Papua,Kabupaten,809.05,5,0.016,False
+269,1902,Belitung,19,Kepulauan Bangka Belitung,Sumatera,Kabupaten,782.07,7,0.016,True
+270,1103,Aceh Timur,11,Aceh,Sumatera,Kabupaten,768.14,5,0.016,False
+271,7303,Bantaeng,73,Sulawesi Selatan,Sulawesi,Kabupaten,757.45,4,0.015,False
+272,7309,Maros,73,Sulawesi Selatan,Sulawesi,Kabupaten,740.56,6,0.015,False
+273,3322,Semarang,33,Jawa Tengah,Jawa,Kabupaten,727.9699999999999,3,0.015,False
+274,1112,Aceh Barat Daya,11,Aceh,Sumatera,Kabupaten,715.42,5,0.015,False
+275,3324,Kendal,33,Jawa Tengah,Jawa,Kabupaten,713.02,5,0.014,False
+276,1102,Aceh Tenggara,11,Aceh,Sumatera,Kabupaten,711.46,4,0.014,False
+277,7603,Mamasa,76,Sulawesi Barat,Sulawesi,Kabupaten,696.01,7,0.014,True
+278,1209,Asahan,12,Sumatera Utara,Sumatera,Kabupaten,682.37,8,0.014,True
+279,3204,Bandung,32,Jawa Barat,Jawa,Kabupaten,663.77,3,0.013,False
+280,1604,Lahat,16,Sumatera Selatan,Sumatera,Kabupaten,647.51,7,0.013,True
+281,1609,Ogan Komering Ulu Selatan,16,Sumatera Selatan,Sumatera,Kabupaten,630.51,6,0.013,False
+282,5208,Lombok Utara,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kabupaten,618.73,5,0.013,False
+283,6571,Kota Tarakan,65,Kalimantan Utara,Kalimantan,Kota,604.36,6,0.012,False
+284,3311,Sukoharjo,33,Jawa Tengah,Jawa,Kabupaten,600.5,4,0.012,False
+285,3308,Magelang,33,Jawa Tengah,Jawa,Kabupaten,567.3100000000001,4,0.012,False
+286,6504,Tana Tidung,65,Kalimantan Utara,Kalimantan,Kabupaten,562.38,4,0.011,False
+287,7208,Parigimoutong,72,Sulawesi Tengah,Sulawesi,Kabupaten,559.35,8,0.011,True
+288,7206,Morowali,72,Sulawesi Tengah,Sulawesi,Kabupaten,553.65,6,0.011,False
+289,1303,Sijunjung,13,Sumatera Barat,Sumatera,Kabupaten,546.59,5,0.011,False
+290,7413,Muna Barat,74,Sulawesi Tenggara,Sulawesi,Kabupaten,538.16,5,0.011,False
+291,1207,Deliserdang,12,Sumatera Utara,Sumatera,Kabupaten,535.8100000000001,6,0.011,False
+292,5320,Sabu Raijua,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,528.07,5,0.011,False
+293,3301,Cilacap,33,Jawa Tengah,Jawa,Kabupaten,527.0,1,0.011,False
+294,3319,Kudus,33,Jawa Tengah,Jawa,Kabupaten,520.1,3,0.011,False
+295,3579,Kota Batu,35,Jawa Timur,Jawa,Kota,518.1700000000001,3,0.011,False
+296,7501,Gorontalo,75,Gorontalo,Sulawesi,Kabupaten,502.39,6,0.01,False
+297,7407,Wakatobi,74,Sulawesi Tenggara,Sulawesi,Kabupaten,473.37,5,0.01,False
+298,7312,Soppeng,73,Sulawesi Selatan,Sulawesi,Kabupaten,468.71,3,0.01,False
+299,6474,Kota Bontang,64,Kalimantan Timur,Kalimantan,Kota,459.24,4,0.009,False
+300,7415,Buton Selatan,74,Sulawesi Tenggara,Sulawesi,Kabupaten,456.44,4,0.009,False
+301,3505,Blitar,35,Jawa Timur,Jawa,Kabupaten,414.01,4,0.008,False
+302,1205,Langkat,12,Sumatera Utara,Sumatera,Kabupaten,411.82000000000005,6,0.008,False
+303,8207,Pulau Morotai,82,Maluku Utara,Maluku,Kabupaten,398.5,8,0.008,True
+304,1611,Empat Lawang,16,Sumatera Selatan,Sumatera,Kabupaten,389.13,7,0.008,True
+305,1111,Bireuen,11,Aceh,Sumatera,Kabupaten,357.66,5,0.007,False
+306,7605,Majene,76,Sulawesi Barat,Sulawesi,Kabupaten,346.93,6,0.007,False
+307,6409,Penajam Paser Utara,64,Kalimantan Timur,Kalimantan,Kabupaten,346.05,5,0.007,False
+308,8172,Kota Tual,81,Maluku,Maluku,Kota,345.2,2,0.007,False
+309,3601,Pandeglang,36,Banten,Jawa,Kabupaten,326.44,3,0.007,False
+310,9208,Kaimana,92,Papua,Papua,Kabupaten,317.62,3,0.006,False
+311,9171,Kota Jayapura,91,Papua Barat,Papua,Kota,297.45,7,0.006,True
+312,9106,Biak Numfor,91,Papua Barat,Papua,Kabupaten,295.81,5,0.006,False
+313,8202,Halmahera Tengah,82,Maluku Utara,Maluku,Kabupaten,292.75,5,0.006,False
+314,9503,Yahukimo,95,Papua Pegunungan,Papua,Kabupaten,288.46,6,0.006,False
+315,9505,Mamberamo Tengah,95,Papua Pegunungan,Papua,Kabupaten,281.29,7,0.006,True
+316,9202,Manokwari,92,Papua,Papua,Kabupaten,277.63,5,0.006,False
+317,7414,Buton Tengah,74,Sulawesi Tenggara,Sulawesi,Kabupaten,265.24,4,0.005,False
+318,9211,Manokwari Selatan,92,Papua,Papua,Kabupaten,262.88,5,0.005,False
+319,1704,Kaur,17,Bengkulu,Sumatera,Kabupaten,255.75,5,0.005,False
+320,7102,Minahasa,71,Sulawesi Utara,Sulawesi,Kabupaten,252.51,6,0.005,False
+321,7203,Donggala,72,Sulawesi Tengah,Sulawesi,Kabupaten,247.84,5,0.005,False
+322,1501,Kerinci,15,Jambi,Sumatera,Kabupaten,228.74,5,0.005,False
+323,5321,Malaka,53,Nusa Tenggara Timur,Bali & Nusa Tenggara,Kabupaten,228.7,4,0.005,False
+324,1311,Solok Selatan,13,Sumatera Barat,Sumatera,Kabupaten,227.19,5,0.005,False
+325,7317,Luwu,73,Sulawesi Selatan,Sulawesi,Kabupaten,224.3,6,0.005,False
+326,7311,Barru,73,Sulawesi Selatan,Sulawesi,Kabupaten,221.29,5,0.004,False
+327,3504,Tulungagung,35,Jawa Timur,Jawa,Kabupaten,219.99,4,0.004,False
+328,7310,Pangkajene Kepulauan,73,Sulawesi Selatan,Sulawesi,Kabupaten,218.45,3,0.004,False
+329,1709,Bengkulu Tengah,17,Bengkulu,Sumatera,Kabupaten,212.54000000000002,6,0.004,False
+330,7204,Tolitoli,72,Sulawesi Tengah,Sulawesi,Kabupaten,205.75,4,0.004,False
+331,7408,Kolaka Utara,74,Sulawesi Tenggara,Sulawesi,Kabupaten,202.87,2,0.004,False
+332,3307,Wonosobo,33,Jawa Tengah,Jawa,Kabupaten,202.6,2,0.004,False
+333,7504,Pahuwato,75,Gorontalo,Sulawesi,Kabupaten,199.9,6,0.004,False
+334,7601,Pasangkayu,76,Sulawesi Barat,Sulawesi,Kabupaten,198.4,4,0.004,False
+335,9502,Pegunungan Bintang,95,Papua Pegunungan,Papua,Kabupaten,195.64,5,0.004,False
+336,8201,Halmahera Barat,82,Maluku Utara,Maluku,Kabupaten,193.3,7,0.004,True
+337,1701,Bengkulu Selatan,17,Bengkulu,Sumatera,Kabupaten,193.16000000000003,4,0.004,False
+338,9304,Asmat,93,Papua Selatan,Papua,Kabupaten,191.49,4,0.004,False
+339,6371,Kota Banjarmasin,63,Kalimantan Selatan,Kalimantan,Kota,191.45999999999998,2,0.004,False
+340,3325,Batang,33,Jawa Tengah,Jawa,Kabupaten,190.06,5,0.004,False
+341,1471,Kota Pekanbaru,14,Riau,Sumatera,Kota,186.34,7,0.004,True
+342,9212,Pegunungan Arfak,92,Papua,Papua,Kabupaten,184.16,5,0.004,False
+343,3401,Kulonprogo,34,DI Yogyakarta,Jawa,Kabupaten,181.0,1,0.004,False
+344,1702,Rejang Lebong,17,Bengkulu,Sumatera,Kabupaten,179.3,4,0.004,False
+345,3214,Purwakarta,32,Jawa Barat,Jawa,Kabupaten,178.78,5,0.004,False
+346,7172,Kota Bitung,71,Sulawesi Utara,Sulawesi,Kota,178.59,3,0.004,False
+347,1108,Aceh Utara,11,Aceh,Sumatera,Kabupaten,178.47,4,0.004,False
+348,3528,Pamekasan,35,Jawa Timur,Jawa,Kabupaten,171.14999999999998,1,0.003,False
+349,1116,Aceh Tamiang,11,Aceh,Sumatera,Kabupaten,167.68,5,0.003,False
+350,3203,Cianjur,32,Jawa Barat,Jawa,Kabupaten,165.07,3,0.003,False
+351,9405,Puncak,94,Papua Tengah,Papua,Kabupaten,160.10000000000002,4,0.003,False
+352,1306,Agam,13,Sumatera Barat,Sumatera,Kabupaten,148.32,5,0.003,False
+353,1373,Sawahlunto,13,Sumatera Barat,Sumatera,Kabupaten,144.49,4,0.003,False
+354,1705,Seluma,17,Bengkulu,Sumatera,Kabupaten,143.9,3,0.003,False
+355,3403,Gunung Kidul,34,DI Yogyakarta,Jawa,Kabupaten,142.91,2,0.003,False
+356,3527,Sampang,35,Jawa Timur,Jawa,Kabupaten,130.38,2,0.003,False
+357,9401,Nabire,94,Papua Tengah,Papua,Kabupaten,127.35,5,0.003,False
+358,5106,Bangli,51,Bali,Bali & Nusa Tenggara,Kabupaten,126.07000000000001,4,0.003,False
+359,1224,Nias Utara,12,Sumatera Utara,Sumatera,Kabupaten,121.77,2,0.002,False
+360,7372,Kota Pare-Pare,73,Sulawesi Selatan,Sulawesi,Kota,108.64,4,0.002,False
+361,8171,Kota Ambon,81,Maluku,Maluku,Kota,107.52,2,0.002,False
+362,3217,Bandung Barat,32,Jawa Barat,Jawa,Kabupaten,105.51,3,0.002,False
+363,8208,Pulau Taliabu,82,Maluku Utara,Maluku,Kabupaten,105.47,2,0.002,False
+364,1572,Sungai Penuh,15,Jambi,Sumatera,Kabupaten,102.95,3,0.002,False
+365,1109,Simeulue,11,Aceh,Sumatera,Kabupaten,101.14,1,0.002,False
+366,7472,Kota Bau-Bau,74,Sulawesi Tenggara,Sulawesi,Kota,101.11,4,0.002,False
+367,9207,Telukwondama,92,Papua,Papua,Kabupaten,97.19999999999999,3,0.002,False
+368,3313,Karanganyar,33,Jawa Tengah,Jawa,Kabupaten,95.85,3,0.002,False
+369,9407,Intan Jaya,94,Papua Tengah,Papua,Kabupaten,89.37,2,0.002,False
+370,7316,Enrekang,73,Sulawesi Selatan,Sulawesi,Kabupaten,86.32000000000001,3,0.002,False
+371,7301,Selayar,73,Sulawesi Selatan,Sulawesi,Kabupaten,86.12,4,0.002,False
+372,3575,Kota Pasuruan,35,Jawa Timur,Jawa,Kota,82.15,2,0.002,False
+373,1801,Lampung Selatan,18,Lampung,Sumatera,Kabupaten,80.67,2,0.002,False
+374,9408,Deiyai,94,Papua Tengah,Papua,Kabupaten,64.45,0,0.001,False
+375,7326,Toraja Utara,73,Sulawesi Selatan,Sulawesi,Kabupaten,63.78,2,0.001,False
+376,7412,Konawe Kepulauan,74,Sulawesi Tenggara,Sulawesi,Kabupaten,59.71,2,0.001,False
+377,3201,Bogor,32,Jawa Barat,Jawa,Kabupaten,58.64,1,0.001,False
+378,1215,Pakpak Bharat,12,Sumatera Utara,Sumatera,Kabupaten,58.34,3,0.001,False
+379,1218,Serdang Bedagai,12,Sumatera Utara,Sumatera,Kabupaten,56.01,4,0.001,False
+380,7503,Bone Bolango,75,Gorontalo,Sulawesi,Kabupaten,55.72,4,0.001,False
+381,1813,Pesisir Barat,18,Lampung,Sumatera,Kabupaten,54.16,4,0.001,False
+382,3402,Bantul,34,DI Yogyakarta,Jawa,Kabupaten,51.91,1,0.001,False
+383,7207,Banggai Kepulauan,72,Sulawesi Tengah,Sulawesi,Kabupaten,50.51,4,0.001,False
+384,2172,Kota Tanjungpinang,21,Kepulauan Riau,Sumatera,Kota,49.6,1,0.001,False
+385,3602,Lebak,36,Banten,Jawa,Kabupaten,48.769999999999996,2,0.001,False
+386,3215,Karawang,32,Jawa Barat,Jawa,Kabupaten,39.94,1,0.001,False
+387,1707,Lebong,17,Bengkulu,Sumatera,Kabupaten,36.980000000000004,4,0.001,False
+388,9404,Mimika,94,Papua Tengah,Papua,Kabupaten,35.0,1,0.001,False
+389,1673,Lubuklinggau,16,Sumatera Selatan,Sumatera,Kabupaten,34.69,2,0.001,False
+390,9603,Rajaampat,96,Papua Barat Daya,Papua,Kabupaten,33.44,1,0.001,False
+391,9601,Sorong,96,Papua Barat Daya,Papua,Kabupaten,33.09,0,0.001,False
+392,1214,Nias Selatan,12,Sumatera Utara,Sumatera,Kabupaten,31.66,3,0.001,False
+393,1304,Tanah Datar,13,Sumatera Barat,Sumatera,Kabupaten,30.72,2,0.001,False
+394,9671,Kota Sorong,96,Papua Barat Daya,Papua,Kota,28.47,0,0.001,False
+395,7111,Bolaangmongondow Selatan,71,Sulawesi Utara,Sulawesi,Kabupaten,26.65,3,0.001,False
+396,1672,Pagar Alam,16,Sumatera Selatan,Sumatera,Kabupaten,24.82,1,0.001,False
+397,1219,Batubara,12,Sumatera Utara,Sumatera,Kabupaten,22.67,1,0.0,False
+398,3207,Ciamis,32,Jawa Barat,Jawa,Kabupaten,21.0,1,0.0,False
+399,6472,Kota Samarinda,64,Kalimantan Timur,Kalimantan,Kota,19.6,2,0.0,False
+400,1273,Kota Sibolga,12,Sumatera Utara,Sumatera,Kota,19.1,2,0.0,False
+401,1674,Prabumulih,16,Sumatera Selatan,Sumatera,Kabupaten,18.53,2,0.0,False
+402,9508,Nduga,95,Papua Pegunungan,Papua,Kabupaten,17.119999999999997,2,0.0,False
+403,3501,Pacitan,35,Jawa Timur,Jawa,Kabupaten,16.3,2,0.0,False
+404,9105,Kepulauan Yapen,91,Papua Barat,Papua,Kabupaten,16.13,3,0.0,False
+405,1305,Padang Pariaman,13,Sumatera Barat,Sumatera,Kabupaten,15.39,1,0.0,False
+406,7211,Banggai Laut,72,Sulawesi Tengah,Sulawesi,Kabupaten,14.92,1,0.0,False
+407,3218,Pangandaran,32,Jawa Barat,Jawa,Kabupaten,14.41,1,0.0,False
+408,1275,Kota Binjai,12,Sumatera Utara,Sumatera,Kota,14.29,2,0.0,False
+409,3206,Tasikmalaya,32,Jawa Barat,Jawa,Kabupaten,14.02,1,0.0,False
+410,1971,Kota Pangkalpinang,19,Kepulauan Bangka Belitung,Sumatera,Kota,13.1,1,0.0,False
+411,1371,Kota Padang,13,Sumatera Barat,Sumatera,Kota,12.58,2,0.0,False
+412,9506,Yalimo,95,Papua Pegunungan,Papua,Kabupaten,11.0,2,0.0,False
+413,7271,Kota Palu,72,Sulawesi Tengah,Sulawesi,Kota,10.02,2,0.0,False
+414,6471,Kota Balikpapan,64,Kalimantan Timur,Kalimantan,Kota,10.0,1,0.0,False
+415,9110,Sarmi,91,Papua Barat,Papua,Kabupaten,9.29,2,0.0,False
+416,3604,Serang,36,Banten,Jawa,Kabupaten,9.18,1,0.0,False
+417,7302,Bulukumba,73,Sulawesi Selatan,Sulawesi,Kabupaten,8.8,1,0.0,False
+418,3571,Kota Kediri,35,Jawa Timur,Jawa,Kota,8.39,1,0.0,False
+419,3302,Banyumas,33,Jawa Tengah,Jawa,Kabupaten,8.0,1,0.0,False
+420,3216,Bekasi,32,Jawa Barat,Jawa,Kabupaten,5.85,0,0.0,False
+421,5102,Tabanan,51,Bali,Bali & Nusa Tenggara,Kabupaten,4.81,1,0.0,False
+422,3272,Kota Sukabumi,32,Jawa Barat,Jawa,Kota,4.67,0,0.0,False
+423,1277,Kota Padangsidempuan,12,Sumatera Utara,Sumatera,Kota,4.56,1,0.0,False
+424,1225,Nias Barat,12,Sumatera Utara,Sumatera,Kabupaten,4.18,0,0.0,False
+425,7104,Kepulauan Talaud,71,Sulawesi Utara,Sulawesi,Kabupaten,4.0,1,0.0,False
+426,1309,Kepulauan Mentawai,13,Sumatera Barat,Sumatera,Kabupaten,3.0,2,0.0,False
+427,9120,Mamberamo Raya,91,Papua Barat,Papua,Kabupaten,2.0,1,0.0,False
+428,7471,Kota Kendari,74,Sulawesi Tenggara,Sulawesi,Kota,2.0,1,0.0,False
+429,1806,Tanggamus,18,Lampung,Sumatera,Kabupaten,2.0,1,0.0,False
+430,3673,Kota Serang,36,Banten,Jawa,Kota,1.97,0,0.0,False
+431,5105,Klungkung,51,Bali,Bali & Nusa Tenggara,Kabupaten,1.7,1,0.0,False
+432,1271,Kota Medan,12,Sumatera Utara,Sumatera,Kota,1.6,1,0.0,False
+433,8205,Kepulauan Sula,82,Maluku Utara,Maluku,Kabupaten,1.24,0,0.0,False
+434,3603,Tangerang,36,Banten,Jawa,Kabupaten,1.2,0,0.0,False
+435,3274,Kota Cirebon,32,Jawa Barat,Jawa,Kota,1.09,1,0.0,False
+436,3323,Temanggung,33,Jawa Tengah,Jawa,Kabupaten,1.0,1,0.0,False
+437,1708,Kepahiang,17,Bengkulu,Sumatera,Kabupaten,0.97,1,0.0,False
+438,7373,Kota Palopo,73,Sulawesi Selatan,Sulawesi,Kota,0.94,1,0.0,False
+439,3503,Trenggalek,35,Jawa Timur,Jawa,Kabupaten,0.83,1,0.0,False
+440,3101,Kepulauan Seribu,31,DKI Jakarta,Jawa,Kabupaten,0.51,1,0.0,False
+441,3574,Kota Probolinggo,35,Jawa Timur,Jawa,Kota,0.17,1,0.0,False
+442,5271,Kota Mataram,52,Nusa Tenggara Barat,Bali & Nusa Tenggara,Kota,0.0,0,0.0,False
+443,9115,Waropen,91,Papua Barat,Papua,Kabupaten,0.0,0,0.0,False
+444,7171,Kota Manado,71,Sulawesi Utara,Sulawesi,Kota,0.0,0,0.0,False
+445,3573,Kota Malang,35,Jawa Timur,Jawa,Kota,0.0,0,0.0,False
+446,7371,Kota Makassar,73,Sulawesi Selatan,Sulawesi,Kota,0.0,0,0.0,False
+447,3577,Kota Madiun,35,Jawa Timur,Jawa,Kota,0.0,0,0.0,False
+448,3371,Kota Magelang,33,Jawa Tengah,Jawa,Kota,0.0,0,0.0,False
+449,3404,Sleman,34,DI Yogyakarta,Jawa,Kabupaten,0.0,0,0.0,False
+450,9119,Supiori,91,Papua Barat,Papua,Kabupaten,0.0,0,0.0,False
+451,2105,Kepulauan Anambas,21,Kepulauan Riau,Sumatera,Kabupaten,0.0,0,0.0,False
+452,3305,Kebumen,33,Jawa Tengah,Jawa,Kabupaten,0.0,0,0.0,False
+453,5101,Jembrana,51,Bali,Bali & Nusa Tenggara,Kabupaten,0.0,0,0.0,False
+454,3271,Kota Bogor,32,Jawa Barat,Jawa,Kota,0.0,0,0.0,False
+455,3572,Kota Blitar,35,Jawa Timur,Jawa,Kota,0.0,0,0.0,False
+456,1204,Nias,12,Sumatera Utara,Sumatera,Kabupaten,0.0,0,0.0,False
+457,1374,Kota Padang Panjang,13,Sumatera Barat,Sumatera,Kota,0.0,0,0.0,False
+458,3576,Kota Mojokerto,35,Jawa Timur,Jawa,Kota,0.0,0,0.0,False
+459,3310,Klaten,33,Jawa Tengah,Jawa,Kabupaten,0.0,0,0.0,False
+460,1872,Kota Metro,18,Lampung,Sumatera,Kota,0.0,0,0.0,False
+461,1871,Kota Bandarlampung,18,Lampung,Sumatera,Kota,0.0,0,0.0,False
+462,1171,Kota Banda Aceh,11,Aceh,Sumatera,Kota,0.0,0,0.0,False
+463,3273,Kota Bandung,32,Jawa Barat,Jawa,Kota,0.0,0,0.0,False
+464,3279,Kota Banjar,32,Jawa Barat,Jawa,Kota,0.0,0,0.0,False
+465,3275,Kota Bekasi,32,Jawa Barat,Jawa,Kota,0.0,0,0.0,False
+466,1771,Kota Bengkulu,17,Bengkulu,Sumatera,Kota,0.0,0,0.0,False
+467,1272,Kota Pematangsiantar,12,Sumatera Utara,Sumatera,Kota,0.0,0,0.0,False
+468,3375,Kota Pekalongan,33,Jawa Tengah,Jawa,Kota,0.0,0,0.0,False
+469,1376,Kota Payakumbuh,13,Sumatera Barat,Sumatera,Kota,0.0,0,0.0,False
+470,1377,Kota Pariaman,13,Sumatera Barat,Sumatera,Kota,0.0,0,0.0,False
+471,1276,Tebing Tinggi,12,Sumatera Utara,Sumatera,Kabupaten,0.0,0,0.0,False
+472,1274,Tanjung Balai,12,Sumatera Utara,Sumatera,Kabupaten,0.0,0,0.0,False
+473,3304,Banjarnegara,33,Jawa Tengah,Jawa,Kabupaten,0.0,0,0.0,False
+474,3303,Purbalingga,33,Jawa Tengah,Jawa,Kabupaten,0.0,0,0.0,False
+475,3672,Kota Cilegon,36,Banten,Jawa,Kota,0.0,0,0.0,False
+476,1375,Kota Bukittinggi,13,Sumatera Barat,Sumatera,Kota,0.0,0,0.0,False
+477,1809,Pesawaran,18,Lampung,Sumatera,Kabupaten,0.0,0,0.0,False
+478,1810,Pringsewu,18,Lampung,Sumatera,Kabupaten,0.0,0,0.0,False
+479,3306,Purworejo,33,Jawa Tengah,Jawa,Kabupaten,0.0,0,0.0,False
+480,3326,Pekalongan,33,Jawa Tengah,Jawa,Kabupaten,0.0,0,0.0,False
+481,7103,Kepulauan Sangihe,71,Sulawesi Utara,Sulawesi,Kabupaten,0.0,0,0.0,False
+482,7109,Kepulauan Siau Tagulandang Biaro,71,Sulawesi Utara,Sulawesi,Kabupaten,0.0,0,0.0,False
+483,1173,Kota Lhokseumawe,11,Aceh,Sumatera,Kota,0.0,0,0.0,False
+484,1174,Kota Langsa,11,Aceh,Sumatera,Kota,0.0,0,0.0,False
+485,7174,Kota Kotamobagu,71,Sulawesi Utara,Sulawesi,Kota,0.0,0,0.0,False
+486,3172,Kota Jakarta Utara,31,DKI Jakarta,Jawa,Kota,0.0,0,0.0,False
+487,3174,Kota Jakarta Selatan,31,DKI Jakarta,Jawa,Kota,0.0,0,0.0,False
+488,3175,Kota Jakarta Timur,31,DKI Jakarta,Jawa,Kota,0.0,0,0.0,False
+489,3173,Kota Jakarta Barat,31,DKI Jakarta,Jawa,Kota,0.0,0,0.0,False
+490,3171,Kota Jakarta Pusat,31,DKI Jakarta,Jawa,Kota,0.0,0,0.0,False
+491,3276,Kota Depok,32,Jawa Barat,Jawa,Kota,0.0,0,0.0,False
+492,5171,Kota Denpasar,51,Bali,Bali & Nusa Tenggara,Kota,0.0,0,0.0,False
+493,1278,Kota Gunung Sitoli,12,Sumatera Utara,Sumatera,Kota,0.0,0,0.0,False
+494,7571,Kota Gorontalo,75,Gorontalo,Sulawesi,Kota,0.0,0,0.0,False
+495,3277,Kota Cimahi,32,Jawa Barat,Jawa,Kota,0.0,0,0.0,False
+496,3374,Kota Semarang,33,Jawa Tengah,Jawa,Kota,0.0,0,0.0,False
+497,1172,Kota Sabang,11,Aceh,Sumatera,Kota,0.0,0,0.0,False
+498,3373,Kota Salatiga,33,Jawa Tengah,Jawa,Kota,0.0,0,0.0,False
+499,8271,Kota Ternate,82,Maluku Utara,Maluku,Kota,0.0,0,0.0,False
+500,3376,Kota Tegal,33,Jawa Tengah,Jawa,Kota,0.0,0,0.0,False
+501,3278,Kota Tasikmalaya,32,Jawa Barat,Jawa,Kota,0.0,0,0.0,False
+502,3674,Kota Tangerang Selatan,36,Banten,Jawa,Kota,0.0,0,0.0,False
+503,3671,Kota Tangerang,36,Banten,Jawa,Kota,0.0,0,0.0,False
+504,3372,Kota Surakarta,33,Jawa Tengah,Jawa,Kota,0.0,0,0.0,False
+505,3578,Kota Surabaya,35,Jawa Timur,Jawa,Kota,0.0,0,0.0,False
+506,1372,Kota Solok,13,Sumatera Barat,Sumatera,Kota,0.0,0,0.0,False
+507,5104,Gianyar,51,Bali,Bali & Nusa Tenggara,Kabupaten,0.0,0,0.0,False
+508,1571,Jambi,15,Jambi,Sumatera,Kabupaten,0.0,0,0.0,False
+509,3471,Kota Yogyakarta,34,DI Yogyakarta,Jawa,Kota,0.0,0,0.0,False
+510,1804,Lampung Barat,18,Lampung,Sumatera,Kabupaten,0.0,0,0.0,False
+511,7173,Kota Tomohon,71,Sulawesi Utara,Sulawesi,Kota,0.0,0,0.0,False
+512,7307,Sinjai,73,Sulawesi Selatan,Sulawesi,Kabupaten,0.0,0,0.0,False
+513,7110,Bolaangmongondow Timur,71,Sulawesi Utara,Sulawesi,Kabupaten,0.0,0,0.0,False
+514,5103,Badung,51,Bali,Bali & Nusa Tenggara,Kabupaten,0.0,0,0.0,False
